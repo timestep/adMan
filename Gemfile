@@ -29,6 +29,13 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'factory_girl_rails'
+	gem 'faker'
+	gem 'pry-rails'
+	gem 'pry'
+	gem 'pry-remote'
+	gem 'pry-stack_explorer'
+	gem 'pry-debugger'
 end
 
 
