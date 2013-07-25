@@ -7,6 +7,7 @@ describe "User" do
 	@user = User.create(@user_attributes)
 	
 	context "attempts successful login" do
+		binding.pry
 		fill_in('Email', :with => @user_attributes[:email])
 		fill_in('Password', :with => @user_attributes[:password])
 		click_button('Log in')
