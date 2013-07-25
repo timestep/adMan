@@ -16,7 +16,7 @@ describe "User" do
 			fill_in('Email', :with => @user_attributes[:email])
 			fill_in('Password', :with => @user_attributes[:password])
 			click_button('Log In')
-			should have_text("Logged in!")
+			page.should have_text("Logged in~!")
 		end
 
 		it "attempts failed login" do

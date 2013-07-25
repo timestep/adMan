@@ -8,7 +8,7 @@ describe "Visitor" do
 	context "should be able to see log in page" do
 		it 'sees form and login button' do
 			visit root_path
-			print page.html
+			# print page.html
 			page.should have_selector('form')
 			page.should have_button('Log In')
 		end
