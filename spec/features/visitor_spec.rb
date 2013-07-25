@@ -9,8 +9,7 @@ describe "Visitor" do
 		it 'sees form and login button' do
 			visit root_path
 			print page.html
-			should have_field('email')
-			should have_field('password')
+			page.should have_selector('form')
 			should have_button('Log In')
 		end
 	end
