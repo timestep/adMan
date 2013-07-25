@@ -10,7 +10,7 @@ describe "Visitor" do
 			visit root_path
 			print page.html
 			page.should have_selector('form')
-			should have_button('Log In')
+			page.should have_button('Log In')
 		end
 	end
 end
