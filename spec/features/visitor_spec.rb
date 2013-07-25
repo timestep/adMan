@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describer "Visitor" do 
+describe "Visitor" do 
 	it {should visit root_path}
 end
