@@ -25,6 +25,7 @@ describe "User" do
 			fill_in('Password', :with => 'hola')
 			click_button('Log In')
 			page.should have_text('Email or password was invalid')
+			should visit bookings_path
 		end
 	end
 end

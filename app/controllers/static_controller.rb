@@ -1,4 +1,4 @@
 class StaticController < ApplicationController
-	def login	
+	def postlogin	
 	end
 end
