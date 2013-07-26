@@ -29,4 +29,15 @@ describe "User" do
 			page.should have_text('Email or password was invalid')
 		end
 	end
+
+	context 'while logged in' do
+		it "log out" do
+			should visit login_path
+			fill_in('Email', :with => @user_attributes[:email])
+			fill_in('Password', :with => @user_attributes[:password])
+			click_button('Log In')
+			click_link("Log Out")
+			# expect(response.status).to eq(200)	
+		end
+	end
 end
