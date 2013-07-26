@@ -1,2 +1,6 @@
 Welcome to the bookings page!!
 
+<% @bookings.each do |b| %>
+  <%= b.client %>
+  <%= b.date %>
+<% end %>
