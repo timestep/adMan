@@ -17,5 +17,24 @@ User.create(
 
 clients = Client.create([
 	{name: "McLame"},
-	{name: "Hawt Dawgs"}]
+	{name: "Hawt Dawgs"},
+  {name: "Chakko"},
+  {name: "Stylo Pylo"},
+  {name: "Blackboard Learns"},
+  {name: "Sikkai"},
+  {name: "Onigri R Us"},
+  {name: "Ali Aamiring"},
+  {name: "Orange Phones"},
+  {name: "Beats By B"},
+  {name: "Burrito Galz"},
+  {name: "Boys 2 Code"},
+  {name: "RayBands"},
+  {name: "Benders Great"},
+  {name: "Mehhiko"},
+  {name: "IceWater"},
+  {name: "Bitfaker"},
+  {name: "MakerCubed"},
+  {name: "Gitrub"},
+  {name: "JumboSizeMe"},
+]
 )
