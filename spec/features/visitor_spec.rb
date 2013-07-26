@@ -13,4 +13,11 @@ describe "Visitor" do
 			page.should have_button('Log In')
 		end
 	end
+	context "attempts unauthorized access" do
+		it "" do 
+			visit root_path
+			visit bookings_path
+			page.should have_content("First login to access this page.")
+		end
+	end
 end

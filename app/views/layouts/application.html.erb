@@ -15,9 +15,14 @@
 				<a href="../">adMan</a>
 			</div>
 			<div class="nav pull-right">
-				<% if current_user %>
-					<%= link_to "Log Out", logout_path %>
-				<% end %>
+				<ul class='nav'>
+					<li>
+						<% if current_user %>
+							<%= link_to "Log Out", logout_path %>
+						<% end %>
+					</li>
+				</ul>
+		
 			</div>
 		</div>
 	</div>	
