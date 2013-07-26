@@ -3,6 +3,7 @@
 	  <p id='notice'> Why are you trying to login again? :\ </p>   
 	</div>
 <% else %>
+
 	<%= form_tag sessions_path do %>
 	  <div class="field">
 	    <%= label_tag :email %>
@@ -14,4 +15,5 @@
 	  </div>
 	  <div class="actions"><%= submit_tag "Log In" %></div>
 	<% end %>
+
 <% end %>
