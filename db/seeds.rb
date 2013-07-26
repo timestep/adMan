@@ -10,9 +10,12 @@ Booking.destroy_all
 Client.destroy_all
 Page.destroy_all
 
-User.create(
-	email: 'test',
-	password: 'test'
+
+  5.times do |i|
+    User.create(email: Faker::Internet.email, password: 'i')
+  end
+  User.create(
+  {email: 'test', password: 'test'}
 )
 
 clients = Client.create([
