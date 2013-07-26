@@ -14,3 +14,8 @@ User.create(
 	email: 'test',
 	password: 'test'
 )
+
+clients = Client.create([
+	{name: "McLame"},
+	{name: "Hawt Dawgs"}]
+)

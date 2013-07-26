@@ -1,7 +1,9 @@
 <% if current_user %>
+
 	<div class="alert alert-block">
 	  <p id='notice'> Why are you trying to login again? :\ </p>   
 	</div>
+
 <% else %>
 
 	<%= form_tag sessions_path do %>
