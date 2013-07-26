@@ -5,15 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'date'
+
 User.destroy_all
 Booking.destroy_all
 Client.destroy_all
 Page.destroy_all
 
-User.create(
-	email: 'test',
-	password: 'test'
-)
+
+User.create(email: 'test', password: 'test')
+5.times do |i|
+  User.create(email: Faker::Internet.email, password: 'i')
+end
 
 clients = Client.create([
 	{name: "McLame"},
@@ -37,3 +40,18 @@ clients = Client.create([
   {name: "Gitrub"},
   {name: "JumboSizeMe"},
 ])
+
+pages = []
+
+50.times do |i|
+  pages << Page.create(slug: Faker::Internet.domain_name, 
+    name: Faker::Internet.domain_word)
+end
+
+100.times do |i|
+  booking = Booking.create( date: Time.now.utc.to_s )
+  booking.client = clients.sample
+  booking.user = User.all.sample
+  booking.pages << pages.sample(rand(1..50))
+  booking.save!
+end
