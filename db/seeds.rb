@@ -38,7 +38,7 @@ clients = Client.create([
   {name: "Bitfaker"},
   {name: "MakerCubed"},
   {name: "Gitrub"},
-  {name: "JumboSizeMe"}
+  {name: "JumboSizeMe"},
 ])
 
 pages = []
@@ -55,7 +55,3 @@ end
   booking.pages << pages.sample(rand(1..50))
   booking.save!
 end
-
-
-
-

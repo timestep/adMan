@@ -1,8 +1,10 @@
 Welcome to the bookings page!!
-
+<br>
+<br>
 <% @bookings.each do |b| %>
-  <%= b.client %>
-  <%= b.date %>
+	<%= b.client.name %>
+	<%= b.date.to_s %>
   <br>
   <hr>
 <% end %>
+
