@@ -11,12 +11,10 @@ Client.destroy_all
 Page.destroy_all
 
 
-  5.times do |i|
-    User.create(email: Faker::Internet.email, password: 'i')
-  end
-  User.create(
-  {email: 'test', password: 'test'}
-)
+User.create(email: 'test', password: 'test')
+5.times do |i|
+  User.create(email: Faker::Internet.email, password: 'i')
+end
 
 clients = Client.create([
 	{name: "McLame"},
@@ -41,4 +39,7 @@ clients = Client.create([
   {name: "JumboSizeMe"}
 ])
 
-
+5.times do |i|
+  Page.create(slug: Faker::Internet.domain_name, 
+    name: Faker::Internet.domain_word)
+end
