@@ -6,7 +6,18 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div class="brand">
+				<a href="../">adMan</a>
+			</div>
+		</div>
+	</div>	
+</div>
+<div class="container" style='margin-top:90px'>
 	<% if flash[:notice] %>
 	  <div class="alert alert-block">
 	    <p id='notice'><%= flash[:notice]%></p>   
@@ -19,6 +30,6 @@
 	  </div>
 	<% end %>
 <%= yield %>
-
+</div>
 </body>
 </html>
