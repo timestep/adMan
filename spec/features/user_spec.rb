@@ -11,31 +11,23 @@ describe "User" do
 	end
 
 	context 'in log-in phase' do
-		it "attempts successful login" do
-			should visit login_path
-			fill_in('Email', :with => @user_attributes[:email])
-			fill_in('Password', :with => @user_attributes[:password])
-			click_button('Log In')
+		it "can successfully login" do
+			login(@user_attributes)
 			page.should have_text("Logged in~!")
 			page.should have_text("Welcome to the bookings page!!")
 			page.should have_text("Log Out")
 		end
 
-		it "attempts failed login" do
-			should visit login_path
-			fill_in('Email', :with => 'hoopla')
-			fill_in('Password', :with => 'hola')
-			click_button('Log In')
+		it "can fail to login" do
+			@user_attributes = FactoryGirl.attributes_for(:user, :email => "hoopla", :password => "nope" )
+			login(@user_attributes)
 			page.should have_text('Email or password was invalid')
 		end
 	end
 
 	context 'while logged in' do
 		it "log out" do
-			should visit login_path
-			fill_in('Email', :with => @user_attributes[:email])
-			fill_in('Password', :with => @user_attributes[:password])
-			click_button('Log In')
+			login(@user_attributes)
 			click_link("Log Out")
 			# expect(response.status).to eq(200)	
 		end
