@@ -36,5 +36,4 @@ clients = Client.create([
   {name: "MakerCubed"},
   {name: "Gitrub"},
   {name: "JumboSizeMe"},
-]
-)
+])
