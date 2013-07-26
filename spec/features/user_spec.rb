@@ -17,7 +17,8 @@ describe "User" do
 			fill_in('Password', :with => @user_attributes[:password])
 			click_button('Log In')
 			page.should have_text("Logged in~!")
-			should visit bookings_path
+			page.should have_text("Welcome to the bookings page!!")
+			page.should have_text("Log Out")
 		end
 
 		it "attempts failed login" do
@@ -26,7 +27,6 @@ describe "User" do
 			fill_in('Password', :with => 'hola')
 			click_button('Log In')
 			page.should have_text('Email or password was invalid')
-
 		end
 	end
 end
