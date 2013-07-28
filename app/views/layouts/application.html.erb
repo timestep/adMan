@@ -18,6 +18,8 @@
 				<ul class='nav'>
 					<li>
 						<% if current_user %>
+							<%= link_to "Add New Client", new_client_path %>
+							<%= link_to "Look Up", booking_path %> 
 							<%= link_to "Log Out", logout_path %>
 						<% end %>
 					</li>
@@ -38,10 +40,6 @@
 			  <div class="alert alert-block">
 			    <p id='alert'><%= flash[:alert] %></p>
 			  </div>
-			<% end %>
-			<% if current_user %>
-				<%= link_to "Log Out", logout_path %>
-				<%= link_to "Add New Client", new_client_path %>
 			<% end %>
 			<%= yield %>
 		</div>

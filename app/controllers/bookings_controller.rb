@@ -6,4 +6,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
 	end
 
+	def show
+	end
+	
 end
