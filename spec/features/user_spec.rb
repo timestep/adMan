@@ -59,7 +59,6 @@ describe "User" do
 			click_link("Add New Client")
 			@client = FactoryGirl.create(:client)
 			fill_in('Name', :with => @client[:name])
-			binding.pry
 			click_button("Add Client")
 		end
 	end
