@@ -1,0 +1,9 @@
+<%= form_for @client do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="actions">
+		<%= submit_tag "Add Client" %>
+	</div>
+<% end %>
