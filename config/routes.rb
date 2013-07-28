@@ -16,7 +16,8 @@ AdMan::Application.routes.draw do
 
   resources :bookings do
     collection do
-      get :search
+      get :query
+      post :search
     end
   end
 

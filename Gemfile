@@ -38,10 +38,13 @@ group :development, :test do
 	gem 'pry-remote'
 	gem 'pry-stack_explorer'
 	gem 'pry-debugger'
+
 end
 
 group :development do
   gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :doc do

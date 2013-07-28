@@ -5,7 +5,7 @@ class Booking < ActiveRecord::Base
 
  	def self.search(search)
 	  if search
-	    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+	  	find_by_da
 	  else
 	    find(:all)
 	  end
