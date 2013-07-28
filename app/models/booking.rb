@@ -4,6 +4,11 @@ class Booking < ActiveRecord::Base
  	has_and_belongs_to_many :pages
 
  	def self.search_date(value)
- 		Booking.find_by_date(value)
-	end
+ 		result = Booking.find_by_date(value)
+ 		if result 
+ 			return result
+ 		else
+ 			return nil
+ 		end
+ 	end
 end
