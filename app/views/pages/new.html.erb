@@ -6,7 +6,10 @@ Add New Pages Page!
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :slug %>
+    <%= f.label "URL" %>
     <%= f.text_field :slug %>
   </div>
+  <div class="actions">
+    <%= submit_tag "Add Page" %>
+  <div>
 <% end %>
