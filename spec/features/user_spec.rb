@@ -42,5 +42,9 @@ describe "User" do
 			click_link("Add New Page")
 		end
 
+		it "can navigate to 'add new client' page" do
+			login(@user_attributes)
+			click_link("Add New Client")			
+		end
 	end
 end
