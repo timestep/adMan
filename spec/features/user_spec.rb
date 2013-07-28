@@ -46,6 +46,7 @@ describe "User" do
 			login(@user_attributes)
 			click_link("Add New Client")
 		end
+
 	end
 
 	context 'while logged in and on add new client page' do
@@ -74,9 +75,15 @@ describe "User" do
 		it 'can successfully query for a booking' do
 			login(@user_attributes)
 			click_link("Look Up")
+
 			#ask mina how to search for proper rendered page
 			page.should have_text("Search")
 			#ask mina 
+		end
+
+		it 'can query and add a booking if available' do
+			login(@user_attributes)
+			click_link("Look Up")
 		end
 	end
 end

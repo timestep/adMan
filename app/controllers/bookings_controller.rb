@@ -29,9 +29,9 @@ class BookingsController < ApplicationController
 		if values = params["search"]
 			results = Booking.search_date(values)
 			if results 
-				redirect_to booking_path(results.id) :alert => 'Not Available!'
+				redirect_to booking_path(results[id]) 
 			else
-				redirect_to new_booking_path :notice => 'Available!'
+				redirect_to new_booking_path, :notice => "Not Available!"
 			end
 		else
 			redirect_to root_path
