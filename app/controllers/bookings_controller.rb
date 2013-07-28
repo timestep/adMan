@@ -15,15 +15,15 @@ class BookingsController < ApplicationController
 	end
 
 	def query
+		# @values = params["search"]
+
 	end
 
 	def search
-		@values = params["search"]
-		# if @values 
-		# 	redirect_to bookings_path
-		# else
-		# 	redirect_to root_path
-		# end
+		if values = params["search"]
+			@results = Booking.search_date(values)
+		else
+		end
 
 
 	end

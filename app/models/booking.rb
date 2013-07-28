@@ -3,11 +3,7 @@ class Booking < ActiveRecord::Base
   belongs_to :client
  	has_and_belongs_to_many :pages
 
- 	def self.search(search)
-	  if search
-	  	find_by_da
-	  else
-	    find(:all)
-	  end
+ 	def self.search_date(value)
+ 		Booking.find_by_date(value)
 	end
 end

@@ -1,9 +1,10 @@
 Welcome to the bookings page!!
 
-<%= link_to 'Look Up', search_bookings_path %>
+<%= link_to 'Look Up', query_bookings_path %>
 
 <br>
 <br>
+
 <% @bookings.each do |b| %>
 	<%= b.client.name %>
 	<%= b.date.to_s %>

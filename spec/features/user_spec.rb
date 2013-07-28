@@ -68,12 +68,15 @@ describe "User" do
 			click_button("Add Page")
 		end
 	end
-	
+
 
 	context	"while logged in and on index page" do
 		it 'can successfully query for a booking' do
 			login(@user_attributes)
 			click_link("Look Up")
+			#ask mina how to search for proper rendered page
+			page.should have_text("Search")
+			#ask mina 
 		end
 	end
 end
