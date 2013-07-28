@@ -37,11 +37,6 @@ describe "User" do
 			#Need to check that all bookings are showing on this page
 		end
 
-		it "can navigate to the 'query page'" do
-			login(@user_attributes)
-			click_link("Look Up")
-		end
-
 		it "can navigate to 'add new pages' page" do
 			login(@user_attributes)
 			click_link("Add New Page")
@@ -60,6 +55,12 @@ describe "User" do
 			@client = FactoryGirl.create(:client)
 			fill_in('Name', :with => @client[:name])
 			click_button("Add Client")
+		end
+	end
+
+	context	"while logged in and on index page" do
+		it 'can successfully query for a booking' do
+			click_link("Look Up")
 		end
 	end
 end

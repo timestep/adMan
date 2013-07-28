@@ -8,10 +8,12 @@ AdMan::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
 
+
   resources :users
   resources :clients
   resources :sessions
-  resources :bookings
+  resources :bookings  
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

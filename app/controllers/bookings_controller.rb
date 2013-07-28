@@ -4,9 +4,10 @@ class BookingsController < ApplicationController
 
 	def index
     @bookings = Booking.all
-	end
+ 	end
 
 	def show
+		@search = Booking.search(params[:search])
 	end
-	
+
 end

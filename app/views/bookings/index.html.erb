@@ -1,4 +1,10 @@
 Welcome to the bookings page!!
+<%= form_tag booking_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <br>
 <br>
 <% @bookings.each do |b| %>
