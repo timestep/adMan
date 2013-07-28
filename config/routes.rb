@@ -1,5 +1,4 @@
 AdMan::Application.routes.draw do
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -10,6 +9,7 @@ AdMan::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
 
   resources :users
+  resources :clients
   resources :sessions
   resources :bookings
   # Example of regular route:
