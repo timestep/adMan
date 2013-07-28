@@ -6,8 +6,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
  	end
 
-	def show
-		@search = Booking.search(params[:search])
-	end
+	# def show
+	# 	@search = Booking.search(params[:search])
+	# end
 
+	def search
+	end
 end

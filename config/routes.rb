@@ -12,8 +12,13 @@ AdMan::Application.routes.draw do
   resources :users
   resources :clients
   resources :sessions
-  resources :bookings  
- 
+
+  resources :bookings do
+    collection do
+      get :search
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
