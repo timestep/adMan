@@ -45,7 +45,6 @@ describe "User" do
 		it "can navigate to 'add new pages' page" do
 			login(@user_attributes)
 			click_link("Add New Page")
-
 		end
 
 		it "can navigate to 'add new client' page" do
@@ -60,6 +59,17 @@ describe "User" do
 			@client = FactoryGirl.create(:client)
 			fill_in('Name', :with => @client[:name])
 			click_button("Add Client")
+		end
+	end
+
+	context 'while logged in and on add new pages page' do
+		it "successfully adds a new page" do
+			login(@user_attributes)
+			click_link("Add New Page")
+			@page = FactoryGirl.create(:page)
+			fill_in('URL', :with => @page[:slug])
+			fill_in('Name', :with => @page[:name])
+			click_button("Add Page")
 		end
 	end
 end
