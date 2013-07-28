@@ -67,8 +67,8 @@ describe "User" do
 			login(@user_attributes)
 			click_link("Add New Page")
 			@page = FactoryGirl.create(:page)
-			fill_in('URL', :with => @page[:slug])
 			fill_in('Name', :with => @page[:name])
+			fill_in('URL', :with => @page[:slug])
 			click_button("Add Page")
 		end
 	end
