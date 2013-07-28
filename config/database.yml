@@ -7,13 +7,13 @@ development:
   adapter: postgresql
   database: adman_development
   host: localhost
-  user: postgres
-  password: pg
+  user: blisaur
+  password:
 
 test:
   adapter: postgresql
   database: adman_test
   host: localhost
-  user: postgres
-  password: pg
+  user: blisaur
+  password:
 
