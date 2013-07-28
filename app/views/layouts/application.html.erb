@@ -42,6 +42,7 @@
 			<% if current_user %>
 				<%= link_to "Log Out", logout_path %>
 				<%= link_to "Add New Client", new_client_path %>
+				<%= link_to "Add New Page", new_page_path %>
 			<% end %>
 			<%= yield %>
 		</div>
