@@ -16,13 +16,12 @@
 			</div>
 			<div class="nav pull-right">
 				<ul class='nav'>
-					<li>
-						<% if current_user %>
-							<%= link_to "Log Out", logout_path %>
-						<% end %>
-					</li>
+					<% if current_user %>
+						<li><%= link_to "Add New Client", new_client_path %></li>
+						<li><%= link_to "Log Out", logout_path %></li>
+						<li><%= link_to "Add New Page", new_page_path %></li>
+					<% end %>
 				</ul>
-		
 			</div>
 		</div>
 	</div>	
@@ -38,11 +37,6 @@
 			  <div class="alert alert-block">
 			    <p id='alert'><%= flash[:alert] %></p>
 			  </div>
-			<% end %>
-			<% if current_user %>
-				<%= link_to "Log Out", logout_path %>
-				<%= link_to "Add New Client", new_client_path %>
-				<%= link_to "Add New Page", new_page_path %>
 			<% end %>
 			<%= yield %>
 		</div>

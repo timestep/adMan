@@ -37,11 +37,6 @@ describe "User" do
 			#Need to check that all bookings are showing on this page
 		end
 
-		it "can navigate to the 'query page'" do
-			login(@user_attributes)
-			click_link("Look Up")
-		end
-
 		it "can navigate to 'add new pages' page" do
 			login(@user_attributes)
 			click_link("Add New Page")
@@ -52,6 +47,7 @@ describe "User" do
 			click_link("Add New Client")
 		end
 	end
+
 	context 'while logged in and on add new client page' do
 		it "successfully adds a new client" do
 			login(@user_attributes)
@@ -70,6 +66,14 @@ describe "User" do
 			fill_in('Name', :with => @page[:name])
 			fill_in('URL', :with => @page[:slug])
 			click_button("Add Page")
+		end
+	end
+	
+
+	context	"while logged in and on index page" do
+		it 'can successfully query for a booking' do
+			login(@user_attributes)
+			click_link("Look Up")
 		end
 	end
 end
