@@ -32,6 +32,11 @@ describe "User" do
 			# expect(response.status).to eq(200)	
 		end
 
+		it "can see a list of all the bookings" do
+			page.should have_text("List of Bookings")
+			#Need to check that all bookings are showing on this page
+		end
+
 		it "can navigate to the 'query page'" do
 			login(@user_attributes)
 			click_link("Look Up")
