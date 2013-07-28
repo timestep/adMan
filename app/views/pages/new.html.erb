@@ -1,1 +1,12 @@
 Add New Pages Page!
+
+<%= form_for @page do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>
+<% end %>
