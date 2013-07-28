@@ -60,6 +60,7 @@ describe "User" do
 
 	context	"while logged in and on index page" do
 		it 'can successfully query for a booking' do
+			login(@user_attributes)
 			click_link("Look Up")
 		end
 	end
