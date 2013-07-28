@@ -32,9 +32,15 @@ describe "User" do
 			# expect(response.status).to eq(200)	
 		end
 
-		it "can navigate to query page" do
+		it "can navigate to the 'query page'" do
 			login(@user_attributes)
 			click_link("Look Up")
 		end
+
+		it "can navigate to 'add new pages' page" do
+			login(@user_attributes)
+			click_link("Add New Page")
+		end
+
 	end
 end
