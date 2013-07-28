@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130726200826) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "bookings", force: true do |t|
     t.datetime "date"
     t.integer  "user_id"
