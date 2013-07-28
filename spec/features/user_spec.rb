@@ -31,5 +31,10 @@ describe "User" do
 			click_link("Log Out")
 			# expect(response.status).to eq(200)	
 		end
+
+		it "can navigate to query page" do
+			login(@user_attributes)
+			click_link("Look Up")
+		end
 	end
 end
