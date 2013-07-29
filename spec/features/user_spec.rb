@@ -13,6 +13,7 @@ describe "User" do
 	context 'in log-in phase' do
 		it "can successfully login" do
 			login(@user_attributes)
+			current_path.should == bookings_path
 			page.should have_text("Logged in~!")
 			page.should have_text("Welcome to the bookings page!!")
 			page.should have_text("Log Out")
@@ -28,6 +29,7 @@ describe "User" do
 	context 'while logged in' do
 		it "log out" do
 			login(@user_attributes)
+			current_path.should == bookings_path
 			click_link("Log Out")
 			# expect(response.status).to eq(200)	
 		end
@@ -76,9 +78,10 @@ describe "User" do
 			login(@user_attributes)
 			click_link("Look Up")
 			current_path.should == query_bookings_path
-			#ask mina how to search for proper rendered page
-			page.should have_text("Search")
-			#ask mina 
+			fill_in('date-picker',  :with => '05/07/2013' )
+			# page.should have_text("Search")
+			click_button("Search")
+			current_path.should == new_booking_path
 		end
 
 		it 'can query and add a booking if available' do
