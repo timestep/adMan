@@ -31,8 +31,6 @@ class BookingsController < ApplicationController
 	end
 
 	def query
-		# @values = params["search"]
-
 	end
 
 	def search
