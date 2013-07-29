@@ -84,6 +84,14 @@ describe "User" do
 			current_path.should == new_booking_path
 		end
 
+		it 'can unsuccessfully query and be redirected to query again' do
+			login(@user_attributes)
+			click_link("Look Up")
+			fill_in('date-picker', :with => nil)
+			click_button("Search")
+			current_path.should == search_bookings_path
+		end
+
 		it 'can query and add a booking if available' do
 			login(@user_attributes)
 			click_link("Look Up")
