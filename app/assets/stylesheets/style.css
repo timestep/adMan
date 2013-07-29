@@ -1,0 +1,189 @@
+/*THE BASE*/
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  background: #f2f2f2;
+  background: url('/assets/clouds-bg.jpg') center center fixed no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  color: #444;
+  font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', 'Sans-Serif';
+  font-size: 14px;
+  line-height: 21px;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #2584EB;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+.cover {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/*THE NAVIGATION*/
+.nav-header {
+  position: fixed;
+  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.nav-header a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-header .logo {
+  color: white;
+  font-weight: bold;
+  float: left;
+  text-transform: uppercase;
+  display: block;
+  margin: 14px 0px;
+  padding: 0;
+  font-size: 18px;
+}
+
+.nav-header .logo a {
+  color: white;
+}
+
+.nav-links {
+  font-size: 13px;
+  line-height: 1em;
+  float: right;
+}
+
+.nav-links ul {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline;
+  margin: 0 0 0 20px;
+}
+
+.nav-links li a {
+  display: inline-block;
+  padding: 18px 0px;
+}
+
+.nav-links li:hover a {
+  padding: 18px 0 10px;
+  border-bottom: 1px solid #aaa;
+}
+
+
+/*THE GRID*/
+.main-container {
+  margin-top: 50px;
+  z-index: 2;
+  position: relative;
+}
+
+.container {
+  max-width: 1020px;
+  margin: auto;
+}
+
+/*THE LOGIN*/
+.adm-login-box {
+  background: white;
+  padding: 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  margin: -170px 0px 0px -240px;
+  border-radius: 2px;
+}
+
+.adm-login-box .adm-alert {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+  margin: 0 0 20px;
+}
+
+.adm-login-box .adm-input input {
+  width: 280px;
+  margin: 0px 0px 20px;
+}
+
+.adm-login-box .adm-input .label {
+  width: 80px;
+}
+
+.adm-login-box .adm-button input {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+/*THE INPUT*/
+.adm-input input {
+  border: 1px solid #ddd;
+  padding: 10px;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.adm-input .label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/*THE BUTTONS*/
+.adm-button input {
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  background: #2584EB;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.adm-button input:hover {
+  background: #3B97FC;
+}
+
+
+

@@ -49,7 +49,7 @@ pages = []
 end
 
 100.times do |i|
-  booking = Booking.create( date: Time.now.utc.to_s )
+  booking = Booking.create( date: Time.now.utc + i.days)
   booking.client = clients.sample
   booking.user = User.all.sample
   booking.pages << pages.sample(rand(1..50))

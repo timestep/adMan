@@ -36,6 +36,7 @@ class BookingsController < ApplicationController
 	end
 
 	def search
+		binding.pry
 		if values = params["search"]
 			results = Booking.search_date(values)
 			if results 

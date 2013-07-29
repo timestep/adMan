@@ -5,21 +5,22 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
+	<div class="cover"></div>
+	<div class="nav-header">
 		<div class="container">
-			<div class="brand">
+			<div class="brand logo">
 				<% if current_user %>
 					<%= link_to "adMan", bookings_path %>
 				<% else %>
 					<%= link_to "adMan", root_path %>
 				<% end %>
 			</div>
-			<div class="nav pull-right">
-				<ul class='nav'>
+			<div class="nav-links">
+				<ul class="nav">
 					<% if current_user %>
 					
 						<li><%= link_to "Add New Client", new_client_path %></li>
@@ -28,22 +29,25 @@
 					<% end %>
 				</ul>
 			</div>
-		</div>
-	</div>	
-</div>
-		<div class="container" style='margin-top:90px'>
-			<% if flash[:notice] %>
-			  <div class="alert alert-block">
-			    <p id='notice'><%= flash[:notice]%></p>   
-			  </div>
-			<% end %>
+		</div>	
+	</div>
+	<div class="main-container">
+		<div class="container">
+			<div class="adm-login-box">
+				<% if flash[:notice] %>
+				  <div class="adm-alert">
+				    <p id='notice'><%= flash[:notice]%></p>   
+				  </div>
+				<% end %>
 
-			<% if flash[:alert] %>
-			  <div class="alert alert-block">
-			    <p id='alert'><%= flash[:alert] %></p>
-			  </div>
-			<% end %>
+				<% if flash[:alert] %>
+				  <div class="adm-alert">
+				    <p id='alert'><%= flash[:alert] %></p>
+				  </div>
+				<% end %>
+			</div>
 			<%= yield %>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
