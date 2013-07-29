@@ -1,14 +1,16 @@
 <%= form_for @booking do |f| %>
 
 	<%= f.label :date %>
-	<%= f.datetime :date %>
+	<%= f.text_field :date,
+				value: @booking_date.strftime("%e %B %Y"),
+				disabled: true %>
 <!-- need to find a way to pass in client and page data for a drop down menu -->
-	<%= f.label :name_client %>
-	<%= f.select :name_client %>
+	<!-- <#%= f.label :name_client %> -->
+	<!-- <#%= f.text_field :name_client %> -->
+<!-- 
+	<#%= f.label :page_name %>
+	<#%= f.text_field :page_name %> -->
 
-	<%= f.label :page_name %>
-	<%= f.text_field :page_name %>
-
-	<%= f.submit "Pledge Now" %>
+	<%= f.submit "Book Now" %>
 
 <% end %>
