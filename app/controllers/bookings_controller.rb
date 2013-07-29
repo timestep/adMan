@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
 
 	before_filter :require_login
+	before_filter :present_user
 
 	def index
 		if current_user
@@ -11,7 +12,7 @@ class BookingsController < ApplicationController
  	end
 
  	def new
- 		@booking = @user.bookings.build
+ 		@booking = @user.bookings.create
  	end
 
  	def create
@@ -52,4 +53,9 @@ class BookingsController < ApplicationController
 	def bookings_params
 		params.require(:bookings).permit!
 	end
+
+	def present_user
+		@user = current_user
+	end
+
 end
