@@ -1,16 +1,12 @@
-<script src="moment.js"></script>
-Date: <div class="datefield"><input type="text" name="date_lookup" class="dateinput"></div>
-<div class="fakesubmitbtn">subthis</div>
+<%= form_tag(:action => 'search') do %>
+  <p>
 
-<%#= form_tag(:action => 'search') do %>
-<!--   <p> -->
-
-  	<%#= date_select("search", 
+  	<%= date_select("search", 
     	:default => Date.today,
     	:start_year => Date.today.year, 
     	:end_year => Date.today.year + 10) %>
 
    
-		<%#= submit_tag "Search", :name => nil %>
-<!--   </p> -->
-<%# end %>
+		<%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>

@@ -19,8 +19,12 @@ gem 'sorcery'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-rails', '< 3.0.0'
+
+# group :assets do
+#   gem 'jquery-ui-rails', '< 3.0.0'
+# end
+
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
