@@ -11,9 +11,18 @@ class BookingsController < ApplicationController
  	end
 
  	def new
+ 		@booking = @user.bookings.build
  	end
 
  	def create
+ 		@user = current_user
+ 		@booking = @user.bookings.build booking_params
+		# @booking.user = current_user
+		if @booking.save
+			redirect_to @booking, notice: "Booked~!"
+		else
+			render :new
+		end
  	end
 
 	def show
@@ -36,5 +45,11 @@ class BookingsController < ApplicationController
 		else
 			redirect_to root_path
 		end
+	end
+
+	private
+
+	def bookings_params
+		params.require(:bookings).permit!
 	end
 end
