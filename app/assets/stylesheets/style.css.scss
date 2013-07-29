@@ -9,18 +9,20 @@ body {
 
 body {
   background: #f2f2f2;
-  background: url('/assets/clouds-bg.jpg') center center fixed no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
   color: #444;
   font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', 'Sans-Serif';
   font-size: 14px;
   line-height: 21px;
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
+}
+
+.cloud-bg {
+  background: url('/assets/clouds-bg.jpg') center center fixed no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {

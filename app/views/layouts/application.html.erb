@@ -8,7 +8,7 @@
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body <%= yield :login_page %>>
 	<div class="cover"></div>
 	<div class="nav-header">
 		<div class="container">
@@ -33,7 +33,6 @@
 	</div>
 	<div class="main-container">
 		<div class="container">
-			<div class="adm-login-box">
 				<% if flash[:notice] %>
 				  <div class="adm-alert">
 				    <p id='notice'><%= flash[:notice]%></p>   
@@ -45,7 +44,6 @@
 				    <p id='alert'><%= flash[:alert] %></p>
 				  </div>
 				<% end %>
-			</div>
 			<%= yield %>
 		</div>
 	</div>
