@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $(".fakesubmitbtn").on("click", function(){
+    var insideinput = $(this).closest(".dateinput").val();
+    console.log(insideinput);
+  });
+
+});
