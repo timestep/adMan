@@ -4,8 +4,8 @@ require 'date'
 FactoryGirl.define do
   factory :booking do
     date Date.today
-    user 1
-    client {rand(1..20)}
-    page {rand(1..5)}
+    association :user, :factory => :user
+    association :client, :factory => :client
+    association :page, :factory => :page
   end
 end

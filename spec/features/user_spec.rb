@@ -75,13 +75,7 @@ describe "User" do
 
 	context	"while logged in and on index page" do
 		it 'can successfully query for a booking' do
-			login(@user_attributes)
-			click_link("Look Up")
-			current_path.should == query_bookings_path
-			fill_in('date-picker',  :with => '05/07/2013' )
-
-			# page.should have_text("Search")
-			click_button("Search")
+			valid_query
 			current_path.should == new_booking_path
 		end
 
@@ -106,8 +100,7 @@ describe "User" do
 	end	
 	context	"while query page and successfully queried" do
 		it 'add a booking' do
-			login(@user_attributes)
-			click_link("Look Up")
+			valid_query
 		end
 	end
 end
