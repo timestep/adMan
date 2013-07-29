@@ -34,9 +34,7 @@ class BookingsController < ApplicationController
 	end
 
 	def search
-		# respond_to do |format|
-		#   format.json { render json: @values }
-		# end
+
 		if values = params["search"]
 			results = Booking.search_date(values)
 			if results 

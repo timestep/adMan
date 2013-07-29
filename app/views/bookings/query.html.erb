@@ -1,12 +1,24 @@
-<%= form_tag(:action => 'search') do %>
-  <p>
+<%= form_tag(:action => "search") do %>
+<div class="adm-date-query">
+  <div class="adm-input">
+    <%= datetime_field_tag(:"date-picker")%>
+    <!-- <input id="date-picker"> -->
+  </div>
+</div>
+<%= submit_tag "Search" %>
+<% end %>
 
-  	<%= date_select("search", 
+
+
+<%#= form_tag(:action => 'search') do %>
+  <!-- <p> -->
+
+  	<%#= date_select("search", 
     	:default => Date.today,
     	:start_year => Date.today.year, 
     	:end_year => Date.today.year + 10) %>
 
    
-		<%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+		<%#= submit_tag "Search", :name => nil %>
+  <!-- </p> -->
+<%# end %>

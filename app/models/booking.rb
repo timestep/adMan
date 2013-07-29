@@ -8,8 +8,13 @@ class Booking < ActiveRecord::Base
  	private
 
  	def self.search_date(value)
- 		result = Booking.find(:all, 
- 			:conditions => {:date => value[:date]})
+    value = DateTime.strptime(value, "%m/%d/%Y")
+    beginning_of_day = value
+    end_of_day = beginning_of_day + 1.day
+    result = Booking.where(:date => beginning_of_day..end_of_day)
+
+ 		# result = Booking.find(:all, 
+ 		# 	:conditions => {:date => value})
 
  		if result.empty? 
  			return nil
