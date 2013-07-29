@@ -35,10 +35,11 @@ class BookingsController < ApplicationController
 
 	def search
 
-		if values = params["search"]
+		if values = params["date-picker"]
 			results = Booking.search_date(values)
 			if results 
-				redirect_to booking_path(results[id]) 
+				# binding.pry
+				redirect_to booking_path(results.first.id) 
 			else
 				redirect_to new_booking_path, :notice => "Not Available!"
 			end

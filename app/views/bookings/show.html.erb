@@ -1,0 +1,10 @@
+<%= @booking.id %>
+<br>
+<%= @booking.date %>
+<br>
+<%= @booking.client.name %>
+<br>
+<% @booking.pages.all.each do |p| %>
+	<%= p.slug %>
+	<br>
+<% end %>
