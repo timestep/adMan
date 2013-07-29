@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
 	before_filter :require_login
 	before_filter :present_user
+	before_filter :check_booking_permit, :only => :new
 
 	def index
 		if current_user
@@ -12,6 +13,7 @@ class BookingsController < ApplicationController
  	end
 
  	def new
+
  		@booking = @user.bookings.create
  	end
 
@@ -34,17 +36,20 @@ class BookingsController < ApplicationController
 	end
 
 	def search
+		values = params["date-picker"]
 
-		if values = params["date-picker"]
+		if values.present?
 			results = Booking.search_date(values)
 			if results 
 				# binding.pry
 				redirect_to booking_path(results.first.id) 
 			else
-				redirect_to new_booking_path, :notice => "Not Available!"
+
+				session[:booking_permit] = values
+				redirect_to new_booking_path, :notice => "Available!"
 			end
 		else
-			redirect_to root_path
+			render :query, :notice => 'Enter date~!'
 		end
 	end
 
@@ -58,4 +63,13 @@ class BookingsController < ApplicationController
 		@user = current_user
 	end
 
+	def check_booking_permit
+		permit = session[:booking_permit]
+		if permit.present? 
+			@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
+			session[:booking_permit] = nil
+		else
+			redirect_to query_bookings_path, alert: 'NOPE!'
+		end	
+	end
 end
