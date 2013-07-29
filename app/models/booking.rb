@@ -13,7 +13,6 @@ class Booking < ActiveRecord::Base
     end_of_day = beginning_of_day + 1.day
 
     result = Booking.where(:date => beginning_of_day..end_of_day)
-    binding.pry
  		# result = Booking.find(:all, 
  		# 	:conditions => {:date => value})
 
