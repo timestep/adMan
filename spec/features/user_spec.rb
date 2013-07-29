@@ -79,6 +79,7 @@ describe "User" do
 			click_link("Look Up")
 			current_path.should == query_bookings_path
 			fill_in('date-picker',  :with => '05/07/2013' )
+
 			# page.should have_text("Search")
 			click_button("Search")
 			current_path.should == new_booking_path
@@ -92,7 +93,19 @@ describe "User" do
 			current_path.should == search_bookings_path
 		end
 
-		it 'can query and add a booking if available' do
+		it 'can query for an existing date and be redirected to query again' do
+			booking = FactoryGirl.create(:booking)
+			login(@user_attributes)
+			click_link("Look Up")
+			fill_in('date-picker', :with => booking.date)
+			# fill_in('page', :with => booking.page)
+			# fill_in('client', :with => booking.client)
+			click_button("Search")
+			current_path.should == booking_path(booking.id)
+		end
+	end	
+	context	"while query page and successfully queried" do
+		it 'add a booking' do
 			login(@user_attributes)
 			click_link("Look Up")
 		end
