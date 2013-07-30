@@ -132,7 +132,7 @@ li {
   z-index: 2;
 }
 
-.adm-login-box .adm-alert {
+.adm-midfloat-box .adm-alert {
   text-align: center;
   font-weight: bold;
   color: black;
@@ -142,16 +142,16 @@ li {
   margin: 0 0 20px;
 }
 
-.adm-login-box .adm-input input {
+.adm-midfloat-box .adm-input input {
   width: 280px;
   margin: 0px 0px 20px;
 }
 
-.adm-login-box .adm-input .label {
+.adm-midfloat-box .adm-input .label {
   width: 80px;
 }
 
-.adm-login-box .adm-button input {
+.adm-midfloat-box .adm-button input {
   display: block;
   width: 100px;
   margin: 0 auto;
@@ -159,7 +159,7 @@ li {
 }
 
 /*THE INPUT*/
-/*.adm-date-query,*/
+.adm-date-query,
 .adm-input input {
   border: 1px solid #ddd;
   padding: 10px;
@@ -174,12 +174,17 @@ li {
 }
 
 
-/*.adm-date-query {
+.adm-date-query {
   display: inline-block;
-}*/
+}
 
+/*.adm-input label {
+  width: 80px;
+  background: red;
+}
+*/
 /*THE BUTTONS*/
-/*.adm-button-main,*/
+.adm-button-main,
 .adm-button input {
   border: none;
   color: white;
@@ -191,14 +196,14 @@ li {
   font-size: inherit;
 }
 
-/*.adm-button-main:hover,*/
+.adm-button-main:hover,
 .adm-button input:hover {
   background: #3B97FC;
 }
 
-/*.adm-button-bookings {
+.adm-button-bookings {
   display: inline-block;
-}*/
+}
 
 /*THE ALERTS*/
 .adm-alert-container {
