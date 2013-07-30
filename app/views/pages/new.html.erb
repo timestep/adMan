@@ -1,15 +1,13 @@
-Add New Pages Page!
-
+<div class="adm-midfloat-box">
 <%= form_for @page do |f| %>
-  <div class="field">
+  <div class="adm-input">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="adm-input">
     <%= f.label :slug, "URL" %>
     <%= f.text_field :slug %>
   </div>
-  <div class="actions">
-    <%= submit_tag "Add Page" %>
-  <div>
+    <%= submit_tag "Add Page", :class => "adm-button adm-button-main" %>
 <% end %>
+</div>
