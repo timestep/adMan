@@ -13,13 +13,13 @@ class BookingsController < ApplicationController
  	end
 
  	def new
-
  		@booking = Booking.new
  	end
 
  	def create
- 		# binding.prye
+
  		@booking = @user.bookings.build(bookings_params)
+ 		binding.pry
 		if @booking.save
 			redirect_to @booking, notice: "Booked~!"
 		else
@@ -67,7 +67,7 @@ class BookingsController < ApplicationController
 	def check_booking_permit
 		permit = session[:booking_permit]
 		if permit.present? 
-			@booking_page = session[:page_id]
+			@page_name = Page.find(session[:page_id]).name
 			@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
 			session[:page_id] = nil
 			session[:booking_permit] = nil
