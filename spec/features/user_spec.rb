@@ -47,7 +47,7 @@ describe "User" do
 			current_path.should == new_page_path
 		end
 
-		it "can navigate to 'add new client' page" do
+		it "can navigate to 'add new client'page" do
 			login(@user_attributes)
 			click_link("Add New Client")
 			current_path.should == new_client_path
@@ -62,6 +62,7 @@ describe "User" do
 			@client = FactoryGirl.create(:client)
 			fill_in('Name', :with => @client[:name])
 			click_button("Add Client")
+			current_path.should == bookings_path
 		end
 	end
 
@@ -73,6 +74,7 @@ describe "User" do
 			fill_in('Name', :with => @page[:name])
 			fill_in('URL', :with => @page[:slug])
 			click_button("Add Page")
+			current_path.should == bookings_path
 		end
 	end
 
@@ -108,7 +110,7 @@ describe "User" do
 			fill_in('Client', :with => "clientname")
 			# fill_in('Contract Number', :with => "contractnumber")
 			# fill_in('Additional Information' :with => additionalinfo)
-			click_button("Save Booking")
+			click_button("Book Now")
 			current_path.should == bookings_path
 		end
 	end
