@@ -18,12 +18,14 @@ class BookingsController < ApplicationController
 
  	def create
  		@booking = @user.bookings.build booking_params
-		# @booking.user = current_user
 		if @booking.save
 			redirect_to @booking, notice: "Booked~!"
 		else
 			render :new
 		end
+ 	end
+
+ 	def update
  	end
 
 	def show
