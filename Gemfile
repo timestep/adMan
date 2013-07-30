@@ -33,7 +33,9 @@ gem "binding_of_caller"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+
 group :development, :test do
+	
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'factory_girl_rails'
@@ -43,7 +45,7 @@ group :development, :test do
 	gem 'pry-remote'
 	gem 'pry-stack_explorer'
 	gem 'pry-debugger'
-
+	# gem "spork-rails"
 end
 
 group :development do
