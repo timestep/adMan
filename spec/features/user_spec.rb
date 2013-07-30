@@ -111,7 +111,6 @@ describe "User" do
 			client = FactoryGirl.create(:client)
 			valid_query
 			current_path.should == new_booking_path
-			# fill_in('Client', :with => "clientname")
 			select(client.name, :from => "booking[client_id]")
 			# fill_in('Contract Number', :with => "contractnumber")
 			# fill_in('Additional Information' :with => additionalinfo)
