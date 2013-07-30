@@ -35,18 +35,22 @@ describe "User" do
 		end
 
 		it "can see a list of all the bookings" do
-			page.should have_text("List of Bookings")
+			login(@user_attributes)
+			current_path.should == bookings_path
+
 			#Need to check that all bookings are showing on this page
 		end
 
 		it "can navigate to 'add new pages' page" do
 			login(@user_attributes)
 			click_link("Add New Page")
+			current_path.should == new_page_path
 		end
 
 		it "can navigate to 'add new client' page" do
 			login(@user_attributes)
 			click_link("Add New Client")
+			current_path.should == new_client_path
 		end
 
 	end
