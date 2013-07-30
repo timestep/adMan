@@ -11,11 +11,11 @@
 <% else %>
 
 	<%= form_tag sessions_path do %>
-	  <div class="field adm-input">
+	  <div class="adm-input">
 	    <span class="label"><%= label_tag :email %></span>
 	    <%= text_field_tag :email, params[:email],  :placeholder => "Your Email" %>
 	  </div>
-	  <div class="field adm-input">
+	  <div class="adm-input">
 	    <span class="label"><%= label_tag :password %></span>
 	    <%= password_field_tag :password %>
 	  </div>

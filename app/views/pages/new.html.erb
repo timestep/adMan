@@ -1,13 +1,17 @@
 <div class="adm-midfloat-box">
-<%= form_for @page do |f| %>
-  <div class="adm-input">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="adm-input">
-    <%= f.label :slug, "URL" %>
-    <%= f.text_field :slug %>
-  </div>
+  <%= form_for @page do |f| %>
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :name %>
+      </span>
+      <%= f.text_field :name %>
+    </div>
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :slug, "URL" %>
+      </span>
+      <%= f.text_field :slug %>
+    </div>
     <%= submit_tag "Add Page", :class => "adm-button adm-button-main" %>
-<% end %>
+  <% end %>
 </div>
