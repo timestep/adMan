@@ -1,15 +1,6 @@
+<% provide(:login_page, "class=cloud-bg") %>
 <div class="adm-login-box">
-	<% if flash[:notice] %>
-	  <div class="adm-alert">
-	    <p id='notice'><%= flash[:notice]%></p>   
-	  </div>
-	<% end %>
-
-	<% if flash[:alert] %>
-	  <div class="adm-alert">
-	    <p id='alert'><%= flash[:alert] %></p>
-	  </div>
-	<% end %>
+	<%= render "shared/alertnotice" %>
 <% if current_user %>
 
 	<div class="adm-alert">

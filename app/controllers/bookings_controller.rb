@@ -13,12 +13,10 @@ class BookingsController < ApplicationController
  	end
 
  	def new
-
  		@booking = @user.bookings.create
  	end
 
  	def create
- 		@user = current_user
  		@booking = @user.bookings.build booking_params
 		# @booking.user = current_user
 		if @booking.save
@@ -38,13 +36,11 @@ class BookingsController < ApplicationController
 	def search
 		values = params["date-picker"]
 
-		if values.present?
+		if values.present? 
 			results = Booking.search_date(values)
 			if results 
-				# binding.pry
 				redirect_to booking_path(results.first.id) 
 			else
-
 				session[:booking_permit] = values
 				redirect_to new_booking_path, :notice => "Available!"
 			end
