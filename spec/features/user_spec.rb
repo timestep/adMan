@@ -101,6 +101,11 @@ describe "User" do
 	context	"while query page and successfully queried" do
 		it 'add a booking' do
 			valid_query
+			fill_in('Client', :with => "clientname")
+			# fill_in('Contract Number', :with => "contractnumber")
+			# fill_in('Additional Information' :with => additionalinfo)
+			click_button("Save Booking")
+			current_path.should == bookings_path
 		end
 	end
 end

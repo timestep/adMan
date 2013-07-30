@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require jquery-ui.min
 //= require_tree .
 
 $(document).ready(function(){
