@@ -6,6 +6,9 @@ FactoryGirl.define do
     date Date.today
     association :user, :factory => :user
     association :client, :factory => :client
-    association :page, :factory => :page
+
+    pages {
+    	[ FactoryGirl.create(:page) ]
+    }
   end
 end
