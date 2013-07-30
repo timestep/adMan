@@ -120,7 +120,7 @@ li {
 }
 
 /*THE LOGIN*/
-.adm-login-box {
+.adm-midfloat-box {
   background: white;
   padding: 40px;
   position: fixed;
@@ -159,6 +159,7 @@ li {
 }
 
 /*THE INPUT*/
+.adm-date-query,
 .adm-input input {
   border: 1px solid #ddd;
   padding: 10px;
@@ -172,8 +173,13 @@ li {
   margin-right: 10px;
 }
 
+.adm-input, 
+.adm-date-query {
+  display: inline-block;
+}
+
 /*THE BUTTONS*/
-.adm-button,
+.adm-button-bookings,
 .adm-button input {
   border: none;
   color: white;
@@ -185,12 +191,12 @@ li {
   font-size: inherit;
 }
 
-.adm-button:hover,
+.adm-button-bookings:hover,
 .adm-button input:hover {
   background: #3B97FC;
 }
 
-.adm-button-search {
+.adm-button-bookings {
   display: inline-block;
 }
 

@@ -1,13 +1,14 @@
+<div class="adm-midfloat-box">
 <%= form_tag(:action => "search") do %>
-<div class="adm-date-query">
+
   <div class="adm-input">
     <%= label_tag(:"date-picker", "Date:")%>
     <%= datetime_field_tag(:"date-picker")%>
-    <!-- <input id="date-picker"> -->
   </div>
-</div>
-<%= submit_tag "Search", :class => "adm-button adm-button-search" %>
+
+<%= submit_tag "Search", :class => "adm-button adm-button-bookings" %>
 <% end %>
+</div>
 
 
 
