@@ -7,7 +7,7 @@ class Booking < ActiveRecord::Base
 
  	private
 
- 	def self.search_date(value)
+ 	def self.search_date(value,page_id=nil)
     value = DateTime.strptime(value, "%m/%d/%Y")
 
     beginning_of_day = value
