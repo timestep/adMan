@@ -80,7 +80,7 @@ class BookingsController < ApplicationController
 	private
 
 	def bookings_params
-		params.require(:booking).permit(:date, :client_id)
+		params.require(:booking).permit(:client_id)
 	end
 
 	def present_user
