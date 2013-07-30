@@ -7,6 +7,12 @@
     				disabled: true, :class => "adm-date-query" %>
     </div>
     <div class="adm-input">
+      <%= f.label :pages, "Pages:" %>
+      <%= f.text_field :page,
+            value: @booking_page,
+            disabled: true, :class => "adm-date-query" %>
+    </div>
+    <div class="adm-input">
       <%= f.label :client, "Client:" %>
       <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}) %>
     </div>

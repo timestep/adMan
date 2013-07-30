@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
  	end
 
  	def new
+
  		@booking = Booking.new
  	end
 
@@ -45,6 +46,7 @@ class BookingsController < ApplicationController
 				redirect_to booking_path(results.first.id) 
 			else
 				session[:booking_permit] = values
+				session[:page_id] = page_id
 				redirect_to new_booking_path, :notice => "Available!"
 			end
 		else
@@ -65,7 +67,9 @@ class BookingsController < ApplicationController
 	def check_booking_permit
 		permit = session[:booking_permit]
 		if permit.present? 
+			@booking_page = session[:page_id]
 			@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
+			session[:page_id] = nil
 			session[:booking_permit] = nil
 		else
 			redirect_to query_bookings_path, alert: 'NOPE!'
