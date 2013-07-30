@@ -10,8 +10,7 @@
       <%= f.label :client, "Client:" %>
       <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}) %>
     </div>
-    </div>
     <%= f.submit "Book Now", 
-     html:{ class: "adm-button adm-button-main"}%>
+     :class => "adm-button adm-button-main"%>
   <% end %>
 </div>
