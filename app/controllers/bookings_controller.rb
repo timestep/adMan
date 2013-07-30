@@ -14,15 +14,13 @@ class BookingsController < ApplicationController
 
  	def new
  		@booking = Booking.new
-
- 
-
  		# don't render the page if date or page_id is missing
  	end
 
  	def create
  		@booking = @user.bookings.build(bookings_params)
-		@booking.date = DateTime.strptime(params[:booking][:date], "%m/%d/%Y")
+		@booking.date = DateTime.strptime(
+			params[:booking][:date], "%m/%d/%Y")
  		@booking.pages << Page.find(params[:booking][:page_id]) 
 		if @booking.save
 
