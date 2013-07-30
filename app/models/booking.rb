@@ -12,15 +12,15 @@ class Booking < ActiveRecord::Base
 
     beginning_of_day = value
     end_of_day = beginning_of_day + 1.day
-    result = Booking.where(:date => beginning_of_day..end_of_day)
- 		# result = Booking.find(:all, 
- 		# 	:conditions => {:date => value})
-
+    
+    result = Booking.includes(:pages)
+    	.where(:date => beginning_of_day..end_of_day)
+    	.where("pages.id" => page_id)
+ 		binding.pry
  		if result.empty? 
  			return nil
  		else
  			return result
  		end
-
  	end
 end
