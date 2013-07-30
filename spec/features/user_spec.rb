@@ -34,7 +34,7 @@ describe "User" do
 			# expect(response.status).to eq(200)	
 		end
 
-		it "can see a list of all the bookings" do
+		it "can see a list of all the bookings on the bookings page" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 

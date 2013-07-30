@@ -159,7 +159,7 @@ li {
 }
 
 /*THE INPUT*/
-.adm-date-query,
+/*.adm-date-query,*/
 .adm-input input {
   border: 1px solid #ddd;
   padding: 10px;
@@ -174,12 +174,12 @@ li {
 }
 
 
-.adm-date-query {
+/*.adm-date-query {
   display: inline-block;
-}
+}*/
 
 /*THE BUTTONS*/
-.adm-button-main,
+/*.adm-button-main,*/
 .adm-button input {
   border: none;
   color: white;
@@ -191,14 +191,14 @@ li {
   font-size: inherit;
 }
 
-.adm-button-main:hover,
+/*.adm-button-main:hover,*/
 .adm-button input:hover {
   background: #3B97FC;
 }
 
-.adm-button-bookings {
+/*.adm-button-bookings {
   display: inline-block;
-}
+}*/
 
 /*THE ALERTS*/
 .adm-alert-container {
