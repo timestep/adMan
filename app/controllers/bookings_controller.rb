@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
  	def create
 
  		@booking = @user.bookings.build(bookings_params)
- 		binding.pry
+ 		# binding.pry
 		if @booking.save
 			redirect_to @booking, notice: "Booked~!"
 		else
