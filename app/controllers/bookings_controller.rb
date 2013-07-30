@@ -14,13 +14,18 @@ class BookingsController < ApplicationController
 
  	def new
  		@booking = Booking.new
+
+ 
+
+ 		# don't render the page if date or page_id is missing
  	end
 
  	def create
-
  		@booking = @user.bookings.build(bookings_params)
- 		# binding.pry
+		@booking.date = DateTime.strptime(params[:booking][:date], "%m/%d/%Y")
+ 		@booking.pages << Page.find(params[:booking][:page_id]) 
 		if @booking.save
+
 			redirect_to @booking, notice: "Booked~!"
 		else
 			render :new
@@ -47,7 +52,25 @@ class BookingsController < ApplicationController
 			else
 				session[:booking_permit] = values
 				session[:page_id] = page_id
-				redirect_to new_booking_path, :notice => "Available!"
+				redirect_to new_booking_path(:date => values, :page_id => page_id), :notice => "Available!"
+
+				# this is what we want, instead of using session variables
+				# http://poop.com/bookings/new?date=xxxyyyy&page_id=3
+
+				# GET request to
+				# /bookings/new
+				# new_bookings_path( :date => "xxxyyyy", :page_id => "3" )
+				# new_bookings_path
+
+				# PATCH a particular booking:
+				# booking_path( :id => @booking.id )
+
+				# on the controller side for bookings, you'll have an action for new:
+				# in the new action...
+				# params[:page_id] == 3
+				# params[:date] == xxxyyyy
+
+
 			end
 		else
 			render :query, :notice => 'Enter date~!'
@@ -57,7 +80,7 @@ class BookingsController < ApplicationController
 	private
 
 	def bookings_params
-		params.require(:booking).permit!
+		params.require(:booking).permit(:date, :client_id)
 	end
 
 	def present_user
@@ -68,6 +91,7 @@ class BookingsController < ApplicationController
 		permit = session[:booking_permit]
 		if permit.present? 
 			@page_name = Page.find(session[:page_id]).name
+			@page_id = session[:page_id]
 			@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
 			session[:page_id] = nil
 			session[:booking_permit] = nil
