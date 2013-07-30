@@ -5,19 +5,13 @@
   	<%= f.text_field :date,
   				value: @booking_date.strftime("%e %B %Y"),
   				disabled: true, :class => "adm-date-query" %>
-    <%= f.label :client, "Client:" %>
+    <%= f.label :client, "Client" %>
     <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}) %>
  <!--    <#%= f.label :page, "Page:" %>
     <#%= select("booking","page_id", Page.all.collect{|p|[p.name, p.id]}) %>
-  --> </div>
-<!-- need to find a way to pass in client and page data for a drop down menu -->
-	<!-- <#%= f.label :name_client %> -->
-	<!-- <#%= f.text_field :name_client %> -->
-<!-- 
-	<#%= f.label :page_name %>
-	<#%= f.text_field :page_name %> -->
-
-	<%= f.submit "Book Now", :class => "adm-button adm-button-main"%>
-
+  -->
+  </div>
+  <%= f.submit "Book Now", 
+    html:{ class: "adm-button adm-button-main"}%>
 <% end %>
 </div>
