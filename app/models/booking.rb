@@ -16,7 +16,6 @@ class Booking < ActiveRecord::Base
     result = Booking.includes(:pages)
     	.where(:date => beginning_of_day..end_of_day)
     	.where("pages.id" => page_id)
- 		binding.pry
  		if result.empty? 
  			return nil
  		else

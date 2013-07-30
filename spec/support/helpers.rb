@@ -13,7 +13,7 @@ module Helpers
 		click_link("Look Up")
 		current_path.should == query_bookings_path
 		fill_in('date-picker',  :with => '05/07/2013')
-		select(page.name, :from => "params[page_id]")
+		select(page.name, :from => "query[page_id]")
 		click_button("Search")
 	end
 end

@@ -86,9 +86,11 @@ describe "User" do
 		end
 
 		it 'can unsuccessfully query and be redirected to query again' do
+			page = FactoryGirl.create(:page)
 			login(@user_attributes)
 			click_link("Look Up")
 			fill_in('date-picker', :with => nil)
+			select(page.name, :from => "query[page_id]")
 			click_button("Search")
 			current_path.should == search_bookings_path
 		end
