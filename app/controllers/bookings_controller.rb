@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
 	def index
 		if current_user
-	    @bookings = Booking.all
+	    @bookings = Booking.all.reverse
  		else
  			redirect_to new_session_path
  		end
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
  	end
 
  	def create
- 		# binding.pry
+ 		# binding.prye
  		@booking = @user.bookings.build(bookings_params)
 		if @booking.save
 			redirect_to @booking, notice: "Booked~!"
