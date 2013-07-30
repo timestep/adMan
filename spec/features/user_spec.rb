@@ -106,12 +106,14 @@ describe "User" do
 	end	
 	context	"while query page and successfully queried" do
 		it 'add a booking' do
+			client = FactoryGirl.create(:client)
 			valid_query
-			fill_in('Client', :with => "clientname")
+			# fill_in('Client', :with => "clientname")
+			select(client.name, :from => "booking[client_id]")
 			# fill_in('Contract Number', :with => "contractnumber")
 			# fill_in('Additional Information' :with => additionalinfo)
 			click_button("Book Now")
-			current_path.should == bookings_path
+			current_path.should == booking_path(Booking.last.id)
 		end
 	end
 end

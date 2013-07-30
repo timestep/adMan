@@ -13,11 +13,12 @@ class BookingsController < ApplicationController
  	end
 
  	def new
- 		@booking = @user.bookings.create
+ 		@booking = Booking.new
  	end
 
  	def create
- 		@booking = @user.bookings.build booking_params
+ 		# binding.pry
+ 		@booking = @user.bookings.build(bookings_params)
 		if @booking.save
 			redirect_to @booking, notice: "Booked~!"
 		else
@@ -54,7 +55,7 @@ class BookingsController < ApplicationController
 	private
 
 	def bookings_params
-		params.require(:bookings).permit!
+		params.require(:booking).permit!
 	end
 
 	def present_user
