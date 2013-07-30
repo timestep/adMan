@@ -8,10 +8,12 @@ module Helpers
 	end
 
 	def valid_query 
+		page = FactoryGirl.create(:page)
 		login(@user_attributes)
 		click_link("Look Up")
 		current_path.should == query_bookings_path
-		fill_in('date-picker',  :with => '05/07/2013' )
+		fill_in('date-picker',  :with => '05/07/2013')
+		select(page.name, :from => "params[page_id]")
 		click_button("Search")
 	end
 end

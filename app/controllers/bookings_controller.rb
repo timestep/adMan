@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
 
 	def search
 		values = params["date-picker"]
-		binding.pry
+		# binding.pry
 		page_id = params["page_id"]
 		if values.present? 
 			results = Booking.search_date(values)
