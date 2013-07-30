@@ -1,15 +1,31 @@
 <div class="adm-midfloat-box">
   <%= form_for @booking do |f| %>
     <div class="adm-input">
-    	<%= f.label :date, "Date:" %>
-    	<%= f.text_field :date,
+    	<%#= f.label :date, "Date:" %>
+    	<%#= f.text_field :date,
     				value: @booking_date.strftime("%e %B %Y"),
     				disabled: true, :class => "adm-date-query" %>
+      <span>Date: <%= @booking_date.strftime("%e %B %Y") %></span>
+  <%#= hidden_field(:params, :date) %>
+  <%= f.hidden_field(:date, :value => params[:date]) %>
+    </div>
+
+    <div class="adm-input">
+            <span>Page: <%= @page_name %></span>
+  <%#= hidden_field(:params, :page_id) %>
+  <%= f.hidden_field(:page_id, :value => params[:page_id]) %>
+      <%#= f.label :pages, "Pages:" %>
+      <%#= f.text_field  :pages,
+            value: @page_name,
+            disabled: true, :class => "adm-date-query" %>
+
     </div>
     <div class="adm-input">
       <%= f.label :client, "Client:" %>
       <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}) %>
     </div>
+ 
+
     <%= f.submit "Book Now", 
      :class => "adm-button adm-button-main"%>
   <% end %>
