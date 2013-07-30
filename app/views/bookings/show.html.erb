@@ -4,7 +4,7 @@
 <br>
 <%= @booking.client.name %>
 <br>
-<% @booking.pages.all.each do |p| %>
+<% @booking.pages.load.each do |p| %>
 	<%= p.slug %>
 	<br>
 <% end %>

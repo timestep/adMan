@@ -91,7 +91,7 @@ describe "User" do
 			booking = FactoryGirl.create(:booking)
 			login(@user_attributes)
 			click_link("Look Up")
-			fill_in('date-picker', :with => booking.date)
+			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
 			# fill_in('page', :with => booking.page)
 			# fill_in('client', :with => booking.client)
 			click_button("Search")
