@@ -173,6 +173,7 @@ li {
 }
 
 /*THE BUTTONS*/
+.adm-button,
 .adm-button input {
   border: none;
   color: white;
@@ -184,8 +185,13 @@ li {
   font-size: inherit;
 }
 
+.adm-button:hover,
 .adm-button input:hover {
   background: #3B97FC;
+}
+
+.adm-button-search {
+  display: inline-block;
 }
 
 /*THE ALERTS*/
