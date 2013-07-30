@@ -13,19 +13,19 @@ class BookingsController < ApplicationController
  	end
 
  	def new
- 		@booking = Booking.new
-
- 
-
- 		# don't render the page if date or page_id is missing
+ 		@booking = Booking.new	# don't render the page if date or page_id is missing
  	end
 
  	def create
+ 		# binding.pry
  		@booking = @user.bookings.build(bookings_params)
-		@booking.date = DateTime.strptime(params[:booking][:date], "%m/%d/%Y")
- 		@booking.pages << Page.find(params[:booking][:page_id]) 
-		if @booking.save
+ 	
+ 		@booking.date = DateTime.strptime(
+			params[:booking][:date], "%m/%d/%Y")
 
+ 		@booking.pages << Page.find(params[:booking][:page_id]) 
+
+		if @booking.save
 			redirect_to @booking, notice: "Booked~!"
 		else
 			render :new
@@ -43,16 +43,16 @@ class BookingsController < ApplicationController
 	end
 
 	def search
-		values = params["date-picker"]
+		date = params["date-picker"]
 		page_id = params["query"]["page_id"].to_i
-		if values.present? 
-			results = Booking.search_date(values,page_id)
+		if date.present? 
+			results = Booking.search_date(date,page_id)
 			if results 
 				redirect_to booking_path(results.first.id) 
 			else
-				session[:booking_permit] = values
+				session[:booking_permit] = date
 				session[:page_id] = page_id
-				redirect_to new_booking_path(:date => values, :page_id => page_id), :notice => "Available!"
+				redirect_to new_booking_path(:date => date, :page_id => page_id), :notice => "Available!"
 
 				# this is what we want, instead of using session variables
 				# http://poop.com/bookings/new?date=xxxyyyy&page_id=3
