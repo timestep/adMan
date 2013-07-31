@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
 		if page_id == 0
 			flash.now.alert = "Please Pick A Page!"
 			render :query
-		elsif date.present? 
+		elsif date.present? && page_id != 0
 			results = Booking.search_date(date,page_id)
 			if results 
 				redirect_to booking_path(results.first.id) 
@@ -56,13 +56,12 @@ class BookingsController < ApplicationController
 				session[:booking_permit] = date
 				session[:page_id] = page_id
 				redirect_to new_booking_path(:date => date, :page_id => page_id), :notice => "Available!"
-
 			end
 		else
 			render :query, :notice => 'Enter date~!'
 		end
 
-	end
+end
 
 	private
 

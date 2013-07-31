@@ -114,6 +114,7 @@ describe "User" do
 			# fill_in('page', :with => booking.page)
 			# fill_in('client', :with => booking.client)
 			select(booking.pages.name, :from => "query[page_id]")
+			binding.pry
 			click_button("Search")
 			current_path.should == booking_path(booking.id)
 		end
