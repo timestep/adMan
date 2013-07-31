@@ -13,18 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui.min
+//= require chosen.jquery.min
 //= require_tree .
 
 $(document).ready(function(){
 
   $('#date-picker').datepicker();
 
-  // $('#date-picker').on('change', function(){
-  //   var value = $(this).val();
-  //   var date = new Date(value);
-  //   (date.toString()).submit();
-  //   console.log(date.toString());
-  // });
-
-
+  $('#query_page_id').chosen();
+    // {no_results_text: "Oops, nothing found!"}
 });
