@@ -45,6 +45,7 @@ class BookingsController < ApplicationController
 	def search
 		date = params["date-picker"]
 		page_id = params["query"]["page_id"].to_i
+
 		if page_id == 0
 			flash.now.alert = "Please Pick A Page!"
 			render :query
@@ -60,8 +61,7 @@ class BookingsController < ApplicationController
 		else
 			render :query, :notice => 'Enter date~!'
 		end
-
-end
+	end
 
 	private
 
