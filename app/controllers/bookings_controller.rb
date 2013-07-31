@@ -45,7 +45,10 @@ class BookingsController < ApplicationController
 	def search
 		date = params["date-picker"]
 		page_id = params["query"]["page_id"].to_i
-		if date.present? 
+		if page_id == 0
+			flash.now.alert = "Please Pick A Page!"
+			render :query
+		elsif date.present? 
 			results = Booking.search_date(date,page_id)
 			if results 
 				redirect_to booking_path(results.first.id) 
@@ -54,27 +57,11 @@ class BookingsController < ApplicationController
 				session[:page_id] = page_id
 				redirect_to new_booking_path(:date => date, :page_id => page_id), :notice => "Available!"
 
-				# this is what we want, instead of using session variables
-				# http://poop.com/bookings/new?date=xxxyyyy&page_id=3
-
-				# GET request to
-				# /bookings/new
-				# new_bookings_path( :date => "xxxyyyy", :page_id => "3" )
-				# new_bookings_path
-
-				# PATCH a particular booking:
-				# booking_path( :id => @booking.id )
-
-				# on the controller side for bookings, you'll have an action for new:
-				# in the new action...
-				# params[:page_id] == 3
-				# params[:date] == xxxyyyy
-
-
 			end
 		else
 			render :query, :notice => 'Enter date~!'
 		end
+
 	end
 
 	private
