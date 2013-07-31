@@ -33,6 +33,8 @@ gem "binding_of_caller"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+#Calendar plugin
+gem "watu_table_builder", :require => "table_builder"
 
 group :development, :test do
 	
