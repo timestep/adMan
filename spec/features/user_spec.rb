@@ -59,8 +59,9 @@ describe "User" do
 		it "successfully adds a new client" do
 			login(@user_attributes)
 			click_link("Add New Client")
-			@client = FactoryGirl.create(:client)
-			fill_in('Name', :with => @client[:name])
+			c = FactoryGirl.build(:client)
+			fill_in('Name', :with => c[:name])
+			print page.html
 			click_button("Add Client")
 			current_path.should == bookings_path
 		end
@@ -70,9 +71,9 @@ describe "User" do
 		it "successfully adds a new page" do
 			login(@user_attributes)
 			click_link("Add New Page")
-			@page = FactoryGirl.create(:page)
-			fill_in('Name', :with => @page[:name])
-			fill_in('URL', :with => @page[:slug])
+			p = FactoryGirl.build(:page)
+			fill_in('Name', :with => p[:name])
+			fill_in('URL', :with => p[:slug])
 			click_button("Add Page")
 			current_path.should == bookings_path
 		end
