@@ -4,10 +4,42 @@ Welcome to the bookings page!!
 <br>
 <br>
 
-<% @bookings.each do |b| %>
-	<%= b.client.name %>
-	<%= b.date.to_s %>
-  <br>
-  <hr>
-<% end %>
+<div class="calendar">
+  <h2 class="month">
+    <%= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
+    <%= h @date.strftime('%B %Y')%>
+    <%= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
+  </h2>
+<%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
+  <%= calendar.head(
+    'Sunday',
+    'Monday', 
+    'Tuesday', 
+    'Wednesday', 
+    'Thursday', 
+    'Friday', 
+    'Saturday')%>
+  <%= calendar.day(:day_method => :date) do |date, bookings| %>
+    <%= date.day %>
+
+    <ul>
+      <% for booking in bookings %>
+      <li><%= link_to h(booking.client.name), booking %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+
+
+
+ <%# @bookings.each do |b| %>
+	<%#= b.client.name %>
+	<%#= b.date.to_s %>
+  <!-- <br> -->
+  <!-- <hr> -->
+<%# end %>
 
