@@ -5,7 +5,12 @@ Welcome to the bookings page!!
 <br>
 
 <div class="calendar">
-<%= calendar_for(@bookings) do |calendar| %>
+  <h2 class="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m") %>
+    <%= h @date.strftime('%B %Y')%>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m") %>
+  </h2>
+<%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
   <%= calendar.head('Monday', 
     'Tuesday', 
     'Wednesday', 
@@ -15,11 +20,16 @@ Welcome to the bookings page!!
     'Sunday')%>
   <%= calendar.day(:day_method => :date) do |date, bookings| %>
     <%= date.day %>
-    <% bookings.each do |booking| %>
-      <%= h(booking.pages.name) %>
+
+    <ul>
+      <% for booking in bookings %>
+      <p><%= link_to h(booking.pages.count), booking %></p>
+      <% end %>
+    </ul>
+    <%# bookings.each do |booking| %>
+      <%#= h(booking.pages.name) %>
     <% end %>
   <% end %>
-<% end %>
 </div>
 
 

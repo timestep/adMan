@@ -7,6 +7,8 @@ class BookingsController < ApplicationController
 	def index
 		if current_user
 	    @bookings = Booking.all.reverse
+	    # @date = params[:month] ? Date.parse(params[:month]) : Date.today
+	    @date = Date.today
  		else
  			redirect_to new_session_path
  		end
