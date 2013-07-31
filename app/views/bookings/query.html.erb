@@ -7,10 +7,10 @@
     <%= label_tag(:"date-picker", "Date:")%>
     <%= datetime_field_tag(:"date-picker")%>
   </div>
-  <div class="adm-input">
+  <div class="dropdown">
     <%= label_tag :page, "Page:" %>
     <%= select("query","page_id",
-     Page.all.collect {|p| [ p.name, p.id ]}) %>
+     Page.all.collect {|p| [ p.name, p.id ]}, {:prompt => 'Select A Page'}) %>
   </div>
 <%= submit_tag "Search", :class => "adm-button adm-button-main" %>
 <% end %>
