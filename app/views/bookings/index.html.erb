@@ -4,10 +4,33 @@ Welcome to the bookings page!!
 <br>
 <br>
 
-<% @bookings.each do |b| %>
-	<%= b.client.name %>
-	<%= b.date.to_s %>
-  <br>
-  <hr>
+<div class="calendar">
+<%= calendar_for(@bookings) do |calendar| %>
+  <%= calendar.head('Monday', 
+    'Tuesday', 
+    'Wednesday', 
+    'Thursday', 
+    'Friday', 
+    'Saturday', 
+    'Sunday')%>
+  <%= calendar.day(:day_method => :date) do |date, bookings| %>
+    <%= date.day %>
+    <% bookings.each do |booking| %>
+      <%= h(booking.pages.name) %>
+    <% end %>
+  <% end %>
 <% end %>
+</div>
+
+
+
+
+
+
+ <%# @bookings.each do |b| %>
+	<%#= b.client.name %>
+	<%#= b.date.to_s %>
+  <!-- <br> -->
+  <!-- <hr> -->
+<%# end %>
 
