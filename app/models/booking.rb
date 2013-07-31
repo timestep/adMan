@@ -5,7 +5,9 @@ class Booking < ActiveRecord::Base
 
  	has_and_belongs_to_many :pages
 
- 	
+ 	validate_presence_of :user, :on=>:create
+ 	validate_presence_of :client, :on=>:create
+ 	validate_presence_of :date, :on=>:create
 
  	private
 

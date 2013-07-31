@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
 		if @client.save
   		redirect_to bookings_path, :notice => "Created new client~!"
   	else
-  		render :new
+  		render :new, :alert => "Nope"
   	end
 	end
 end
