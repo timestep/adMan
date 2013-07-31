@@ -6,24 +6,25 @@ Welcome to the bookings page!!
 
 <div class="calendar">
   <h2 class="month">
-    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m") %>
+    <%= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
     <%= h @date.strftime('%B %Y')%>
-    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m") %>
+    <%= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
   </h2>
 <%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
-  <%= calendar.head('Monday', 
+  <%= calendar.head(
+    'Sunday',
+    'Monday', 
     'Tuesday', 
     'Wednesday', 
     'Thursday', 
     'Friday', 
-    'Saturday', 
-    'Sunday')%>
+    'Saturday')%>
   <%= calendar.day(:day_method => :date) do |date, bookings| %>
     <%= date.day %>
 
     <ul>
       <% for booking in bookings %>
-      <p><%= link_to h(booking.pages.count), booking %></p>
+      <li><%= link_to h(booking.client.name), booking %></li>
       <% end %>
     </ul>
     <%# bookings.each do |booking| %>
