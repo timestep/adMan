@@ -95,6 +95,17 @@ describe "User" do
 			current_path.should == search_bookings_path
 		end
 
+		it 'can query without entering the page field and be redirected to query again' do
+			booking = FactoryGirl.create(:booking)
+			login(@user_attributes)
+			click_link("Look Up")
+			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
+			# fill_in('page', :with => booking.page)
+			# fill_in('client', :with => booking.client)
+			click_button("Search")
+			current_path.should == search_bookings_path
+		end
+
 		it 'can query for an existing date and be redirected to query again' do
 			booking = FactoryGirl.create(:booking)
 			login(@user_attributes)
@@ -102,6 +113,7 @@ describe "User" do
 			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
 			# fill_in('page', :with => booking.page)
 			# fill_in('client', :with => booking.client)
+			select(booking.pages.name, :from => "query[page_id]")
 			click_button("Search")
 			current_path.should == booking_path(booking.id)
 		end
