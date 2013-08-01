@@ -74,7 +74,7 @@ class BookingsController < ApplicationController
 	private
 
 	def bookings_params
-		params.require(:booking).permit(:client_id)
+		params.require(:booking).permit(:client_id, :product, :contract_num, :info)
 	end
 
 	def present_user

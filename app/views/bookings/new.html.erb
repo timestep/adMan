@@ -19,6 +19,28 @@
       </span>
       <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}, {:prompt => 'Select A Client'}) %>
     </div>
+
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :product, "Product" %>
+      </span>
+        <%= f.text_field :product %>
+    </div>
+
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :contract_num, "Contract Number" %>
+      </span>
+        <%= f.text_field :contract_num %>
+    </div>
+
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :info, "More Info" %>
+      </span>
+        <%= f.text_field :info %>
+    </div>
+
    <div class="actions adm-button">
     <%= f.submit "Book Now"%>
      </div>
