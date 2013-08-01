@@ -6,7 +6,6 @@
 <%= @booking.client.name %>
 <br>
 <% @booking.pages.load.each do |p| %>
-	<%= p.slug %>
-	<br>
+	<span class="quick-tag"><%= p.slug %></span>
 <% end %>
 
