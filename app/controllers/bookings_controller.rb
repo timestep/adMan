@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
  		@booking.pages << Page.find(params[:booking][:page_id]) 
 
 		if @booking.save
+			NewBooking.new_booking(@user,@booking).deliver
 			redirect_to @booking, notice: "Booked~!"
 		else
 			render :new

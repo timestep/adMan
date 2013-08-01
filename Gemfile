@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 1.2'
 
 #Calendar plugin
 gem "watu_table_builder", :require => "table_builder"
+gem 'faker'
 
 group :production do
 	gem 'rails_12factor'
@@ -45,7 +46,6 @@ group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'factory_girl_rails'
-	gem 'faker'
 	gem 'pry-rails'
 	gem 'pry'
 	gem 'pry-remote'
