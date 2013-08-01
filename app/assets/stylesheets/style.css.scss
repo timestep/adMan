@@ -147,7 +147,8 @@ li {
   margin: 0px 0px 20px;
 }
 
-.adm-midfloat-box .adm-input input {
+.adm-midfloat-box .adm-input input,
+.adm-midfloat-box .data-field {
   width: 280px;
   margin: 0;
 }
@@ -201,7 +202,6 @@ li {
 
 .adm-midfloat-box .data-field {
   display: inline-block;
-  width: 280px;
   padding: 10px;
   background: #f5f5f5;
 }
