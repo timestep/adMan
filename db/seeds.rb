@@ -48,10 +48,41 @@ pages = []
     name: Faker::Internet.domain_word)
 end
 
+# products = Booking.create([
+#   {product: "MyCafe"},
+#   {product: "MyLottay"},
+#   {product: "Lottaray"},
+#   {product: "Juice of Orange"},
+#   {product: "Vampire Stories"},
+#   {product: "Life of Hi"},
+#   {product: "Bouncy the Quicker Picker"},
+#   {product: "Loteeown"},
+#   {product: "Green Goblin"},
+#   {product: "Action Figures"}
+#   ])
+
+# infos = Booking.create([
+#   {info: "This one is running forever"},
+#   {info: "Not gonna run in the GTA"},
+#   {info: "May possibly go on hold"},
+#   {info: "Possibly going to be cancelled"},
+#   {info: "Special execution, requires minimum 10 business days"},
+#   {info: "May add additional pages for SPO"},
+#   {info: "One day IBS"}
+#   ])
+
 100.times do |i|
-  booking = Booking.create( date: Time.now.utc + i.days)
+  booking = Booking.create([ 
+    {date: Time.now.utc + i.days},
+    {contract_num: "C-1423"+i.to_s },
+    {product: "Product "+ i.to_s},
+    {info: "Info number 2131" + i.to_s}
+    ])
   booking.client = clients.sample
   booking.user = User.all.sample
   booking.pages << pages.sample(rand(1..50))
+  # booking.contract_num = contract_nums.sample
+  # booking.product = products.sample
+  # booking.info = infos.sample
   booking.save!
 end
