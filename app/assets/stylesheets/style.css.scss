@@ -343,3 +343,42 @@ li {
 .calendar li a {
   text-decoration: none;
 }
+
+table {
+  display: table;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+/*.calendar-week tr th,
+.calendar-week tr td{
+  border: 1px solid black;
+}
+
+.calendar-week tr td{
+  height: 300px;
+}*/
+
+.calendar-week {
+  width: 100%;
+  border: 1px solid black;
+  margin: 50px 0;
+  background-color: white;
+
+  tr {
+    td, th {
+      border: 1px solid black;
+      width: 14.2857142857143%;
+    }
+
+    td {
+      height: 300px;
+      padding: 10px;
+      vertical-align: top;
+    }
+  }
+
+}
+
