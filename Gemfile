@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 1.2'
 #Calendar plugin
 gem "watu_table_builder", :require => "table_builder"
 
+group :production do
+	gem 'rails_12factor'
+end
+
 group :development, :test do
 	
 	gem 'rspec-rails'
