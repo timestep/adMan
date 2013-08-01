@@ -4,14 +4,16 @@
 <%= form_tag(:action => "search") do %>
 
   <div class="adm-input">
-    <%= label_tag(:"date-picker", "Date:")%>
+    <span class="label"><%= label_tag(:"date-picker", "Date")%></span>
     <%= datetime_field_tag(:"date-picker")%>
   </div>
-  <div class="dropdown">
-    <%= label_tag :page, "Page:" %>
+  <div class="adm-input dropdown">
+    <span class="label"><%= label_tag :page, "Page" %></span>
     <%= select("query","page_id",
      Page.all.collect {|p| [ p.name, p.id ]}, {:prompt => 'Select A Page'}) %>
   </div>
-<%= submit_tag "Search", :class => "adm-button adm-button-main" %>
+  <div class="actions adm-button">
+    <%= submit_tag "Search" %>
+  </div>
 <% end %>
 </div>

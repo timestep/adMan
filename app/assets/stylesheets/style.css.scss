@@ -142,9 +142,13 @@ li {
   margin: 0 0 20px;
 }
 
+.adm-midfloat-box .adm-input {
+  margin: 0px 0px 20px;
+}
+
 .adm-midfloat-box .adm-input input {
   width: 280px;
-  margin: 0px 0px 20px;
+  margin: 0;
 }
 
 .adm-midfloat-box .adm-input .label {
@@ -153,9 +157,45 @@ li {
 
 .adm-midfloat-box .adm-button input {
   display: block;
-  width: 100px;
   margin: 0 auto;
   padding: 10px 20px;
+  width: 100px;
+}
+
+.adm-midfloat-box .chosen-container {
+  width: 301px !important;
+}
+
+.adm-midfloat-box .chosen-single {
+  background: white;
+  border-radius: 0;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  font-size: inherit;
+  height: auto;
+  line-height: inherit;
+  padding: 10px;
+}
+
+.adm-midfloat-box .chosen-results li {
+  border-bottom: 1px solid #eee;
+  line-height: 1;
+  padding: 10px 10px;
+}
+
+.adm-midfloat-box .chosen-results li.highlighted {
+  background: #2584EB;
+}
+
+.adm-midfloat-box .chosen-results li em {
+  font-weight: bold;
+}
+
+.adm-midfloat-box .chosen-search input[type=text] {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 10px;
 }
 
 /*THE INPUT*/
