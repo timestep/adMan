@@ -1,12 +1,14 @@
 <div class="adm-midfloat-box">
+  <%= render "shared/alertnotice" %>
 <%= form_for @client do |f| %>
 	<div class="adm-input">
-    <div class="field">
+    <span class="label">
   		<%= f.label :name %>
+    </span>
   		<%= f.text_field :name %>
   	</div>
+    <div class="actions adm-button">
+		<%= submit_tag "Add Client"%>
   </div>
-		<%= submit_tag "Add Client", 
-				:class => "adm-button adm-button-main" %>
 <% end %>
 </div>

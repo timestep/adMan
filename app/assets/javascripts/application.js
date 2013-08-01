@@ -21,5 +21,7 @@ $(document).ready(function(){
   $('#date-picker').datepicker();
 
   $('#query_page_id').chosen();
+
+  $('#booking_client_id').chosen();
     // {no_results_text: "Oops, nothing found!"}
 });

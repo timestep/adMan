@@ -1,12 +1,18 @@
   <%= render "shared/alertnotice" %>
-<%= @booking.id %>
+ID of Booking: <%= @booking.id %>
 <br>
-<%= @booking.date %>
+Date: <%= @booking.date %>
 <br>
-<%= @booking.client.name %>
+Client Name: <%= @booking.client.name %>
 <br>
+Product: <%= @booking.product %>
+<br>
+Contract Number: <%= @booking.contract_num %>
+<br>
+Info: <%= @booking.info %>
+<br>
+Pages Booked:
 <% @booking.pages.load.each do |p| %>
-	<%= p.slug %>
-	<br>
+	<span class="quick-tag"><%= p.name %></span>
 <% end %>
 

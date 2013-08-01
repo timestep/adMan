@@ -1,4 +1,5 @@
 <div class="adm-midfloat-box">
+  <%= render "shared/alertnotice" %>
   <%= form_for @page do |f| %>
     <div class="adm-input">
       <span class="label">
@@ -12,6 +13,8 @@
       </span>
       <%= f.text_field :slug %>
     </div>
-    <%= submit_tag "Add Page", :class => "adm-button adm-button-main" %>
+    <div class="actions adm-button">
+    <%= submit_tag "Add Page" %>
+  </div>
   <% end %>
 </div>

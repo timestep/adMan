@@ -20,18 +20,25 @@ class BookingsController < ApplicationController
 
  	def create
  		# binding.pry
+
  		@booking = @user.bookings.build(bookings_params)
- 	
+ 		if @booking.client_id == nil
+ 			render :query, notice: "Gotta enter a client!"
+ 			# needs to be fixed, notice does not display
+ 			# if on the bookings page, user tries to book without entering a client
+ 		else
  		@booking.date = DateTime.strptime(
 			params[:booking][:date], "%m/%d/%Y")
 
  		@booking.pages << Page.find(params[:booking][:page_id]) 
 
 		if @booking.save
+			NewBooking.new_booking(@user,@booking).deliver
 			redirect_to @booking, notice: "Booked~!"
 		else
 			render :new
 		end
+	end
  	end
 
  	def update
@@ -68,7 +75,7 @@ class BookingsController < ApplicationController
 	private
 
 	def bookings_params
-		params.require(:booking).permit(:client_id)
+		params.require(:booking).permit(:client_id, :product, :contract_num, :info)
 	end
 
 	def present_user
