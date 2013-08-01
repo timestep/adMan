@@ -1,3 +1,5 @@
+<% provide(:body_class, "sign_up") %>
+<div class="adm-midfloat-box user-signup">
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -9,17 +11,24 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="adm-input">
+    <span class="label">
     <%= f.label :email %>
+  </span>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+  <div class="adm-input">
+    <span class="label">
     <%= f.label :password %>
+    </span>
     <%= f.password_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
+  <div class="adm-input">
+    <span class="label">
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    </span>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions"><%= f.submit %></div>
+  <div class="actions adm-button"><%= f.submit %></div>
 <% end %>
+</div>
