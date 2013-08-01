@@ -10,14 +10,13 @@ class BookingsController < ApplicationController
 	    @date = params[:month] ? Date.strptime(params[:month], "%Y-%m") : Date.today
 	    # @date = Date.today
 
-	    @bookings.group
-
-	    @booking_by_week_day = 
+	    @booking_week_day = 
 	    	@bookings.group_by do |booking|
 	    		booking.date.wday
 	    	end
 	    # render :text => @booking_week_day.to_yaml and return
- 		
+ 			@booking_by_week_day = @booking_week_day.sort{ |x, y| x<=>y }
+
  		else
  			redirect_to new_session_path
  		end
