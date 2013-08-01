@@ -16,7 +16,7 @@
       <span class="label">
         <%= f.label :client, "Client" %>
       </span>
-      <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}) %>
+      <%= select("booking","client_id", Client.all.collect {|c| [ c.name, c.id ]}, {:prompt => 'Select A Client'}) %>
     </div>
    <div class="actions adm-button">
     <%= f.submit "Book Now"%>
