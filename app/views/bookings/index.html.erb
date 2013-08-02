@@ -44,12 +44,19 @@
 <!--     for each day in the week, do |x|
       display client name as a link inside each td
  -->
+
+ <% count = 0 %>
+  <% 7.times do %>
+    <h3><%= count %></h3>
+    <%= @booking_by_week_day[count].first %>
+    <% @count = @count+1 %>
+  <% end %>
+
     <% @booking_by_week_day.each do |day, bookings| %>
       <td>
         <ul>
           <% bookings.each do |booking| %>
             <li><%= booking.client.name %></li>
-
 <!--             <li class="adm-weekly-booking">
               <div class="adm-weekly-item">
                 <span><%#= booking.client.name %></span>
