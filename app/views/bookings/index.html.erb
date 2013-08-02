@@ -48,8 +48,8 @@
  <% count = 0 %>
   <% 7.times do %>
     <h3><%= count %></h3>
-    <%= @booking_by_week_day[count].first %>
-    <% @count = @count+1 %>
+    <%= @booking_by_week_day[count] %>
+    <% count = count+1 %>
   <% end %>
 
     <% @booking_by_week_day.each do |day, bookings| %>
