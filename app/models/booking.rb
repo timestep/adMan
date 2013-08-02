@@ -26,4 +26,9 @@ class Booking < ActiveRecord::Base
  			return result
  		end
  	end
+
+  # Returns bookings in the week of the date provided
+  def self.by_week(date)
+    where("EXTRACT(WEEK FROM date) = #{date.cweek}")
+  end
 end

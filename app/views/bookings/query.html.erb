@@ -9,8 +9,9 @@
   </div>
   <div class="adm-input dropdown">
     <span class="label"><%= label_tag :page, "Page" %></span>
-    <%= select("query","page_id",
+    <%#= select("query","page_id",
      Page.all.collect {|p| [ p.name, p.id ]}, {:prompt => 'Select A Page'}) %>
+    <%= options_from_collection_for_select(@page_collection, "query","page_id", {:prompt => 'Select A Page'}) %>
   </div>
   <div class="actions adm-button">
     <%= submit_tag "Search" %>
