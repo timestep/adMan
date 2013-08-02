@@ -48,7 +48,19 @@
  <% count = 0 %>
   <% 7.times do %>
     <h3><%= count %></h3>
-    <%= @booking_by_week_day[count] %>
+    <% if @booking_by_week_day.nil? %>
+      Welcome<br>
+    <% else %>
+      <% num = @booking_by_week_day[count] %>
+      <% if !num.nil? %>
+        <%= num.first %>
+          <!-- True -->
+        <%# else %>
+          <!-- False -->
+        <% end %>
+        nothing here level 2<br>
+      <% end %>
+    <%# end %>
     <% count = count+1 %>
   <% end %>
 
