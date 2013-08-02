@@ -45,42 +45,24 @@
       display client name as a link inside each td
  -->
 
- <% count = 0 %>
-  <% 7.times do %>
-    <h3><%= count %></h3>
-    <% if @booking_by_week_day.nil? %>
-      Welcome<br>
-    <% else %>
-      <% num = @booking_by_week_day[count] %>
-      <% if !num.nil? %>
-        <%= num.first %>
-          <!-- True -->
-        <%# else %>
-          <!-- False -->
-        <% end %>
-        nothing here level 2<br>
-      <% end %>
-    <%# end %>
-    <% count = count+1 %>
-  <% end %>
-
+<% count = 0 %>
+<% 7.times do %>
+  <td>
+  <% if !@booking_by_week_day.nil? %>
     <% @booking_by_week_day.each do |day, bookings| %>
-      <td>
+      <% if day == count %>
         <ul>
-          <% bookings.each do |booking| %>
-            <li><%= booking.client.name %></li>
-<!--             <li class="adm-weekly-booking">
-              <div class="adm-weekly-item">
-                <span><%#= booking.client.name %></span>
-                <span><%#= booking.product %></span>
-                <span><%#= booking.contrac_num %></span>
-                <span><%#= booking.pages.name %></span>
-              </div>
-            </li> -->
-          <% end %>
+        <% bookings.each do |booking| %>
+          <li><%= booking.client.name %></li>
+        <% end %>
         </ul>
-      </td>
+      <% end %>
     <% end %>
+  <% end %>
+  <% count = count+1 %>
+  </td>
+<% end %>
+
   </tr>
 </table>
 
