@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
     @pages = Page.all
+    @pages_sorted = @pages.sort_by!{ |p| p.name.downcase }
   end
 
   def new
