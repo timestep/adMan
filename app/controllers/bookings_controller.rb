@@ -66,7 +66,10 @@ class BookingsController < ApplicationController
 
 	def search
 		date = params["date-picker"]
-		page_id = params["query"]["page_id"].to_i
+		page_id = params["query"]["page_id"].last
+		
+		# page_id = params["query"]["page_id"].map { |element| element.to_i }
+		# page_id.delete(0)
 
 		if page_id == 0
 			flash.now.alert = "Please Pick A Page!"
