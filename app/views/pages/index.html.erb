@@ -9,12 +9,10 @@
         <%= letter.upcase %>
       </div>
       <ul class="alpha-list">
-        <% pages.each do |page| %>
-          
+        <% pages.each do |page| %>          
           <li class="alpha-list-item item-id-<%=page.id%>" data-item-id="<%= page.id %>">
             <%= link_to page.name, page_path(page), :remote => true %>
-          </li>
-        
+          </li>        
         <% end %>
       </ul>
     </div>
