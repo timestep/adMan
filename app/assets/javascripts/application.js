@@ -36,6 +36,59 @@ $(document).ready(function(){
       $('.modal-cover').removeClass('active');
       $('body').removeClass('modal-lock');
     }
+
+    var editPage = function(){
+      $('.alpha-list-item a').on('click', function(){
+        var id = $(this).parent().data('item-id');
+        $.ajax({
+          url: "/pages/"+id+"/edit",
+          context: document.body,
+          success: function(data) {
+            var item = $(data).find(".adm-midfloat-box");
+            $('.modal-cover').addClass('active');
+            $('body').addClass('modal-lock');
+            $('.modal-cover').html(item);
+            $('.page-info-edit').each(function(){
+              $(this).find('.adm-button').on('click', function(){
+                closeModal();
+                var updatedName = $('#page_name').val();
+                $('.item-id-'+id).find('a').text(updatedName);
+              });
+              $(this).on('click', function(event){
+                event.stopPropagation();
+              });
+            });       
+          }
+        });
+      });
+    }
+
+    var editClient = function(){
+      $('.alpha-list-item a').on('click', function(){
+        var id = $(this).parent().data('item-id');
+        $.ajax({
+          url: "/clients/"+id+"/edit",
+          context: document.body,
+          success: function(data) {
+            var item = $(data).find(".adm-midfloat-box");
+            $('.modal-cover').addClass('active');
+            $('body').addClass('modal-lock');
+            $('.modal-cover').html(item);
+            $('.client-info-edit').each(function(){
+              $(this).find('.adm-button').on('click', function(){
+                closeModal();
+                var updatedName = $('#client_name').val();
+                $('.item-id-'+id).find('a').text(updatedName);
+              });
+              $(this).on('click', function(event){
+                event.stopPropagation();
+              });
+            });       
+          }
+        });
+      });
+    }
+
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
@@ -56,31 +109,13 @@ $(document).ready(function(){
           $(this).closest('.section-alpha').find('.alpha-letter').show();
         });
       });
-    });
-    $('.alpha-list-item a').on('click', function(){
-      var id = $(this).parent().data('item-id');
-      $.ajax({
-        url: "/pages/"+id+"/edit",
-        context: document.body,
-        success: function(data) {
-          var item = $(data).find(".adm-midfloat-box");
-          $('.modal-cover').addClass('active');
-          $('body').addClass('modal-lock');
-          $('.modal-cover').html(item);
-          $('.page-info-edit').each(function(){
-            $(this).find('.adm-button').on('click', function(){
-              closeModal();
-              var updatedName = $('#page_name').val();
-              $('.item-id-'+id).find('a').text(updatedName);
-            });
-            $(this).on('click', function(event){
-              event.stopPropagation();
-            });
-          });       
-        }
-      });
-    });
-
+    });    
+    if($('.dir-page').length) {
+      editPage();
+    }
+    if($('.dir-client').length) {
+      editClient();
+    }
     $('.modal-cover').on('click', function(){
       closeModal();
     });
