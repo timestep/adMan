@@ -60,11 +60,16 @@ $(document).ready(function(){
           var item = $(data).find(".adm-midfloat-box");
           $('.modal-cover').addClass('active');
           $('.modal-cover').html(item);
-          $('.page-info-edit').find('.adm-button').on('click', function(){
-            closeModal();
-            var updatedName = $('#page_name').val();
-            $('.item-id-'+id).find('a').text(updatedName);
-          });          
+          $('.page-info-edit').each(function(){
+            $(this).find('.adm-button').on('click', function(){
+              closeModal();
+              var updatedName = $('#page_name').val();
+              $('.item-id-'+id).find('a').text(updatedName);
+            });
+            $(this).on('click', function(event){
+              event.stopPropagation();
+            });
+          });       
         }
       });
     });
