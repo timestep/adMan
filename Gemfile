@@ -52,6 +52,7 @@ group :development, :test do
 	gem 'pry-stack_explorer'
 	gem 'pry-debugger'
 	# gem "spork-rails"
+	gem 'railroady'
 end
 
 group :development do
