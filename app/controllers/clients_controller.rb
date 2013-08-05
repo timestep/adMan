@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 	before_filter :require_login
 	
   def index
-    @client = Client.all
+    @clients = Client.all
   end
 
 
