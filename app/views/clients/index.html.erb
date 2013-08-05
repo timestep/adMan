@@ -1,3 +1,15 @@
-<% @clients.each do |client| %>
-  <%= client.name %>
+<div class="adm-directory dir-client">
+  <div class="dir-search-container adm-input">
+    <input type="text" class="dir-search" placeholder="Filter">
+  </div>
+<% @clients_sorted_alpha.each do |letter, clients| %>
+  <%= letter %>
+  <% clients.each do |client| %>
+    <%= client.name %>
+  <% end %>
 <% end %>
+
+
+</div>
+</div>
+</div>

@@ -3,16 +3,16 @@
     <input type="text" class="dir-search" placeholder="Filter">
   </div>
   <div class="dir-listing">
-  <% @pages_sorted_alpha.each do |letter, page| %>
+  <% @pages_sorted_alpha.each do |letter, pages| %>
     <div class="section-alpha">
       <div class="alpha-letter letter-<%= letter %>">
         <%= letter.upcase %>
       </div>
       <ul class="alpha-list">
-        <% page.each do |p| %>
+        <% pages.each do |page| %>
           
-          <li class="alpha-list-item item-id-<%=p.id%>" data-item-id="<%= p.id %>">
-            <%= link_to p.name, page_path(p), :remote => true %>
+          <li class="alpha-list-item item-id-<%=page.id%>" data-item-id="<%= page.id %>">
+            <%= link_to page.name, page_path(page), :remote => true %>
           </li>
         
         <% end %>

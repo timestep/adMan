@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   def index
     @clients = Client.all
     @clients_sorted = @clients.sort_by!{ |c| c.name.downcase }
-    @clients_sorted_alpha = @clients_sorted.group_by { |c| c.name.downcase }
+    @clients_sorted_alpha = @clients_sorted.group_by { |c| c.name.downcase[0] }
   end
 
 
