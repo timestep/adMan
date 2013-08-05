@@ -1,8 +1,16 @@
+<div class="adm-directory dir-page">
 <% @pages_sorted_alpha.each do |letter, page| %>
-  <%= letter %>
-  <% page.each do |p| %>
-    <%= p.name %>
-  <% end %>
-  <br>
-  <hr>
+  <div class="section-alpha">
+    <div class="alpha-letter letter-<%= letter %>">
+      <%= letter.upcase %>
+    </div>
+    <ul class="alpha-list">
+      <% page.each do |p| %>
+        
+        <li class="alpha-list-item"><%= p.name %></li>
+      
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+</div>
