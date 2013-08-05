@@ -11,7 +11,7 @@
       <ul class="alpha-list">
         <% page.each do |p| %>
           
-          <li class="alpha-list-item" data-item-id="<%= p.id %>">
+          <li class="alpha-list-item item-id-<%=p.id%>" data-item-id="<%= p.id %>">
             <%= link_to p.name, page_path(p), :remote => true %>
           </li>
         

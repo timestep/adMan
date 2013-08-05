@@ -56,9 +56,16 @@ $(document).ready(function(){
         success: function(data) {
           var item = $(data).find(".adm-midfloat-box");
           $('.modal-cover').addClass('active');
-          $('.modal-cover').prepend(item);
+          $('.modal-cover').html(item);
+          $('.page-info-edit').find('.adm-button').on('click', function(){
+            $('.modal-cover').removeClass('active');
+            var updatedName = $('#page_name').val();
+            $('.item-id-'+id).find('a').text(updatedName);
+
+          });          
         }
-      })
+      });
+
     });
   }
 
