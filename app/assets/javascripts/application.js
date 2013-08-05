@@ -18,12 +18,17 @@
 
 $(document).ready(function(){
   
-  $('#date-picker').datepicker();
+  if($('#date-picker').length){
+    $('#date-picker').datepicker(); 
+  }
 
-  $('#query_page_id').chosen();
+  if($('#query_page_id').length){
+    $('#query_page_id').chosen();
+  }
 
-  $('#booking_client_id').chosen();
-    // {no_results_text: "Oops, nothing found!"}
+  if($('#booking_client_id').length){
+    $('#booking_client_id').chosen();
+  }
 
   if($('.adm-directory').length) {
     $('body').append('<div class="cover modal-cover"></div>');
@@ -79,7 +84,6 @@ $(document).ready(function(){
     $('.modal-cover').on('click', function(){
       closeModal();
     });
-
   }
 
 

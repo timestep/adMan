@@ -21,12 +21,16 @@ body.modal-lock{
   overflow: hidden;
 }
 
-.login-bg {
+.login{
   background: url('/assets/clouds-bg.jpg') center center fixed no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.login .nav-header {
+  background: rgba(0,0,0,0.6);
 }
 
 a {
@@ -69,7 +73,7 @@ li {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,1);
   z-index: 99999;
   overflow: hidden;
 }
@@ -269,7 +273,7 @@ li {
   border: none;
   color: white;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 10px 20px;
   background: #2584EB;
   border-radius: 2px;
   font-family: inherit;
