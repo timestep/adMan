@@ -28,11 +28,11 @@ class PagesController < ApplicationController
 
   def update
     @page = Page.find(params[:id])
-    if @page.update_attributes(pages_params)
-      redirect_to pages_path
-    else
-      render :index
-    end
+    @page.update_attributes(pages_params)
+    #   redirect_to pages_path
+    # else
+    #   render :index
+    # end
   end
 
   private
