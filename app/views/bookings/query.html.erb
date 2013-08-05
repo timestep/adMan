@@ -14,8 +14,8 @@
 
     <%= select("query", "page_id", @page_collection, {}, { :multiple => true } ) %>
   </div>
-  <div class="actions adm-button">
-    <%= submit_tag "Search" %>
+  <div class="actions">
+    <%= submit_tag "Search", class: "adm-button" %>
   </div>
 <% end %>
 </div>
