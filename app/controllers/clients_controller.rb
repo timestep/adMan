@@ -8,6 +8,9 @@ class ClientsController < ApplicationController
     @clients_sorted_alpha = @clients_sorted.group_by { |c| c.name.downcase[0] }
   end
 
+  def show
+    @client = Client.find(params[:id])
+  end
 
 	def new
 		@client = Client.new
