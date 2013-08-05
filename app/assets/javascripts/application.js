@@ -25,7 +25,7 @@ $(document).ready(function(){
   $('#booking_client_id').chosen();
     // {no_results_text: "Oops, nothing found!"}
 
-  if($('.dir-page').length) {
+  if($('.adm-directory').length) {
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
