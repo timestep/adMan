@@ -27,6 +27,9 @@ $(document).ready(function(){
 
   if($('.adm-directory').length) {
     $('body').append('<div class="cover modal-cover"></div>');
+    var closeModal = function(){
+      $('.modal-cover').removeClass('active');
+    }
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
@@ -58,15 +61,18 @@ $(document).ready(function(){
           $('.modal-cover').addClass('active');
           $('.modal-cover').html(item);
           $('.page-info-edit').find('.adm-button').on('click', function(){
-            $('.modal-cover').removeClass('active');
+            closeModal();
             var updatedName = $('#page_name').val();
             $('.item-id-'+id).find('a').text(updatedName);
-
           });          
         }
       });
-
     });
+
+    $('.modal-cover').on('click', function(){
+      closeModal();
+    });
+
   }
 
 
