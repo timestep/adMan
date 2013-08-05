@@ -24,4 +24,24 @@ $(document).ready(function(){
 
   $('#booking_client_id').chosen();
     // {no_results_text: "Oops, nothing found!"}
+
+  if($('.dir-page').length) {
+    $('.dir-search').on('keyup', function(){
+      var v = $(this).val();
+      if(v != '') {
+        $('.alpha-letter').hide();
+      } else {
+        $('.alpha-letter').show();
+      }
+      $('.alpha-list li').each(function(){
+        $(this).find('a:not(:contains('+v+'))').each(function(){
+          $(this).hide();
+        });
+        $(this).find('a:contains('+v+')').each(function(){
+          $(this).show();
+          $(this).closest('.section-alpha').find('.alpha-letter').show();
+        });
+      });
+    });
+  }
 });
