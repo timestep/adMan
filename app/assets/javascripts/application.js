@@ -121,9 +121,17 @@ $(document).ready(function(){
     });
   }
 
+  $.support.selectstart = "onselectstart" in document.createElement("div");
+  $.fn.disableSelection = function() {
+    return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
+        ".ui-disableSelection", function( event ) {
+        event.preventDefault();
+    });
+  };
 
   if($('.calendar').length){
-    $('td').on('click', function(){
+    $(this).disableSelection();
+    $('td').on('dblclick', function(){
       console.log("day clicked");
     });
   }
