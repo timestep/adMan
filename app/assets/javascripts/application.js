@@ -15,6 +15,13 @@
 //= require jquery-ui.min
 //= require chosen.jquery.min
 //= require_tree .
+$.extend($.expr[':'], {
+  'containsi': function(elem, i, match, array)
+  {
+    return (elem.textContent || elem.innerText || '').toLowerCase()
+    .indexOf((match[3] || "").toLowerCase()) >= 0;
+  }
+});
 
 $(document).ready(function(){
   
@@ -89,6 +96,7 @@ $(document).ready(function(){
       });
     }
 
+
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
@@ -101,10 +109,10 @@ $(document).ready(function(){
         $('.alpha-letter').show();
       }
       $('.alpha-list li').each(function(){
-        $(this).find('a:not(:contains('+v+'))').each(function(){
+        $(this).find('a:not(:containsi('+v+'))').each(function(){
           $(this).hide();
         });
-        $(this).find('a:contains('+v+')').each(function(){
+        $(this).find('a:containsi('+v+')').each(function(){
           $(this).show();
           $(this).closest('.section-alpha').find('.alpha-letter').show();
         });
