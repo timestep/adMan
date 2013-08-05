@@ -1,1 +1,14 @@
-edit.html.erb
+<div class="adm-midfloat-box client-info-edit">
+  <span class="box-title">Client Info</span>
+    <%= form_for @client, :remote => true do |f| %>
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :name, "Name" %>
+      </span> 
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", class: "adm-button" %>
+    </div>
+    <% end %>
+</div>
