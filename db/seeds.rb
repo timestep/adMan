@@ -74,9 +74,6 @@ end
 100.times do |i|
   booking = Booking.create([ 
     {date: Time.now.utc + i.days},
-    {contract_num: "C-1423"+i.to_s },
-    {product: "Product "+ i.to_s},
-    {info: "Info number 2131" + i.to_s}
     ])
   booking.client = clients.sample
   booking.user = User.all.sample
