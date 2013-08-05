@@ -140,7 +140,8 @@ $(document).ready(function(){
   if($('.calendar').length){
     $(this).disableSelection();
     $('td').on('dblclick', function(){
-      console.log("day clicked");
+      var id = $(this).find('.calendar-day').data('day');
+      console.log(id);
     });
   }
 
