@@ -1,0 +1,21 @@
+<div class="adm-directory dir-page">
+  <div class="dir-search-container adm-input">
+    <input type="text" class="dir-search" placeholder="Filter">
+  </div>
+  <div class="dir-listing">
+  <% @pages_sorted_alpha.each do |letter, pages| %>
+    <div class="section-alpha">
+      <div class="alpha-letter letter-<%= letter %>">
+        <%= letter.upcase %>
+      </div>
+      <ul class="alpha-list">
+        <% pages.each do |page| %>          
+          <li class="alpha-list-item item-id-<%=page.id%>" data-item-id="<%= page.id %>">
+            <%= link_to page.name, page_path(page), :remote => true %>
+          </li>        
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  </div>
+</div>

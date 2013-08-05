@@ -2,6 +2,16 @@ class ClientsController < ApplicationController
 
 	before_filter :require_login
 	
+  def index
+    @clients = Client.all
+    @clients_sorted = @clients.sort_by!{ |c| c.name.downcase }
+    @clients_sorted_alpha = @clients_sorted.group_by { |c| c.name.downcase[0] }
+  end
+
+  def show
+    @client = Client.find(params[:id])
+  end
+
 	def new
 		@client = Client.new
 	end
@@ -15,6 +25,16 @@ class ClientsController < ApplicationController
   		render :new, :alert => "Nope"
   	end
 	end
+
+  def edit
+    @client = Client.find(params[:id])
+  end
+
+  def update
+    @client = Client.find(params[:id])
+    @client.update_attributes(client_params)
+    head :ok
+  end
 
 	private
 

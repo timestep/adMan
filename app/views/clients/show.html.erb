@@ -1,0 +1,8 @@
+<div class="adm-midfloat-box client-info client-info-<%= @client.id %>">
+  <span class="box-title">Client Info</span>
+  <div class="adm-input">
+    <span class="label">Name</span> 
+    <span class="data-field"><%= @client.name %></span>
+  </div>
+  <%= link_to "Edit", edit_client_path(@client), :class => "adm-button button-link button-single" %>
+</div>

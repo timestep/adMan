@@ -1,3 +1,64 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dir-listing {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+  column-gap: 30px;
+}
+
+.section-alpha {
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+}
+
+.alpha-letter {
+  font-weight: bold;
+  color: black;
+  background-color: #ddd;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+.alpha-list {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.alpha-list-item {
+  margin-bottom: 5px;
+}
+
+.alpha-list-item a {
+  color: #444;
+  text-decoration: none;
+}
+
+.alpha-list-item a:hover {
+  color: #2584EB;
+  text-decoration: none;
+}
+
+.dir-listing.filter-mode {
+  -webkit-column-count: 1 !important;
+  -moz-column-count: 1 !important;
+  column-count: 1 !important;
+}
+
+.dir-search-container {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.dir-search-container.adm-input input {
+  width: 500px;
+  margin: 0 auto;
+  display: block;
+}
+

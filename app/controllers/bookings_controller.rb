@@ -9,6 +9,18 @@ class BookingsController < ApplicationController
 	    @bookings = Booking.all.reverse
 	    @date = params[:month] ? Date.strptime(params[:month], "%Y-%m") : Date.today
 	    # @date = Date.today
+
+	    # @booking_week_day = 
+	    # 	@bookings.group_by do |booking|
+	    # 		booking.date.wday
+	    # 	end
+
+	    @booking_by_week_day = @bookings
+	    											.group_by{ |booking| booking.date.wday }
+
+	    # render :text => @booking_week_day.to_yaml and return
+ 			# @booking_by_week_day = @booking_week_day.sort{ |x, y| x<=>y }
+
  		else
  			redirect_to new_session_path
  		end
@@ -49,11 +61,15 @@ class BookingsController < ApplicationController
 	end
 
 	def query
+		@page_collection = Page.all.collect {|p| [ p.name, p.id ]}
 	end
 
 	def search
 		date = params["date-picker"]
-		page_id = params["query"]["page_id"].to_i
+		page_id = params["query"]["page_id"].last
+		
+		# page_id = params["query"]["page_id"].map { |element| element.to_i }
+		# page_id.delete(0)
 
 		if page_id == 0
 			flash.now.alert = "Please Pick A Page!"

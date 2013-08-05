@@ -1,4 +1,4 @@
-<div class="adm-midfloat-box">
+<div class="adm-midfloat-box new-booking">
   <%= render "shared/alertnotice" %>
   <%= form_for @booking do |f| %>
     <div class="adm-input">
@@ -41,8 +41,8 @@
         <%= f.text_field :info %>
     </div>
 
-   <div class="actions adm-button">
-    <%= f.submit "Book Now"%>
+   <div class="actions">
+    <%= f.submit "Book Now", class: "adm-button"%>
      </div>
   <% end %>
 

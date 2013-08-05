@@ -1,0 +1,21 @@
+<div class="adm-directory dir-client">
+  <div class="dir-search-container adm-input">
+    <input type="text" class="dir-search" placeholder="Filter">
+  </div>
+  <div class="dir-listing">
+  <% @clients_sorted_alpha.each do |letter, clients| %>
+  <div class="section-alpha">
+    <div class="alpha-letter letter-<%= letter %>">
+      <%= letter.upcase %>
+    </div>
+    <ul class="alpha-list">
+      <% clients.each do |client| %>
+        <li class="alpha-list-item item-id-<%=client.id%>" data-item-id="<%=client.id%>">
+          <%= link_to client.name, client_path(client), :remote => true %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </div>
+</div>

@@ -1,10 +1,10 @@
-<div class="adm-midfloat-box">
-  <%= render "shared/alertnotice" %>
-  <%= form_for @page do |f| %>
+<div class="adm-midfloat-box page-info-edit">
+  <span class="box-title">Page Info</span>
+    <%= form_for @page, :remote => true do |f| %>
     <div class="adm-input">
       <span class="label">
-        <%= f.label :name %>
-      </span>
+        <%= f.label :name, "Name" %>
+      </span> 
       <%= f.text_field :name %>
     </div>
     <div class="adm-input">
@@ -14,7 +14,7 @@
       <%= f.text_field :slug %>
     </div>
     <div class="actions">
-    <%= submit_tag "Add Page", class: "adm-button" %>
-  </div>
-  <% end %>
+      <%= f.submit "Update", class: "adm-button" %>
+    </div>
+    <% end %>
 </div>

@@ -17,12 +17,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.login-bg {
+body.modal-lock{
+  overflow: hidden;
+}
+
+.login{
   background: url('/assets/clouds-bg.jpg') center center fixed no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.login .nav-header {
+  background: rgba(0,0,0,0.6);
 }
 
 a {
@@ -49,6 +57,15 @@ li {
   z-index: 1;
 }
 
+.cover.modal-cover {
+  z-index: 10;
+  display: none;
+}
+
+.cover.modal-cover.active {
+  display: block;
+}
+
 /*THE NAVIGATION*/
 .nav-header {
   position: fixed;
@@ -56,7 +73,7 @@ li {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,1);
   z-index: 99999;
   overflow: hidden;
 }
@@ -109,7 +126,7 @@ li {
 
 /*THE GRID*/
 .main-container {
-  margin-top: 50px;
+  padding-top: 50px;
   z-index: 2;
   position: relative;
 }
@@ -134,6 +151,7 @@ li {
   box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
 }
 
+.adm-midfloat-box .box-title,
 .adm-midfloat-box .adm-alert {
   text-align: center;
   font-weight: bold;
@@ -158,6 +176,7 @@ li {
   width: 80px;
 }
 
+.adm-button,
 .adm-midfloat-box .adm-button input {
   display: block;
   margin: 0 auto;
@@ -217,6 +236,10 @@ li {
   width: 378px;
 }
 
+.adm-midfloat-box.new-booking {
+  margin: -260px 0 0 -240px;
+}
+
 /*THE INPUT*/
 .adm-date-query,
 .adm-input input {
@@ -225,6 +248,7 @@ li {
   outline: none;
   font-family: inherit;
   font-size: inherit;
+  margin: 0;
 }
 
 .adm-input .label {
@@ -243,12 +267,13 @@ li {
 }
 */
 /*THE BUTTONS*/
+.adm-button,
 .adm-button-main,
 .adm-button input {
   border: none;
   color: white;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 10px 20px;
   background: #2584EB;
   border-radius: 2px;
   font-family: inherit;
@@ -262,6 +287,12 @@ li {
 
 .adm-button-bookings {
   display: inline-block;
+}
+
+.adm-button.button-link.button-single {
+  text-decoration: none;
+  width: 100px;
+  text-align: center;
 }
 
 /*THE ALERTS*/
@@ -339,3 +370,42 @@ li {
 .calendar li a {
   text-decoration: none;
 }
+
+table {
+  display: table;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+/*.calendar-week tr th,
+.calendar-week tr td{
+  border: 1px solid black;
+}
+
+.calendar-week tr td{
+  height: 300px;
+}*/
+
+.calendar-week {
+  width: 100%;
+  border: 1px solid black;
+  margin: 50px 0;
+  background-color: white;
+
+  tr {
+    td, th {
+      border: 1px solid black;
+      width: 14.2857142857143%;
+    }
+
+    td {
+      height: 300px;
+      padding: 10px;
+      vertical-align: top;
+    }
+  }
+
+}
+
