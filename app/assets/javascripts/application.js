@@ -26,6 +26,7 @@ $(document).ready(function(){
     // {no_results_text: "Oops, nothing found!"}
 
   if($('.adm-directory').length) {
+    $('body').append('<div class="cover modal-cover"></div>');
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
@@ -53,8 +54,9 @@ $(document).ready(function(){
         url: "/pages/"+id+"/edit",
         context: document.body,
         success: function(data) {
-          console.log("successful");
-          console.log(data);
+          var item = $(data).find(".adm-midfloat-box");
+          $('.modal-cover').addClass('active');
+          $('.modal-cover').prepend(item);
         }
       })
     });

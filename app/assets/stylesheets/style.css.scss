@@ -49,6 +49,15 @@ li {
   z-index: 1;
 }
 
+.cover.modal-cover {
+  z-index: 10;
+  display: none;
+}
+
+.cover.modal-cover.active {
+  display: block;
+}
+
 /*THE NAVIGATION*/
 .nav-header {
   position: fixed;
