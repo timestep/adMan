@@ -29,6 +29,7 @@ $(document).ready(function(){
     $('body').append('<div class="cover modal-cover"></div>');
     var closeModal = function(){
       $('.modal-cover').removeClass('active');
+      $('body').removeClass('modal-lock');
     }
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
@@ -59,6 +60,7 @@ $(document).ready(function(){
         success: function(data) {
           var item = $(data).find(".adm-midfloat-box");
           $('.modal-cover').addClass('active');
+          $('body').addClass('modal-lock');
           $('.modal-cover').html(item);
           $('.page-info-edit').each(function(){
             $(this).find('.adm-button').on('click', function(){

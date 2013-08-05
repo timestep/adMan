@@ -17,6 +17,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.modal-lock{
+  overflow: hidden;
+}
+
 .login-bg {
   background: url('/assets/clouds-bg.jpg') center center fixed no-repeat;
   -webkit-background-size: cover;
