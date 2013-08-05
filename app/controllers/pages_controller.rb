@@ -13,6 +13,10 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
+  def edit
+    @page = Page.find(params[:id])
+  end
+
   def create
     @page = Page.new(pages_params)
     if @page.save
@@ -20,10 +24,6 @@ class PagesController < ApplicationController
     else
       render :new
     end
-
-  def edit
-    @page = Page.find(params[:id])
-  end
 
   end
 
