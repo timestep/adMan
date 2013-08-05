@@ -1,1 +1,18 @@
-Edit Page
+<div class="adm-midfloat-box page-info-edit">
+  <span class="box-title">Page Info</span>
+    <%= form_for @page do |f| %>
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :name, "Name" %>
+      </span> 
+      <%= f.text_field :name %>
+    </div>
+    <div class="adm-input">
+      <span class="label">
+        <%= f.label :slug, "URL" %>
+      </span>
+      <%= f.text_field :slug %>
+    </div>
+    <%= f.submit "Update" %>
+    <% end %>
+</div>
