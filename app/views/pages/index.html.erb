@@ -7,7 +7,9 @@
     <ul class="alpha-list">
       <% page.each do |p| %>
         
-        <li class="alpha-list-item"><%= p.name %></li>
+        <li class="alpha-list-item">
+          <%= link_to p.name, page_path(p) %>
+        </li>
       
       <% end %>
     </ul>
