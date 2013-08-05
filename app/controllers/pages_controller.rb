@@ -20,6 +20,11 @@ class PagesController < ApplicationController
     else
       render :new
     end
+
+  def edit
+    @page = Page.find(params[:id])
+  end
+
   end
 
   private
