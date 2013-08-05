@@ -1,11 +1,12 @@
 <div class="adm-midfloat-box page-info page-info-<%= @page.id %>">
   <span class="box-title">Page Info</span>
-    <div class="adm-input">
-      <span class="label">Name</span> 
-      <span class="data-field"><%= @page.name %></span>
-    </div>
-    <div class="adm-input">
-      <span class="label">URL</span>
-      <span class="data-field"><%= @page.slug %></span>
-    </div>
+  <div class="adm-input">
+    <span class="label">Name</span> 
+    <span class="data-field"><%= @page.name %></span>
+  </div>
+  <div class="adm-input">
+    <span class="label">URL</span>
+    <span class="data-field"><%= @page.slug %></span>
+  </div>
+  <%= link_to "Edit", edit_page_path(@page), :class => "adm-button button-link button-single" %>
 </div>

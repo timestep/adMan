@@ -159,6 +159,7 @@ li {
   width: 80px;
 }
 
+.adm-button,
 .adm-midfloat-box .adm-button input {
   display: block;
   margin: 0 auto;
@@ -249,6 +250,7 @@ li {
 }
 */
 /*THE BUTTONS*/
+.adm-button,
 .adm-button-main,
 .adm-button input {
   border: none;
@@ -268,6 +270,12 @@ li {
 
 .adm-button-bookings {
   display: inline-block;
+}
+
+.adm-button.button-link.button-single {
+  text-decoration: none;
+  width: 100px;
+  text-align: center;
 }
 
 /*THE ALERTS*/
