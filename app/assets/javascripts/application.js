@@ -47,6 +47,9 @@ $(document).ready(function(){
         });
       });
     });
+    $('.alpha-list-item').on('click', function(){
+      
+    });
   }
 
 
