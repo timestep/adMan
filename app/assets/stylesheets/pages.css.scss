@@ -34,3 +34,13 @@
 .alpha-list-item {
   margin-bottom: 5px;
 }
+
+.alpha-list-item a{
+  color: #444;
+  text-decoration: none;
+}
+
+.alpha-list-item a:hover{
+  color: #2584EB;
+  text-decoration: none;
+}
