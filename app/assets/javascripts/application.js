@@ -30,11 +30,11 @@ $(document).ready(function(){
       var v = $(this).val();
       if(v != '') {
         // typed
-        $('.dir-page').addClass('filter-mode');
+        $('.dir-listing').addClass('filter-mode');
         $('.alpha-letter').hide();
       } else {
         // reset
-        $('.dir-page').removeClass('filter-mode');
+        $('.dir-listing').removeClass('filter-mode');
         $('.alpha-letter').show();
       }
       $('.alpha-list li').each(function(){

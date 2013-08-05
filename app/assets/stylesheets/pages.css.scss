@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.dir-page {
+.dir-listing {
   -webkit-column-count: 3;
   -moz-column-count: 3;
   column-count: 3;
@@ -45,8 +45,14 @@
   text-decoration: none;
 }
 
-.dir-page.filter-mode {
+.dir-listing.filter-mode {
   -webkit-column-count: 1 !important;
   -moz-column-count: 1 !important;
   column-count: 1 !important;
+}
+
+.dir-search-container {
+  background-color: red;
+  width: 100%;
+
 }

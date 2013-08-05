@@ -1,21 +1,23 @@
 <div class="adm-directory dir-page">
-
-<input type="text" class="dir-search">
-
-<% @pages_sorted_alpha.each do |letter, page| %>
-  <div class="section-alpha">
-    <div class="alpha-letter letter-<%= letter %>">
-      <%= letter.upcase %>
-    </div>
-    <ul class="alpha-list">
-      <% page.each do |p| %>
-        
-        <li class="alpha-list-item">
-          <%= link_to p.name, page_path(p) %>
-        </li>
-      
-      <% end %>
-    </ul>
+  <div class="dir-search-container">
+    <input type="text" class="dir-search">
   </div>
-<% end %>
+  <div class="dir-listing">
+  <% @pages_sorted_alpha.each do |letter, page| %>
+    <div class="section-alpha">
+      <div class="alpha-letter letter-<%= letter %>">
+        <%= letter.upcase %>
+      </div>
+      <ul class="alpha-list">
+        <% page.each do |p| %>
+          
+          <li class="alpha-list-item">
+            <%= link_to p.name, page_path(p) %>
+          </li>
+        
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  </div>
 </div>
