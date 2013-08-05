@@ -122,5 +122,11 @@ $(document).ready(function(){
   }
 
 
+  if($('.calendar').length){
+    $('td').on('click', function(){
+      console.log("day clicked");
+    });
+  }
+
 
 });
