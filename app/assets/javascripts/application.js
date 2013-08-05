@@ -17,7 +17,7 @@
 //= require_tree .
 
 $(document).ready(function(){
-
+  
   $('#date-picker').datepicker();
 
   $('#query_page_id').chosen();
@@ -29,8 +29,12 @@ $(document).ready(function(){
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
+        // typed
+        $(this).closest('.dir-page').addClass('filter-mode');
         $('.alpha-letter').hide();
       } else {
+        // reset
+        $(this).closest('.dir-page').removeClass('filter-mode');
         $('.alpha-letter').show();
       }
       $('.alpha-list li').each(function(){
@@ -44,4 +48,7 @@ $(document).ready(function(){
       });
     });
   }
+
+
+
 });

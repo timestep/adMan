@@ -35,12 +35,18 @@
   margin-bottom: 5px;
 }
 
-.alpha-list-item a{
+.alpha-list-item a {
   color: #444;
   text-decoration: none;
 }
 
-.alpha-list-item a:hover{
+.alpha-list-item a:hover {
   color: #2584EB;
   text-decoration: none;
+}
+
+.dir-page.filter-mode {
+  -webkit-column-count: 1 !important;
+  -moz-column-count: 1 !important;
+  column-count: 1 !important;
 }
