@@ -47,8 +47,16 @@ $(document).ready(function(){
         });
       });
     });
-    $('.alpha-list-item').on('click', function(){
-      
+    $('.alpha-list-item a').on('click', function(){
+      var id = $(this).parent().data('item-id');
+      $.ajax({
+        url: "/pages/"+id+"/edit",
+        context: document.body,
+        success: function(data) {
+          console.log("successful");
+          console.log(data);
+        }
+      })
     });
   }
 
