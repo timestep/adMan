@@ -52,7 +52,12 @@
 }
 
 .dir-search-container {
-  background-color: red;
   width: 100%;
+  margin: 20px 0;
+}
 
+.dir-search-container.adm-input input {
+  width: 500px;
+  margin: 0 auto;
+  display: block;
 }

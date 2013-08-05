@@ -109,7 +109,7 @@ li {
 
 /*THE GRID*/
 .main-container {
-  margin-top: 50px;
+  padding-top: 50px;
   z-index: 2;
   position: relative;
 }
@@ -229,6 +229,7 @@ li {
   outline: none;
   font-family: inherit;
   font-size: inherit;
+  margin: 0;
 }
 
 .adm-input .label {
