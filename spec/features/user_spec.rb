@@ -206,12 +206,15 @@ describe "User" do
 			Client.last.name.should == 'Burton Snowboards'
 		end
 
-		it "Client modal pops up" do
+		it "edits a client" do
 			visit_clients_path
-			click_link(@client.name)
-			page.should have_text('Client Info')
-			page.should have_css('.adm-modal-box')
-			page.should have_css('.client-info-edit')
+			visit edit_client_path(@client)
+			current_path.should == edit_client_path(@client)
+			fill_in("Name", :with=>'Second Cupboard')
+			click_button('Update')
+			current_path.should == client_path(@client)
+			Client.find_by_id(@client.id).name.should == 'Second Cupboard'
 		end
+		
 	end
 end
