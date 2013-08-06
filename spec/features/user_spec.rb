@@ -146,6 +146,7 @@ describe "User" do
 			click_button('Add Page')
 			current_path.should == pages_path
 			page.should have_text('yoloscrubs')
+			Page.last.name.should == 'yoloscrubs'
 		end
 	end
 	context "while in Client Page" do
