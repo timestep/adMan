@@ -133,11 +133,15 @@ li {
   color: #4AB7FF;
 }
 
+.nav-links a:hover + .nav-dropdown {
+  display: block;
+}
+
 .nav-links .nav-dropdown {
   background-color: #222;
   width: 180px;
   margin-left: -20px;
-  // display: none;
+  display: none;
 }
 
 .nav-links .nav-dropdown li {
