@@ -140,7 +140,7 @@ describe "User" do
 		end
 
 		it "creates a new page" do
-			visit_page_path 
+			visit_new_page_path 
 			fill_in('Name', :with => 'yoloscrubs')
 			fill_in('URL', :with => 'number1.com')
 			click_button('Add Page')
@@ -161,7 +161,7 @@ describe "User" do
 		end
 
 		it "creates a new client" do
-			visit_client_path
+			visit_new_client_path
 			fill_in('client_name', :with => 'Burton Snowboards')
 			click_button('Add Client')
 			current_path.should == clients_path
