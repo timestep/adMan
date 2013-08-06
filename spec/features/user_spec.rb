@@ -188,6 +188,7 @@ describe "User" do
 			current_path.should == pages_path
 			visit bookings_path
 			current_path.should == bookings_path
+			page.status_code.should == 200
 		end
 	end
 	
