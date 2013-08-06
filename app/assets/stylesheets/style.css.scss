@@ -159,6 +159,17 @@ li {
   text-decoration: none;
 }
 
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid white;
+  position: relative;
+  top: -6px;
+  left: 33px;
+}
+
 /*THE GRID*/
 .main-container {
   padding-top: 50px;
