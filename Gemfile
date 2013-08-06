@@ -45,6 +45,7 @@ group :development, :test do
 	
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'capybara-webkit'
 	gem 'factory_girl_rails'
 	gem 'pry-rails'
 	gem 'pry'

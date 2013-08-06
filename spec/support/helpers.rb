@@ -16,4 +16,20 @@ module Helpers
 		select(page.name, :from => "query_page_id")
 		click_button("Search")
 	end
+
+	def visit_page_path
+		login(@user_attributes)
+		current_path.should == bookings_path
+		page.find('#pages').trigger(:hover)
+		click_link("Add New Page")
+		current_path.should == new_page_path
+	end
+
+	def visit_client_path
+		login(@user_attributes)
+		current_path.should == bookings_path
+		page.find('#client').trigger(:hover)
+		click_link("Add New Client")
+		current_path.should == new_client_path
+	end
 end
