@@ -1,0 +1,13 @@
+<div class="nav-header">
+  <div class="container">
+    <div class="brand logo">
+      <% if current_user %>
+        <%= link_to "adMan", bookings_path %>
+      <% else %>
+        <%= link_to "adMan", root_path %>
+      <% end %>
+    </div>
+    <%= render "shared/navheader" %>
+    <div class="clear"></div>
+  </div>  
+</div>

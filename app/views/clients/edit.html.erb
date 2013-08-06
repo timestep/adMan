@@ -1,4 +1,4 @@
-<div class="adm-midfloat-box client-info-edit">
+<div class="adm-midfloat-box client-info-edit adm-modal-box">
   <span class="box-title">Client Info</span>
     <%= form_for @client, :remote => true do |f| %>
     <div class="adm-input">
@@ -11,4 +11,5 @@
       <%= f.submit "Update", class: "adm-button" %>
     </div>
     <% end %>
+    <%= link_to "Delete", @client, :method => :delete%>
 </div>

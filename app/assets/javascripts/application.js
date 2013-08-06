@@ -37,28 +37,38 @@ $(document).ready(function(){
     $('#booking_client_id').chosen();
   }
 
+// Modal Functions
+  var modalClose = function(){
+    $('.modal-cover').removeClass('active');
+    $('body').removeClass('modal-lock');
+  }
+
+  var modalBoxCloseable = function() {
+    $('.adm-modal-box').append('<div class="modal-close">X</div>');
+    $('.modal-close').on('click', function(){
+      modalClose();
+    });
+  }
+
   if($('.adm-directory').length) {
     $('body').append('<div class="cover modal-cover"></div>');
-    var closeModal = function(){
-      $('.modal-cover').removeClass('active');
-      $('body').removeClass('modal-lock');
-    }
 
-    var editPage = function(){
+    var dirModalFetch = function(url, className, idName) {
       $('.alpha-list-item a').on('click', function(){
         var id = $(this).parent().data('item-id');
         $.ajax({
-          url: "/pages/"+id+"/edit",
+          url: url+id+"/edit",
           context: document.body,
           success: function(data) {
-            var item = $(data).find(".adm-midfloat-box");
+            var item = $(data).find(".adm-modal-box");
             $('.modal-cover').addClass('active');
             $('body').addClass('modal-lock');
             $('.modal-cover').html(item);
-            $('.page-info-edit').each(function(){
+            modalBoxCloseable();
+            $('.'+className).each(function(){
               $(this).find('.adm-button').on('click', function(){
-                closeModal();
-                var updatedName = $('#page_name').val();
+                modalClose();
+                var updatedName = $('#'+idName).val();
                 $('.item-id-'+id).find('a').text(updatedName);
               });
               $(this).on('click', function(event){
@@ -67,33 +77,7 @@ $(document).ready(function(){
             });       
           }
         });
-      });
-    }
-
-    var editClient = function(){
-      $('.alpha-list-item a').on('click', function(){
-        var id = $(this).parent().data('item-id');
-        $.ajax({
-          url: "/clients/"+id+"/edit",
-          context: document.body,
-          success: function(data) {
-            var item = $(data).find(".adm-midfloat-box");
-            $('.modal-cover').addClass('active');
-            $('body').addClass('modal-lock');
-            $('.modal-cover').html(item);
-            $('.client-info-edit').each(function(){
-              $(this).find('.adm-button').on('click', function(){
-                closeModal();
-                var updatedName = $('#client_name').val();
-                $('.item-id-'+id).find('a').text(updatedName);
-              });
-              $(this).on('click', function(event){
-                event.stopPropagation();
-              });
-            });       
-          }
-        });
-      });
+      });      
     }
 
 
@@ -119,13 +103,19 @@ $(document).ready(function(){
       });
     });    
     if($('.dir-page').length) {
-      editPage();
+      var url = '/pages/';
+      var className = 'page-info-edit';
+      var idName = 'page_name';
+      dirModalFetch(url, className, idName);
     }
     if($('.dir-client').length) {
-      editClient();
+      var url = '/clients/';
+      var className = 'client-info-edit';
+      var idName = 'client_name';
+      dirModalFetch(url, className, idName);
     }
     $('.modal-cover').on('click', function(){
-      closeModal();
+      modalClose();
     });
   }
 

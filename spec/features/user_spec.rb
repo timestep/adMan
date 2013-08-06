@@ -15,7 +15,9 @@ describe "User" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 			page.should have_text("Logged in~!")
-			page.should have_text("Welcome to the bookings page!!")
+			page.should have_text("Look Up")
+			page.should have_text("Clients")
+			page.should have_text("Pages")
 			page.should have_text("Log Out")
 		end
 
@@ -61,7 +63,7 @@ describe "User" do
 			click_link("Add New Client")
 			c = FactoryGirl.build(:client)
 			fill_in('Name', :with => c[:name])
-			print page.html
+			# print page.html
 			click_button("Add Client")
 			current_path.should == bookings_path
 		end

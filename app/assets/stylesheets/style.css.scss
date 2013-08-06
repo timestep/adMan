@@ -66,6 +66,11 @@ li {
   display: block;
 }
 
+.clear {
+  clear: both;
+}
+
+
 /*THE NAVIGATION*/
 .nav-header {
   position: fixed;
@@ -75,7 +80,6 @@ li {
   right: 0;
   background: rgba(0,0,0,1);
   z-index: 99999;
-  overflow: hidden;
 }
 
 .nav-header a {
@@ -106,23 +110,65 @@ li {
 
 .nav-links ul {
   list-style: none;
+  width: 400px;
 }
 
 .nav-links li {
-  display: inline;
+  display: block;
   margin: 0 0 0 20px;
+  width: 80px;
+  float: left;
 }
 
 .nav-links li a {
   display: inline-block;
   padding: 18px 0px;
+  width: 100%;
 }
 
-.nav-links li:hover a {
-  padding: 18px 0 10px;
-  border-bottom: 1px solid #aaa;
+.nav-links a:hover {
+  // padding: 18px 0 10px;
+  // border-bottom: 1px solid #aaa;
+  text-decoration: none;
+  color: #4AB7FF;
 }
 
+.nav-links li:hover .nav-dropdown {
+  display: block;
+}
+
+.nav-links .nav-dropdown {
+  background-color: #222;
+  width: 180px;
+  margin-left: -20px;
+  display: none;
+}
+
+.nav-links .nav-dropdown li {
+  float: none;
+  margin: 0;
+  width: auto;
+  padding: 0 20px;
+}
+
+.nav-links .nav-dropdown li a {
+  text-decoration: none;
+}
+
+.nav-links .nav-dropdown li > a:hover {
+  text-decoration: none;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid white;
+  position: relative;
+  top: -6px;
+  left: 33px;
+}
 
 /*THE GRID*/
 .main-container {
@@ -293,6 +339,24 @@ li {
   text-decoration: none;
   width: 100px;
   text-align: center;
+}
+
+/*THE MODALS*/
+.modal-close {
+  background: black;
+  border-radius: 200px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  height: 13px;
+  line-height: 1em;
+  padding: 5px;
+  position: absolute;
+  right: -10px;
+  text-align: center;
+  top: -10px;
+  width: 13px;
 }
 
 /*THE ALERTS*/

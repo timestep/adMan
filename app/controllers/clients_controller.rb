@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
 		@client = Client.new(client_params)
 
 		if @client.save
-  		redirect_to bookings_path, :notice => "Created new client~!"
+  		redirect_to clients_path, :notice => "Created new client~!"
   	else
   		render :new, :alert => "Nope"
   	end
@@ -36,6 +36,12 @@ class ClientsController < ApplicationController
     head :ok
   end
 
+  def destroy
+    @client = Client.find(params[:id])
+    @client.destroy
+    redirect_to clients_path
+  end
+  
 	private
 
 	def client_params
