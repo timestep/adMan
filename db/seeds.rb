@@ -72,12 +72,14 @@ end
 #   {info: "One day IBS"}
 #   ])
 
+allUsers = User.all
+
 100.times do |i|
-  booking = Booking.create([ 
-    {date: Time.now.utc + i.days},
-    ])
+  booking = Booking.create({
+    date: Time.now.utc + i.days})
+  # binding.pry
   booking.client = clients.sample
-  booking.user = User.all.sample
+  booking.user = allUsers.sample
   booking.pages << pages.sample(rand(1..50))
   # booking.contract_num = contract_nums.sample
   # booking.product = products.sample
