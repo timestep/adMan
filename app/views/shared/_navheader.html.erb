@@ -1,0 +1,10 @@
+<div class="nav-links">
+  <ul class="nav">
+    <% if current_user %>
+      <li><%= link_to 'Look Up', query_bookings_path %></li>
+      <li><%= link_to "Clients", clients_path %></li>
+      <li><%= link_to "Pages", pages_path %></li>
+      <li><%= link_to "Log Out", logout_path %></li>
+    <% end %>
+  </ul>
+</div>

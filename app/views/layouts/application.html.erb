@@ -9,27 +9,7 @@
 </head>
 
 <body class="<%= yield :body_class %>">
-	<div class="nav-header">
-		<div class="container">
-			<div class="brand logo">
-				<% if current_user %>
-					<%= link_to "adMan", bookings_path %>
-				<% else %>
-					<%= link_to "adMan", root_path %>
-				<% end %>
-			</div>
-			<div class="nav-links">
-				<ul class="nav">
-					<% if current_user %>
-						<li><%= link_to 'Look Up', query_bookings_path %></li>
-						<li><%= link_to "Clients", clients_path %></li>
-						<li><%= link_to "Pages", pages_path %></li>
-						<li><%= link_to "Log Out", logout_path %></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>	
-	</div>
+	<%= render "shared/header" %>
 	<div class="main-container">
 		<div class="container">
 			<%= yield %>
