@@ -33,4 +33,11 @@ module Helpers
 		current_path.should == new_client_path
 	end
 
+	def visit_pages_path
+		page = FactoryGirl.create(:page)
+		login(@user_attributes)
+		current_path.should == bookings_path
+		click_link("Pages")
+		current_path.should == pages_path
+	end
 end

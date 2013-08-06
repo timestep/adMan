@@ -130,7 +130,11 @@ describe "User" do
 	end
 
 	context	"while in Page page" do
-		it "visit new Page path" do
+		it "visits index page path" do
+			visit_pages_path
+		end
+
+ 		it "visit new Page path" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 			# page.find('#pages').trigger(:hover)
