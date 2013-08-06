@@ -139,6 +139,14 @@ describe "User" do
 			current_path.should == new_page_path
 		end
 
+		it "visit List of Pages path" do
+			login(@user_attributes)
+			current_path.should == bookings_path
+			click_link("See List of Pages")
+			current_path.should == pages_path
+		end
+
+
 		it "creates a new page" do
 			visit_new_page_path 
 			fill_in('Name', :with => 'yoloscrubs')
