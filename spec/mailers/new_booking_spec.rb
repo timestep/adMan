@@ -1,5 +1,5 @@
 require "spec_helper"
 
-describe NewBooking do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# describe NewBooking do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end

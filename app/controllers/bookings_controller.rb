@@ -84,8 +84,9 @@ class BookingsController < ApplicationController
 				redirect_to new_booking_path(:date => date, :page_id => page_id), :notice => "Available!"
 			end
 		else
-			render :query, :notice => 'Enter date~!'
+			redirect_to query_bookings_path, :notice => 'Enter date~!'
 		end
+	
 	end
 
 	private
@@ -100,7 +101,7 @@ class BookingsController < ApplicationController
 
 	def check_booking_permit
 		permit = session[:booking_permit]
-		if permit.present? 
+		if permit.present?
 			@page_name = Page.find(session[:page_id]).name
 			@page_id = session[:page_id]
 			@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")

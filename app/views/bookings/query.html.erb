@@ -7,11 +7,9 @@
     <span class="label"><%= label_tag(:"date-picker", "Date")%></span>
     <%= datetime_field_tag(:"date-picker")%>
   </div>
+  
   <div class="adm-input dropdown">
     <span class="label"><%= label_tag :page, "Page" %></span>
-    <%#= select("query","page_id",
-     Page.all.collect {|p| [ p.name, p.id ]}, {:prompt => 'Select A Page'}) %>
-
     <%= select("query", "page_id", @page_collection, {}, { :multiple => true } ) %>
   </div>
   <div class="actions">
