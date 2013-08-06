@@ -77,7 +77,7 @@ describe "User" do
 			fill_in('Name', :with => p[:name])
 			fill_in('URL', :with => p[:slug])
 			click_button("Add Page")
-			current_path.should == bookings_path
+			current_path.should == pages_path
 		end
 	end
 
