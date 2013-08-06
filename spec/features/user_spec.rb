@@ -63,7 +63,6 @@ describe "User" do
 			click_link("Add New Client")
 			c = FactoryGirl.build(:client)
 			fill_in('Name', :with => c[:name])
-			# print page.html
 			click_button("Add Client")
 			current_path.should == clients_path
 		end
@@ -103,8 +102,7 @@ describe "User" do
 			login(@user_attributes)
 			click_link("Look Up")
 			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
-			# fill_in('page', :with => booking.page)
-			# fill_in('client', :with => booking.client)
+
 			click_button("Search")
 			current_path.should == query_bookings_path
 		end
@@ -126,10 +124,18 @@ describe "User" do
 			valid_query
 			current_path.should == new_booking_path
 			select(client.name, :from => "booking[client_id]")
-			# fill_in('Contract Number', :with => "contractnumber")
-			# fill_in('Additional Information' :with => additionalinfo)
 			click_button("Book Now")
 			current_path.should == booking_path(Booking.last.id)
+		end
+	end
+
+	context	"while in Page page" do
+		it "add a new Page " do
+			login(@user_attributes)
+			current_path.should == bookings_path
+			page.find('.dir-search').trigger(:hover)
+			click_link("Add New Page")
+			current_path.should == new_page_path
 		end
 	end
 end

@@ -41,6 +41,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.0.0)
+      capybara (~> 2.0, >= 2.0.2)
+      json
     coderay (1.0.9)
     columnize (0.3.6)
     debug_inspector (0.0.2)
@@ -205,6 +208,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara
+  capybara-webkit
   factory_girl_rails
   faker
   jbuilder (~> 1.2)
