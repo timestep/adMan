@@ -64,8 +64,9 @@ $(document).ready(function(){
             $('.modal-cover').addClass('active');
             $('body').addClass('modal-lock');
             $('.modal-cover').html(item);
+            modalBoxCloseable();
             $('.'+className).each(function(){
-              $('.'+className).find('.adm-button').on('click', function(){
+              $(this).find('.adm-button').on('click', function(){
                 modalClose();
                 var updatedName = $('#'+idName).val();
                 $('.item-id-'+id).find('a').text(updatedName);
