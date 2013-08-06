@@ -110,11 +110,14 @@ li {
 
 .nav-links ul {
   list-style: none;
+  width: 400px;
 }
 
 .nav-links li {
-  display: inline;
+  display: block;
   margin: 0 0 0 20px;
+  width: 80px;
+  float: left;
 }
 
 .nav-links li a {
@@ -123,10 +126,18 @@ li {
 }
 
 .nav-links li:hover a {
-  padding: 18px 0 10px;
-  border-bottom: 1px solid #aaa;
+  // padding: 18px 0 10px;
+  // border-bottom: 1px solid #aaa;
+  text-decoration: underline
 }
 
+.nav-links .nav-dropdown {
+  background-color: black;
+}
+
+.nav-links .nav-dropdown li {
+  float: none;
+}
 
 /*THE GRID*/
 .main-container {

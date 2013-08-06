@@ -3,13 +3,13 @@
     <% if current_user %>
       <li><%= link_to 'Look Up', query_bookings_path %></li>
       <li><%= link_to "Clients", clients_path %>
-        <ul>
+        <ul class="nav-dropdown">
           <li><%= link_to "Add New Client", new_client_path %></li>
           <li><%= link_to "See List of Clients", clients_path %></li>
         </ul>
       </li>
       <li><%= link_to "Pages", pages_path %>
-        <ul>
+        <ul class="nav-dropdown">
           <li><%= link_to "Add New Page", new_page_path %></li>
           <li><%= link_to "See List of Pages", pages_path %></li>
         </ul>
