@@ -160,6 +160,13 @@ describe "User" do
 			current_path.should == new_client_path
 		end
 
+		it "visit List of Clients path" do
+			login(@user_attributes)
+			current_path.should == bookings_path
+			click_link("See List of Clients")
+			current_path.should == clients_path
+		end
+
 		it "creates a new client" do
 			visit_new_client_path
 			fill_in('client_name', :with => 'Burton Snowboards')
