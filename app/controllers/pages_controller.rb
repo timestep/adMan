@@ -38,6 +38,19 @@ class PagesController < ApplicationController
     # end
   end
 
+  def destroy
+    @page = Page.find(params[:id])
+    @page.destroy
+    redirect_to pages_path
+    # @pages = Page.all
+    # respond_to do |format|
+    #   format.js { render :layout=>false, :content_type => 'application/javascript' }
+    # end
+    #http://stackoverflow.com/questions/4398445/link-to-remote-true-not-updating-with-ajax
+    #destroy action does not work with page is loaded in with ajax but it works on its actual edit_page_path(@page)
+  end
+
+
   private
 
   def pages_params

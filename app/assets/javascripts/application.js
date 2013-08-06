@@ -80,6 +80,7 @@ $(document).ready(function(){
       });      
     }
 
+
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
       if(v != '') {
