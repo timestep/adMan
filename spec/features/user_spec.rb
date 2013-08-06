@@ -162,17 +162,21 @@ describe "User" do
 
 		it "edits a page" do
 			visit_pages_path
-			click_link(@page.name)
-			# binding.pry
+			visit edit_page_path(@page)
+			current_path.should == edit_page_path(@page)
 			fill_in("Name", :with=>'chuckles')
 			click_button('Update')
+			current_path.should == page_path(@page)
+			Page.find_by_id(@page.id).name.should == 'chuckles'
 		end
 
 		it "deletes a page" do
 			visit_pages_path
-			click_link(@page.name)
-			print page.html
+			visit edit_page_path(@page)
+			current_path.should == edit_page_path(@page)
 			click_button('Delete')
+			current_path.should == pages_path
+			Page.find_by_id(@page.id).should == nil
 		end
 	end
 	
