@@ -48,4 +48,14 @@ module Helpers
 		click_link("Pages")
 		current_path.should == pages_path
 	end
+
+	def delete_page
+		login(@user_attributes)
+		visit_pages_path
+		visit edit_page_path(@page)
+		current_path.should == edit_page_path(@page)
+		click_button('Delete')
+		current_path.should == pages_path
+		Page.find_by_id(@page.id).should == nil
+	end
 end
