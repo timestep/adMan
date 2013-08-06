@@ -65,7 +65,7 @@ describe "User" do
 			fill_in('Name', :with => c[:name])
 			# print page.html
 			click_button("Add Client")
-			current_path.should == bookings_path
+			current_path.should == clients_path
 		end
 	end
 
