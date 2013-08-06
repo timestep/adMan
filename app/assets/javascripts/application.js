@@ -64,10 +64,10 @@ $(document).ready(function(){
             $('.modal-cover').addClass('active');
             $('body').addClass('modal-lock');
             $('.modal-cover').html(item);
-            className.each(function(){
-              $(this).find('.adm-button').on('click', function(){
+            $('.'+className).each(function(){
+              $('.'+className).find('.adm-button').on('click', function(){
                 modalClose();
-                var updatedName = idName.val();
+                var updatedName = $('#'+idName).val();
                 $('.item-id-'+id).find('a').text(updatedName);
               });
               $(this).on('click', function(event){
@@ -78,60 +78,6 @@ $(document).ready(function(){
         });
       });      
     }
-
-    var editPage = function(){
-      $('.alpha-list-item a').on('click', function(){
-        var id = $(this).parent().data('item-id');
-        $.ajax({
-          url: "/pages/"+id+"/edit",
-          context: document.body,
-          success: function(data) {
-            var item = $(data).find(".adm-modal-box");
-            $('.modal-cover').addClass('active');
-            $('body').addClass('modal-lock');
-            $('.modal-cover').html(item);
-            $('.page-info-edit').each(function(){
-              $(this).find('.adm-button').on('click', function(){
-                modalClose();
-                var updatedName = $('#page_name').val();
-                $('.item-id-'+id).find('a').text(updatedName);
-              });
-              $(this).on('click', function(event){
-                event.stopPropagation();
-              });
-            });       
-          }
-        });
-      });
-    }
-
-    var editClient = function(){
-      $('.alpha-list-item a').on('click', function(){
-        var id = $(this).parent().data('item-id');
-        $.ajax({
-          url: "/clients/"+id+"/edit",
-          context: document.body,
-          success: function(data) {
-            var item = $(data).find(".adm-midfloat-box");
-            $('.modal-cover').addClass('active');
-            $('body').addClass('modal-lock');
-            $('.modal-cover').html(item);
-            modalBoxCloseable();
-            $('.client-info-edit').each(function(){
-              $(this).find('.adm-button').on('click', function(){
-                modalClose();
-                var updatedName = $('#client_name').val();
-                $('.item-id-'+id).find('a').text(updatedName);
-              });
-              $(this).on('click', function(event){
-                event.stopPropagation();
-              });
-            });       
-          }
-        });
-      });
-    }
-
 
     $('.dir-search').on('keyup', function(){
       var v = $(this).val();
@@ -156,12 +102,15 @@ $(document).ready(function(){
     });    
     if($('.dir-page').length) {
       var url = '/pages/';
-      var className = $('.page-info-edit');
-      var idName = $('#page_name');
+      var className = 'page-info-edit';
+      var idName = 'page_name';
       dirModalFetch(url, className, idName);
     }
     if($('.dir-client').length) {
-      editClient();
+      var url = '/clients/';
+      var className = 'client-info-edit';
+      var idName = 'client_name';
+      dirModalFetch(url, className, idName);
     }
     $('.modal-cover').on('click', function(){
       modalClose();
