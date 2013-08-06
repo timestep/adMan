@@ -157,13 +157,14 @@ describe "User" do
 			click_link("Add New Client")
 			current_path.should == new_client_path
 		end
+
 		it "creates a new client" do
 			visit_client_path
 			fill_in('client_name', :with => 'Burton Snowboards')
 			click_button('Add Client')
 			current_path.should == clients_path
 			page.should have_text('Burton Snowboards')
-			Client.last.name == 'Burton Snowboards'
+			Client.last.name.should == 'Burton Snowboards'
 		end
 
 	end
