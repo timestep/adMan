@@ -215,6 +215,14 @@ describe "User" do
 			current_path.should == client_path(@client)
 			Client.find_by_id(@client.id).name.should == 'Second Cupboard'
 		end
-		
+
+		it "deletes a client" do
+			visit_clients_path
+			visit edit_client_path(@client)
+			current_path.should == edit_client_path(@client)
+			click_button('Delete')
+			current_path.should == clientss_path
+			Client.find_by_id(@client.id).should == nil
+		end
 	end
 end
