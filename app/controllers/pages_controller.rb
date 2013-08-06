@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     if @page.save
       redirect_to pages_path, :notice => "Created new page!"
     else
-      render :new
+      render :new, :alert => 'Error!'
     end
   end
 

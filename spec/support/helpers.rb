@@ -17,7 +17,7 @@ module Helpers
 		click_button("Search")
 	end
 
-	def visit_page_path
+	def visit_new_page_path
 		login(@user_attributes)
 		current_path.should == bookings_path
 		# page.find('#pages').trigger(:hover)
@@ -25,7 +25,7 @@ module Helpers
 		current_path.should == new_page_path
 	end
 
-	def visit_client_path
+	def visit_new_client_path
 		login(@user_attributes)
 		current_path.should == bookings_path
 		# page.find('#client').trigger(:hover)

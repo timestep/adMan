@@ -138,7 +138,26 @@ describe "User" do
 			click_link("Add New Page")
 			current_path.should == new_page_path
 		end
+
+		it "visit List of Pages path" do
+			login(@user_attributes)
+			current_path.should == bookings_path
+			click_link("See List of Pages")
+			current_path.should == pages_path
+		end
+
+
+		it "creates a new page" do
+			visit_new_page_path 
+			fill_in('Name', :with => 'yoloscrubs')
+			fill_in('URL', :with => 'number1.com')
+			click_button('Add Page')
+			current_path.should == pages_path
+			page.should have_text('yoloscrubs')
+			Page.last.name.should == 'yoloscrubs'
+		end
 	end
+	
 	context "while in Client Page" do
 		it "visit a new Client path" do
 			login(@user_attributes)
@@ -148,13 +167,21 @@ describe "User" do
 			click_link("Add New Client")
 			current_path.should == new_client_path
 		end
+
+		it "visit List of Clients path" do
+			login(@user_attributes)
+			current_path.should == bookings_path
+			click_link("See List of Clients")
+			current_path.should == clients_path
+		end
+
 		it "creates a new client" do
-			visit_client_path
+			visit_new_client_path
 			fill_in('client_name', :with => 'Burton Snowboards')
 			click_button('Add Client')
 			current_path.should == clients_path
 			page.should have_text('Burton Snowboards')
-			Client.last.name == 'Burton Snowboards'
+			Client.last.name.should == 'Burton Snowboards'
 		end
 
 	end
