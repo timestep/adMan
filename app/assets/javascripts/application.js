@@ -37,12 +37,22 @@ $(document).ready(function(){
     $('#booking_client_id').chosen();
   }
 
+// Modal Functions
+  var modalClose = function(){
+    $('.modal-cover').removeClass('active');
+    $('body').removeClass('modal-lock');
+    $('.adm-midfloat-box').remove();
+  }
+
+  var modalBoxCloseable = function() {
+    $('.adm-midfloat-box').append('<div class="modal-close">X</div>');
+    $('.modal-close').on('click', function(){
+      modalClose();
+    });
+  }
+
   if($('.adm-directory').length) {
     $('body').append('<div class="cover modal-cover"></div>');
-    var closeModal = function(){
-      $('.modal-cover').removeClass('active');
-      $('body').removeClass('modal-lock');
-    }
 
     var editPage = function(){
       $('.alpha-list-item a').on('click', function(){
@@ -57,7 +67,7 @@ $(document).ready(function(){
             $('.modal-cover').html(item);
             $('.page-info-edit').each(function(){
               $(this).find('.adm-button').on('click', function(){
-                closeModal();
+                modalClose();
                 var updatedName = $('#page_name').val();
                 $('.item-id-'+id).find('a').text(updatedName);
               });
@@ -81,9 +91,10 @@ $(document).ready(function(){
             $('.modal-cover').addClass('active');
             $('body').addClass('modal-lock');
             $('.modal-cover').html(item);
+            modalBoxCloseable();
             $('.client-info-edit').each(function(){
               $(this).find('.adm-button').on('click', function(){
-                closeModal();
+                modalClose();
                 var updatedName = $('#client_name').val();
                 $('.item-id-'+id).find('a').text(updatedName);
               });
@@ -125,7 +136,7 @@ $(document).ready(function(){
       editClient();
     }
     $('.modal-cover').on('click', function(){
-      closeModal();
+      modalClose();
     });
   }
 
