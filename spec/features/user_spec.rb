@@ -138,6 +138,15 @@ describe "User" do
 			click_link("Add New Page")
 			current_path.should == new_page_path
 		end
+
+		it "creates a new page" do
+			visit_page_path 
+			fill_in('Name', :with => 'yoloscrubs')
+			fill_in('URL', :with => 'number1.com')
+			click_button('Add Page')
+			current_path.should == pages_path
+			page.should have_text('yoloscrubs')
+		end
 	end
 	context "while in Client Page" do
 		it "visit a new Client path" do
