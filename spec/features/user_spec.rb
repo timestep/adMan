@@ -130,7 +130,11 @@ describe "User" do
 	end
 
 	context	"while in Page page" do
-		it "visit new Page path" do
+		it "visits index page path" do
+			visit_pages_path
+		end
+
+ 		it "visit new Page path" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 			# page.find('#pages').trigger(:hover)
@@ -146,7 +150,6 @@ describe "User" do
 			current_path.should == pages_path
 		end
 
-
 		it "creates a new page" do
 			visit_new_page_path 
 			fill_in('Name', :with => 'yoloscrubs')
@@ -155,6 +158,25 @@ describe "User" do
 			current_path.should == pages_path
 			page.should have_text('yoloscrubs')
 			Page.last.name.should == 'yoloscrubs'
+		end
+
+		it "edits a page" do
+			visit_pages_path
+			visit edit_page_path(@page)
+			current_path.should == edit_page_path(@page)
+			fill_in("Name", :with=>'chuckles')
+			click_button('Update')
+			current_path.should == page_path(@page)
+			Page.find_by_id(@page.id).name.should == 'chuckles'
+		end
+
+		it "deletes a page" do
+			visit_pages_path
+			visit edit_page_path(@page)
+			current_path.should == edit_page_path(@page)
+			click_button('Delete')
+			current_path.should == pages_path
+			Page.find_by_id(@page.id).should == nil
 		end
 	end
 	
