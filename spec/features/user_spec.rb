@@ -178,6 +178,17 @@ describe "User" do
 			current_path.should == pages_path
 			Page.find_by_id(@page.id).should == nil
 		end
+
+		it 'deletes a page and verifies booking is also deleted' do
+			booking = FactoryGirl.create(:booking)
+			login(@user_attributes)
+			visit edit_page_path(booking.pages.first)
+			current_path.should == edit_page_path(booking.pages.first)
+			click_button('Delete')
+			current_path.should == pages_path
+			visit bookings_path
+			current_path.should == bookings_path
+		end
 	end
 	
 	context "while in Client Page" do
