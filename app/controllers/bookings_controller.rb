@@ -102,11 +102,17 @@ class BookingsController < ApplicationController
 	def check_booking_permit
 		permit = session[:booking_permit]
 		if permit.present?
-			@page_name = Page.find(session[:page_id]).name
-			@page_id = session[:page_id]
-			@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
-			session[:page_id] = nil
-			session[:booking_permit] = nil
+			pageID = session[:page_id]
+			page = Page.find_by_id(pageID)
+			if page
+				@page_name = page.name
+				@page_id = session[:page_id]
+				@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
+				session[:page_id] = nil
+				session[:booking_permit] = nil
+			else
+				redirect_to query_bookings_path
+			end
 		else
 			redirect_to query_bookings_path, alert: 'NOPE!'
 		end	
