@@ -32,4 +32,5 @@ module Helpers
 		click_link("Add New Client")
 		current_path.should == new_client_path
 	end
+
 end
