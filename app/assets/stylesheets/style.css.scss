@@ -133,7 +133,7 @@ li {
   color: #4AB7FF;
 }
 
-.nav-links a:hover + .nav-dropdown {
+.nav-links li:hover .nav-dropdown {
   display: block;
 }
 
