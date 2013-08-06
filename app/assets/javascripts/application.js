@@ -41,11 +41,10 @@ $(document).ready(function(){
   var modalClose = function(){
     $('.modal-cover').removeClass('active');
     $('body').removeClass('modal-lock');
-    $('.adm-midfloat-box').remove();
   }
 
   var modalBoxCloseable = function() {
-    $('.adm-midfloat-box').append('<div class="modal-close">X</div>');
+    $('.adm-modal-box').append('<div class="modal-close">X</div>');
     $('.modal-close').on('click', function(){
       modalClose();
     });
@@ -54,6 +53,32 @@ $(document).ready(function(){
   if($('.adm-directory').length) {
     $('body').append('<div class="cover modal-cover"></div>');
 
+    var dirModalFetch = function(url, className, idName) {
+      $('.alpha-list-item a').on('click', function(){
+        var id = $(this).parent().data('item-id');
+        $.ajax({
+          url: url+id+"/edit",
+          context: document.body,
+          success: function(data) {
+            var item = $(data).find(".adm-modal-box");
+            $('.modal-cover').addClass('active');
+            $('body').addClass('modal-lock');
+            $('.modal-cover').html(item);
+            className.each(function(){
+              $(this).find('.adm-button').on('click', function(){
+                modalClose();
+                var updatedName = idName.val();
+                $('.item-id-'+id).find('a').text(updatedName);
+              });
+              $(this).on('click', function(event){
+                event.stopPropagation();
+              });
+            });       
+          }
+        });
+      });      
+    }
+
     var editPage = function(){
       $('.alpha-list-item a').on('click', function(){
         var id = $(this).parent().data('item-id');
@@ -61,7 +86,7 @@ $(document).ready(function(){
           url: "/pages/"+id+"/edit",
           context: document.body,
           success: function(data) {
-            var item = $(data).find(".adm-midfloat-box");
+            var item = $(data).find(".adm-modal-box");
             $('.modal-cover').addClass('active');
             $('body').addClass('modal-lock');
             $('.modal-cover').html(item);
@@ -130,7 +155,10 @@ $(document).ready(function(){
       });
     });    
     if($('.dir-page').length) {
-      editPage();
+      var url = '/pages/';
+      var className = $('.page-info-edit');
+      var idName = $('#page_name');
+      dirModalFetch(url, className, idName);
     }
     if($('.dir-client').length) {
       editClient();
