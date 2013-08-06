@@ -149,6 +149,7 @@ describe "User" do
 			Page.last.name.should == 'yoloscrubs'
 		end
 	end
+	
 	context "while in Client Page" do
 		it "visit a new Client path" do
 			login(@user_attributes)
@@ -158,6 +159,7 @@ describe "User" do
 			click_link("Add New Client")
 			current_path.should == new_client_path
 		end
+
 		it "creates a new client" do
 			visit_client_path
 			fill_in('client_name', :with => 'Burton Snowboards')
