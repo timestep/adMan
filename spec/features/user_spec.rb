@@ -133,20 +133,26 @@ describe "User" do
 		it "visit new Page path" do
 			login(@user_attributes)
 			current_path.should == bookings_path
-			page.find('#pages').trigger(:hover)
+			# page.find('#pages').trigger(:hover)
 			# page.execute_script('$("#client").trigger("mouseenter")')
 			click_link("Add New Page")
 			current_path.should == new_page_path
 		end
 	end
 	context "while in Client Page" do
-		it "add a new Client path" do
+		it "visit a new Client path" do
 			login(@user_attributes)
 			current_path.should == bookings_path
-			page.find('#client').trigger(:hover)
+			# page.find('#client').trigger(:hover)
 			# page.execute_script('$("#client").trigger("mouseenter")')
 			click_link("Add New Client")
 			current_path.should == new_client_path
 		end
+		it "creates a new client" do
+			visit_client_path
+			fill_in('client_name', :with => 'Burton Snowboards')
+			click_button('Add Client')
+		end
+
 	end
 end
