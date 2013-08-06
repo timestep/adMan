@@ -184,5 +184,12 @@ describe "User" do
 			Client.last.name.should == 'Burton Snowboards'
 		end
 
+		it "Client modal pops up" do
+			visit_clients_path
+			click_link(@client.name)
+			page.should have_text('Client Info')
+			page.should have_css('.adm-modal-box')
+			page.should have_css('.client-info-edit')
+		end
 	end
 end

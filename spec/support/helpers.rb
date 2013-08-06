@@ -25,6 +25,14 @@ module Helpers
 		current_path.should == new_page_path
 	end
 
+	def visit_clients_path
+		@client = FactoryGirl.create(:client)
+		login(@user_attributes)
+		current_path.should == bookings_path
+		click_link("See List of Clients")
+		current_path.should == clients_path
+	end
+
 	def visit_new_client_path
 		login(@user_attributes)
 		current_path.should == bookings_path
