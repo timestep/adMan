@@ -221,7 +221,7 @@ describe "User" do
 			visit edit_client_path(@client)
 			current_path.should == edit_client_path(@client)
 			click_button('Delete')
-			current_path.should == clientss_path
+			current_path.should == clients_path
 			Client.find_by_id(@client.id).should == nil
 		end
 	end
