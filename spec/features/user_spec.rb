@@ -150,7 +150,6 @@ describe "User" do
 			current_path.should == pages_path
 		end
 
-
 		it "creates a new page" do
 			visit_new_page_path 
 			fill_in('Name', :with => 'yoloscrubs')
@@ -159,6 +158,11 @@ describe "User" do
 			current_path.should == pages_path
 			page.should have_text('yoloscrubs')
 			Page.last.name.should == 'yoloscrubs'
+		end
+
+		it "deletes a page" do
+			visit_pages_path
+			click_link(@page.name)
 		end
 	end
 	
