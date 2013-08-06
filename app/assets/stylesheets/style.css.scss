@@ -66,6 +66,11 @@ li {
   display: block;
 }
 
+.clear {
+  clear: both;
+}
+
+
 /*THE NAVIGATION*/
 .nav-header {
   position: fixed;
@@ -75,7 +80,6 @@ li {
   right: 0;
   background: rgba(0,0,0,1);
   z-index: 99999;
-  overflow: hidden;
 }
 
 .nav-header a {
