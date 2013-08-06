@@ -133,7 +133,7 @@ describe "User" do
 		it "add a new Page " do
 			login(@user_attributes)
 			current_path.should == bookings_path
-			page.find('.dir-search').trigger(:hover)
+			page.find('#pages').trigger(:hover)
 			click_link("Add New Page")
 			current_path.should == new_page_path
 		end

@@ -16,7 +16,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.before(:each) do
-   DatabaseCleaner.start
+  #  DatabaseCleaner.start
    Capybara.javascript_driver = :webkit
   end
   # ## Mock Framework
