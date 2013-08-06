@@ -160,9 +160,19 @@ describe "User" do
 			Page.last.name.should == 'yoloscrubs'
 		end
 
+		it "edits a page" do
+			visit_pages_path
+			click_link(@page.name)
+			# binding.pry
+			fill_in("Name", :with=>'chuckles')
+			click_button('Update')
+		end
+
 		it "deletes a page" do
 			visit_pages_path
 			click_link(@page.name)
+			print page.html
+			click_button('Delete')
 		end
 	end
 	
