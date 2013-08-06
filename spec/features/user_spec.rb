@@ -130,12 +130,21 @@ describe "User" do
 	end
 
 	context	"while in Page page" do
-		it "add a new Page " do
+		it "visit new Page path" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 			page.find('#pages').trigger(:hover)
 			click_link("Add New Page")
 			current_path.should == new_page_path
+		end
+	end
+	context "while in Client Page" do
+		it "add a new Client path" do
+			login(@user_attributes)
+			current_path.should == bookings_path
+			page.find('#client').trigger(:hover)
+			click_link("Add New Client")
+			current_path.should == new_client_path
 		end
 	end
 end
