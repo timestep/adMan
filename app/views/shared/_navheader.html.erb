@@ -2,8 +2,18 @@
   <ul class="nav">
     <% if current_user %>
       <li><%= link_to 'Look Up', query_bookings_path %></li>
-      <li><%= link_to "Clients", clients_path %></li>
-      <li><%= link_to "Pages", pages_path %></li>
+      <li><%= link_to "Clients", clients_path %>
+        <ul>
+          <li><%= link_to "Add New Client", new_client_path %></li>
+          <li><%= link_to "See List of Clients", clients_path %></li>
+        </ul>
+      </li>
+      <li><%= link_to "Pages", pages_path %>
+        <ul>
+          <li><%= link_to "Add New Page", new_page_path %></li>
+          <li><%= link_to "See List of Pages", pages_path %></li>
+        </ul>
+      </li>
       <li><%= link_to "Log Out", logout_path %></li>
     <% end %>
   </ul>
