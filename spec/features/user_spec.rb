@@ -134,6 +134,7 @@ describe "User" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 			page.find('#pages').trigger(:hover)
+			# page.execute_script('$("#client").trigger("mouseenter")')
 			click_link("Add New Page")
 			current_path.should == new_page_path
 		end
@@ -143,6 +144,7 @@ describe "User" do
 			login(@user_attributes)
 			current_path.should == bookings_path
 			page.find('#client').trigger(:hover)
+			# page.execute_script('$("#client").trigger("mouseenter")')
 			click_link("Add New Client")
 			current_path.should == new_client_path
 		end
