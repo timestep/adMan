@@ -109,15 +109,15 @@ describe "User" do
 			current_path.should == query_bookings_path
 		end
 
-		it 'can query for an existing date and be redirected to query again' do
+		it 'can query for an existing date and be redirected to booking page' do
 			booking = FactoryGirl.create(:booking)
 			login(@user_attributes)
 			click_link("Look Up")
 			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
-			select(booking.pages.name, :from => "query_page_id")
+			pageName = booking.pages.first.name
+			select(pageName, :from => "query_page_id")
 			click_button("Search")
 			current_path.should == booking_path(booking.id)
-			page.should have.text(booking.pages.name)
 		end
 	end	
 	context	"while query page and successfully queried" do
