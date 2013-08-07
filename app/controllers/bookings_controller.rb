@@ -26,6 +26,12 @@ class BookingsController < ApplicationController
  		end
  	end
 
+ 	def day
+ 		date = DateTime.strptime(params[:date], "%d-%m-%Y")
+ 		# binding.pry
+ 		@booking = Booking.find_by_date(date)
+ 	end
+
  	def new
  		@booking = Booking.new	# don't render the page if date or page_id is missing
  	end
@@ -39,18 +45,18 @@ class BookingsController < ApplicationController
  			# needs to be fixed, notice does not display
  			# if on the bookings page, user tries to book without entering a client
  		else
- 		@booking.date = DateTime.strptime(
-			params[:booking][:date], "%m/%d/%Y")
+	 		@booking.date = DateTime.strptime(
+				params[:booking][:date], "%m/%d/%Y")
 
- 		@booking.pages << Page.find(params[:booking][:page_id]) 
+	 		@booking.pages << Page.find(params[:booking][:page_id]) 
 
-		if @booking.save
-			NewBooking.new_booking(@user,@booking).deliver
-			redirect_to @booking, notice: "Booked~!"
-		else
-			render :new
+			if @booking.save
+				NewBooking.new_booking(@user,@booking).deliver
+				redirect_to @booking, notice: "Booked~!"
+			else
+				render :new
+			end
 		end
-	end
  	end
 
  	def update
@@ -67,10 +73,7 @@ class BookingsController < ApplicationController
 	def search
 		date = params["date-picker"]
 		page_id = params["query"]["page_id"].last
-		
-		# page_id = params["query"]["page_id"].map { |element| element.to_i }
-		# page_id.delete(0)
-
+				
 		if page_id == 0
 			flash.now.alert = "Please Pick A Page!"
 			render :query

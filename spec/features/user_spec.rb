@@ -117,6 +117,12 @@ describe "User" do
 			click_button("Search")
 			current_path.should == booking_path(booking.id)
 		end
+
+		it 'can select a date on the calendar' do
+			booking = FactoryGirl.create(:booking)
+			login(@user_attributes)
+			click(booking.date.day.to_i)
+		end
 	end	
 	context	"while query page and successfully queried" do
 		it 'add a booking' do
@@ -248,6 +254,20 @@ describe "User" do
 			current_path.should == bookings_path
 			#currently failing because we need to add dependent destroy
 			page.status_code.should == 200
+			Booking.find_by_id(booking).should == nil
 		end
 	end
+
+	context "while on Day Page" do
+		it 'visit booking day page' do
+			visit_day_booking
+		end
+
+		it 'visit booking day page and checks for content' do
+			visit_day_booking
+			page.should have_text(@booking.client.name)
+		end
+	end
+
+
 end

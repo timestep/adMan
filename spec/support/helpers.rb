@@ -58,4 +58,12 @@ module Helpers
 		current_path.should == pages_path
 		Page.find_by_id(@page.id).should == nil
 	end
+
+	def visit_day_booking
+		@booking = FactoryGirl.create(:booking)
+		login(@user_attributes)
+		visit day_bookings_path("#{@booking.date.strftime('%d-%m-%Y')}")
+		page.status_code.should == 200
+		current_path.should == day_bookings_path("#{@booking.date.strftime('%d-%m-%Y')}")
+	end
 end
