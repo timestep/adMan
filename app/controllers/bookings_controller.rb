@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
  	end
 
  	def day
- 		
+ 		@booking = Booking.find_by_date(params[:date])
  	end
 
  	def new
@@ -71,10 +71,7 @@ class BookingsController < ApplicationController
 	def search
 		date = params["date-picker"]
 		page_id = params["query"]["page_id"].last
-		
-		# page_id = params["query"]["page_id"].map { |element| element.to_i }
-		# page_id.delete(0)
-
+				
 		if page_id == 0
 			flash.now.alert = "Please Pick A Page!"
 			render :query

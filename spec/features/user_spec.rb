@@ -256,6 +256,14 @@ describe "User" do
 			page.status_code.should == 200
 			Booking.find_by_id(booking).should == nil
 		end
+	end
 
+	context "while on Day Page" do
+		it 'visit booking day page' do
+			booking = FactoryGirl.create(:booking)
+			login(@user_attributes)
+			visit day_bookings_path(booking.date)
+			page.status_code.should == 200
+		end
 	end
 end
