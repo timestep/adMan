@@ -218,5 +218,36 @@ describe "User" do
 			Client.last.name.should == 'Burton Snowboards'
 		end
 
+		it "edits a client" do
+			visit_clients_path
+			visit edit_client_path(@client)
+			current_path.should == edit_client_path(@client)
+			fill_in("Name", :with=>'Second Cupboard')
+			click_button('Update')
+			current_path.should == client_path(@client)
+			Client.find_by_id(@client.id).name.should == 'Second Cupboard'
+		end
+
+		it "deletes a client" do
+			visit_clients_path
+			visit edit_client_path(@client)
+			current_path.should == edit_client_path(@client)
+			click_button('Delete')
+			current_path.should == clients_path
+			Client.find_by_id(@client.id).should == nil
+		end
+		
+		it 'deletes a client and verifies booking is also deleted' do
+			booking = FactoryGirl.create(:booking)
+			login(@user_attributes)
+			visit edit_client_path(booking.client)
+			current_path.should == edit_client_path(booking.client)
+			click_button('Delete')
+			current_path.should == clients_path
+			visit bookings_path
+			current_path.should == bookings_path
+			#currently failing because we need to add dependent destroy
+			page.status_code.should == 200
+		end
 	end
 end
