@@ -18,11 +18,11 @@
     'Friday', 
     'Saturday')%>
   <%= calendar.day(:day_method => :date) do |date, bookings| %>
-  <div class="calendar-day" data-day="<%= date.day %>">
+  <div class="calendar-day" data-day="<%= date.day %>" data-month="<%= date.month %>" data-year="<%= date.year %>">
     <%= date.day %>
     <ul>
       <% for booking in bookings %>
-      <li><%= link_to h(booking.client.name), booking %></li>
+      <div><li><%= link_to h(booking.client.name), booking %></li></div>
       <% end %>
     </ul>
   </div>

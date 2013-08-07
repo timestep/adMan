@@ -132,24 +132,44 @@ $(document).ready(function(){
   if($('.calendar').length){
     $(this).disableSelection();
     $('td').on('dblclick', function(){
-      var id = $(this).find('.calendar-day').data('day');
-        if(id < 10){ 
-          var id = '0'+id;
-          console.log(id);
+      var dateDay = $(this).find('.calendar-day').data('day');
+        if(dateDay < 10){ 
+          var dateDay = '0'+dateDay;
+          console.log(dateDay);
         }
         else{
-        console.log(id);
+        console.log(dateDay);
         }
-      $.ajax({
-        url: "/bookings/day/"+id+"-08-2013",
-        context: document.body,
-        success: function(data) {
-        console.log("success");
-        console.log(data);
-        var item = $(data).find(".main-container");
-         $('.modal-cover').addClass('active');
-        }     
-      });
+      var dateMonth = $(this).find('.calendar-day').data('month');
+        if(dateMonth < 10){
+          var dateMonth = '0'+dateMonth;
+          console.log(dateMonth);
+        }
+        else{
+          console.log(dateMonth)
+        }
+      var dateYear = $(this).find('.calendar-day').data('year');
+        if (dateYear < 10){
+          var dateYear = '0'+dateYear;
+          console.log(dateYear);
+        }
+        else {
+          console.log(dateYear);          
+        }
+      document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
+      // });
+
+      // $.ajax({
+      //   url: "/bookings/day/08-"+id+"-2013",
+      //   context: document.body,
+      //   success: function(data) {
+      //   console.log("success");
+      //   console.log(data);
+      //   var item = $(data).find(".test");
+      //    $('.modal-cover').addClass('active');
+      //    $('.main-container').html(item);
+      //   }     
+      // });
     });
   }
 
