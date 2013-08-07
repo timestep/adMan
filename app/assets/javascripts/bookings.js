@@ -146,6 +146,8 @@ $(document).ready(function(){
         success: function(data) {
         console.log("success");
         console.log(data);
+        var item = $(data).find(".main-container");
+         $('.modal-cover').addClass('active');
         }     
       });
     });

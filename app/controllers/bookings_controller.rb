@@ -27,9 +27,8 @@ class BookingsController < ApplicationController
  	end
 
  	def day
- 		date = DateTime.strptime(params[:date], "%d-%m-%Y")
- 		# binding.pry
- 		@booking = Booking.find_by_date(date)
+ 		date = params[:date].gsub('-', '/')
+ 		@bookings = Booking.search_day(date)
  	end
 
  	def new
