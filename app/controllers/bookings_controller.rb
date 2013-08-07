@@ -31,6 +31,13 @@ class BookingsController < ApplicationController
  		@bookings = Booking.search_day(date)
  	end
 
+ 	def week
+ 		date = params[:week]
+ 		date = DateTime.strptime(date, "%m-%d-%Y")
+ 		@bookings = Booking.by_week(date)
+ 		binding.pry
+ 	end
+
  	def new
  		@booking = Booking.new	# don't render the page if date or page_id is missing
  	end

@@ -19,6 +19,7 @@ AdMan::Application.routes.draw do
       get :query
       post :search
       get 'day/:date', to: 'bookings#day', :as => 'day'
+      get 'week/:week', to: 'bookings#week', :as => 'week'
     end
   end
 
