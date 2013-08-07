@@ -27,7 +27,9 @@ class BookingsController < ApplicationController
  	end
 
  	def day
- 		@booking = Booking.find_by_date(params[:date])
+ 		date = DateTime.strptime(params[:date], "%d-%m-%Y")
+ 		# binding.pry
+ 		@booking = Booking.find_by_date(date)
  	end
 
  	def new
@@ -43,18 +45,18 @@ class BookingsController < ApplicationController
  			# needs to be fixed, notice does not display
  			# if on the bookings page, user tries to book without entering a client
  		else
- 		@booking.date = DateTime.strptime(
-			params[:booking][:date], "%m/%d/%Y")
+	 		@booking.date = DateTime.strptime(
+				params[:booking][:date], "%m/%d/%Y")
 
- 		@booking.pages << Page.find(params[:booking][:page_id]) 
+	 		@booking.pages << Page.find(params[:booking][:page_id]) 
 
-		if @booking.save
-			NewBooking.new_booking(@user,@booking).deliver
-			redirect_to @booking, notice: "Booked~!"
-		else
-			render :new
+			if @booking.save
+				NewBooking.new_booking(@user,@booking).deliver
+				redirect_to @booking, notice: "Booked~!"
+			else
+				render :new
+			end
 		end
-	end
  	end
 
  	def update

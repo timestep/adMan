@@ -260,10 +260,14 @@ describe "User" do
 
 	context "while on Day Page" do
 		it 'visit booking day page' do
-			booking = FactoryGirl.create(:booking)
-			login(@user_attributes)
-			visit day_bookings_path(booking.date)
-			page.status_code.should == 200
+			visit_day_booking
+		end
+
+		it 'visit booking day page and checks for content' do
+			visit_day_booking
+			page.should have_text(@booking.client.name)
 		end
 	end
+
+
 end
