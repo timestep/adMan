@@ -54,6 +54,7 @@ group :development, :test do
 	gem 'pry-debugger'
 	# gem "spork-rails"
 	gem 'railroady'
+  gem 'launchy'
 end
 
 group :development do
