@@ -26,6 +26,10 @@ class BookingsController < ApplicationController
  		end
  	end
 
+ 	def day
+ 		
+ 	end
+
  	def new
  		@booking = Booking.new	# don't render the page if date or page_id is missing
  	end

@@ -18,6 +18,7 @@ AdMan::Application.routes.draw do
     collection do
       get :query
       post :search
+      get :day
     end
   end
 
