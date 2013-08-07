@@ -133,9 +133,33 @@ $(document).ready(function(){
     $(this).disableSelection();
     $('td').on('dblclick', function(){
       var id = $(this).find('.calendar-day').data('day');
-      console.log(id);
+        if(id < 10){ 
+          var id = '0'+id;
+          console.log(id);
+        }
+        else{
+        console.log(id);
+        }
+      $.ajax({
+        url: "/bookings/day/"+id+"-08-2013",
+        context: document.body,
+        success: function(data) {
+        console.log("success");
+        console.log(data);
+        }     
+      });
     });
   }
+
+
+
+
+
+
+
+
+
+
 
 
 });
