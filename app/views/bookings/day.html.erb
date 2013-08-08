@@ -3,29 +3,33 @@
     <span class="weekday-name"><%= @weekday_name.upcase %></span>
     <span class="month-name-w-date"><%= @month_name_with_date %></span>
   </div>
-  <% @bookings.each do |b| %>
-    <div class="booking-list-item">
-      Client Name: <%= b.client.name %>
-      <br>
-      Product: <%= b.product %>
-      <br>
-      Contract #: <%= b.contract_num %>
-      <br>
+  <div class="booking-list-wrapper">
+    <div class="booking-list-item-container">
+      <% @bookings.each do |b| %>
+        <div class="booking-list-item">
+          Client Name: <%= b.client.name %>
+          <br>
+          Product: <%= b.product %>
+          <br>
+          Contract #: <%= b.contract_num %>
+          <br>
 
-      Pages: 
-      <% if b.pages.length < 5 %>
-        <% b.pages do |p| %>
-          <span class="adm-tag"><%= p.name %></span>
-        <% end %>
-      <% else %>
-        <% 5.times do |i| %>
-          <span class="adm-tag"><%= b.pages[i].name %></span>
-        <% end %>
-        <% if b.pages.length > 5 %>
-          <span>...</span>
-        <% end %>
+          Pages:
+          <br> 
+          <% if b.pages.length < 5 %>
+            <% b.pages do |p| %>
+              <span class="adm-tag"><%= p.name %></span>
+            <% end %>
+          <% else %>
+            <% 5.times do |i| %>
+              <span class="adm-tag"><%= b.pages[i].name %></span>
+            <% end %>
+            <% if b.pages.length > 5 %>
+              <span>...</span>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
-  <% end %>
-
+  </div>
 </div>
