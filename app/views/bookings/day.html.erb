@@ -1,8 +1,16 @@
 <div class="test">
 <% @bookings.each do |b| %>
-<%= b.client.name %>
-<% b.pages.each do |p| %>
+Client Name: <%= b.client.name %>
+<br>
+Product: <%= b.product %>
+<br>
+Contract #: <%= b.contract_num %>
+<br>
+
+Pages: <% b.pages.each do |p| %>
   <%= p.name %>,
-  <%end %>
+  <% end %>
+<br>
+<hr>
   <% end %>
 </div>
