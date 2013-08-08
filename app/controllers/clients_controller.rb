@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
 	end
 
 	def create
-    binding.pry
+    # binding.pry
     client_params.each do |c|
       @client = Client.new(c)
     end

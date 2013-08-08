@@ -60,8 +60,9 @@ class BookingsController < ApplicationController
  	def update
  		@booking = Booking.find(params[:id])
  		
- 		if @product.update_attributes(bookings_params)
-     	flash.now.notice = "Edited!" 
+ 		if @booking.update_attributes(bookings_params)
+      flash.now.notice = "Edited!" 
+    	redirect_to booking_path(@booking)
     else
     	flash.now.alert = 'Not valid ?!'
       render :edit 
