@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :page do
-    slug Faker::Internet.domain_name
-    name Faker::Name.name
+    slug {Faker::Internet.domain_name}
+    name {Faker::Name.name}
   end
 end

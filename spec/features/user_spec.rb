@@ -128,6 +128,7 @@ describe "User" do
 			booking = FactoryGirl.create(:booking)
 			client = FactoryGirl.create(:client)
 			login(@user_attributes)
+			binding.pry
 			visit edit_booking_path(booking)
 			current_path.should == edit_booking_path(booking.id)
 			page.status_code.should == 200
