@@ -1,35 +1,38 @@
 <%= render "shared/alertnotice" %>
-<br>
-<br>
 
-<div class="calendar">
-  <h2 class="month">
-    <%= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
-    <%= h @date.strftime('%B %Y')%>
-    <%= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
-  </h2>
-<%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
-  <%= calendar.head(
-    'Sunday',
-    'Monday', 
-    'Tuesday', 
-    'Wednesday', 
-    'Thursday', 
-    'Friday', 
-    'Saturday')%>
-  <%= calendar.day(:day_method => :date) do |date, bookings| %>
-  <div class="calendar-day" data-day="<%= date.day %>" data-month="<%= date.month %>" data-year="<%= date.year %>">
-    <%= date.day %>
-    <ul>
-      <% for booking in bookings %>
-      <div><li><%= link_to h(booking.client.name), booking %></li></div>
+<div class="adm-calendar-container">
+  <div class="calendar">
+    <h2 class="month">
+      <%= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
+      <%= h @date.strftime('%B %Y')%>
+      <%= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
+    </h2>
+    <%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
+      <%= calendar.head(
+        'Sunday',
+        'Monday', 
+        'Tuesday', 
+        'Wednesday', 
+        'Thursday', 
+        'Friday', 
+        'Saturday')%>
+      <%= calendar.day(:day_method => :date) do |date, bookings| %>
+        <div class="calendar-day" data-day="<%= date.day %>" data-month="<%= date.month %>" data-year="<%= date.year %>">
+        <%= date.day %>
+          <ul>
+            <% for booking in bookings %>
+              <div><li><%= link_to h(booking.client.name), booking %></li></div>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </ul>
-  </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
-
+<div class="adm-sidekick">
+  <div class="sidekick-content">
+  </div>
+</div>
 
 
 

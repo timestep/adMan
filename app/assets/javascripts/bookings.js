@@ -130,8 +130,8 @@ $(document).ready(function(){
   };
 
   if($('.calendar').length){
-    $(this).disableSelection();
-    $('td').on('dblclick', function(){
+    $(document).disableSelection();
+    $('.calendar').find('td').on('click', function(){
       var dateDay = $(this).find('.calendar-day').data('day');
         if(dateDay < 10){ 
           var dateDay = '0'+dateDay;
@@ -150,31 +150,50 @@ $(document).ready(function(){
         }
       var dateYear = $(this).find('.calendar-day').data('year');
         if (dateYear < 10){
-          var dateYear = '0'+dateYear;
+          var dateYear = '000'+dateYear;
           console.log(dateYear);
         }
         else {
           console.log(dateYear);          
         }
-      document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
+        bkListSlideIn();
+      // document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
       // });
 
-      // $.ajax({
-      //   url: "/bookings/day/08-"+id+"-2013",
-      //   context: document.body,
-      //   success: function(data) {
-      //   console.log("success");
-      //   console.log(data);
-      //   var item = $(data).find(".test");
-      //    $('.modal-cover').addClass('active');
-      //    $('.main-container').html(item);
-      //   }     
-      // });
+      $.ajax({
+        url: "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear,
+        context: document.body,
+        success: function(data) {
+        console.log("success");
+        console.log(data);
+        var item = $(data).find(".single-day-booking-info");
+         $('.sidekick-content').html(item);
+        $('.date-header').on('click', '.sidekick-content', function(){
+          // $('.date-header').on('click', function(){
+          bkListSlideOut();
+        
+        // $('.main-container').on('click', function(event){
+        //   bkListSlideOut();
+        //   event.stopPropagation();
+        });
+        }     
+      });
     });
   }
 
 
 
+  var bkListSlideOut = function(){
+    $('.container').removeClass('adm-slideout');
+    // $('.calendar').addClass('adm-cal-move')
+    console.log('slide out');
+  }
+  
+
+  var bkListSlideIn = function(){
+    $('.container').addClass('adm-slideout');
+    console.log('slide in');
+  }
 
 
 

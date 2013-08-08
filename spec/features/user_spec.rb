@@ -121,6 +121,7 @@ describe "User" do
 		it 'can select a date on the calendar' do
 			booking = FactoryGirl.create(:booking)
 			login(@user_attributes)
+			binding.pry
 			click(booking.date.day.to_i)
 		end
 	end	

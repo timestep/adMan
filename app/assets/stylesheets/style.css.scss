@@ -62,8 +62,9 @@ li {
   display: none;
 }
 
+.active,
 .cover.modal-cover.active {
-  display: block;
+  display: block !important;
 }
 
 .clear {
@@ -478,3 +479,95 @@ table {
 
 }
 
+.container .adm-calendar-container {
+  transition: all 0.25s ease;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  padding: 40px;
+}
+
+.container.adm-slideout .adm-calendar-container {
+  right: 420px;
+}
+
+
+/* THE SIDEKICK */
+.adm-sidekick{
+  background-color: white;
+  width: 420px;
+  position: fixed;
+  right: -420px;
+  top: 50px;
+  bottom: 0;
+  border-left: 1px solid #ddd;
+  transition: all 0.25s ease;
+}
+
+.container.adm-slideout .adm-sidekick {
+  right: 0;
+}
+
+.sidekick-content{
+  padding: 20px;
+}
+
+
+/* SINGLE DAY BOOKING */
+.date-header .weekday-name{
+  font-size: 3em;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.date-header .month-name-w-date{
+  font-size: 1em;
+  display: block;
+  text-align: center;
+  line-height: 1em;
+}
+
+.date-header {
+  padding: 20px 20px 20px;
+  width: 380px;
+  top: 0px;
+  right: 0px;
+  background-color: white;
+  position: absolute;
+  border-bottom: 1px solid #ddd;
+}
+
+.booking-list-item{
+  border: 1px solid #dedede;
+  box-shadow: 0 3px 0 #2584EB;
+  color: #777;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+.booking-list-item-container {
+  padding: 20px;
+}
+
+.booking-list-wrapper{
+  overflow-y: auto;
+  position: absolute;
+  top: 97px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+}
+
+/* THE TAGS */
+.adm-tag{
+  display: inline-block;
+  background-color: #eee;
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin: 0 0 5px 0;
+}
