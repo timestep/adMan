@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
  			# if on the bookings page, user tries to book without entering a client
  		else
 	 		@booking.date = DateTime.strptime(
-				params[:booking][:date], "%m/%d/%Y")
+	 			params[:booking][:date],"%m/%d/%Y")
 
 	 		@booking.pages << Page.find(params[:booking][:page_id]) 
 
@@ -54,9 +54,11 @@ class BookingsController < ApplicationController
  	end
 
  	def edit
+ 		@booking = Booking.find(params[:id])
  	end
  	
  	def update
+
  	end
 
 	def show
