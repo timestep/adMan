@@ -130,8 +130,8 @@ $(document).ready(function(){
   };
 
   if($('.calendar').length){
-    $(this).disableSelection();
-    $('td').on('dblclick', function(){
+    $(document).disableSelection();
+    $('.calendar').find('td').on('click', function(){
       var dateDay = $(this).find('.calendar-day').data('day');
         if(dateDay < 10){ 
           var dateDay = '0'+dateDay;
@@ -156,8 +156,7 @@ $(document).ready(function(){
         else {
           console.log(dateYear);          
         }
-
-        bkListSlideOut();
+        bkListSlideIn();
       // document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
       // });
 
@@ -169,19 +168,30 @@ $(document).ready(function(){
         console.log(data);
         var item = $(data).find(".single-day-booking-info");
          $('.sidekick-content').html(item);
+        $('.date-header').on('click', '.sidekick-content', function(){
+          // $('.date-header').on('click', function(){
+          bkListSlideOut();
+        
+        // $('.main-container').on('click', function(event){
+        //   bkListSlideOut();
+        //   event.stopPropagation();
+        });
         }     
       });
     });
   }
 
+
+
   var bkListSlideOut = function(){
-    $('.container').addClass('adm-slideout');
+    $('.container').removeClass('adm-slideout');
     // $('.calendar').addClass('adm-cal-move')
     console.log('slide out');
   }
   
 
   var bkListSlideIn = function(){
+    $('.container').addClass('adm-slideout');
     console.log('slide in');
   }
 
