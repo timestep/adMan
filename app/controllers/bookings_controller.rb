@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
  	end
 
  	def day
+		@date_name = Booking.return_date_name(params[:date])
  		date = params[:date].gsub('-', '/')
  		@bookings = Booking.search_day(date)
  	end

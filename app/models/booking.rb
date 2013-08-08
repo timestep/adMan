@@ -43,6 +43,17 @@ class Booking < ActiveRecord::Base
     end
   end  
 
+  def self.return_date_name(value)
+    date_name = DateTime.strptime(value, "%m-%d-%Y")
+    result = date_name.strftime('%b %d %Y')
+    if result.empty?
+      return nil
+    else
+      return result
+    end
+  end
+
+
   # Returns bookings in the week of the date provided
   def self.by_week(date)
     where("EXTRACT(WEEK FROM date) = #{date.cweek}")
