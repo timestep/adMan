@@ -62,8 +62,9 @@ li {
   display: none;
 }
 
+.active,
 .cover.modal-cover.active {
-  display: block;
+  display: block !important;
 }
 
 .clear {
@@ -481,5 +482,20 @@ table {
 
 
 /* THE SIDEKICK */
+.adm-sidekick {
+  background-color: white;
+  width: 420px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid black;
+  display: none;
+}
 
-
+.adm-cal-move{
+  top: 60px;
+  left: 0;
+  right: 420px;
+  position: fixed;
+}

@@ -176,6 +176,8 @@ $(document).ready(function(){
   }
 
   var bkListSlideOut = function(){
+    $('.adm-sidekick').addClass('active');
+    $('.calendar').addClass('adm-cal-move')
     console.log('slide out');
   }
   
