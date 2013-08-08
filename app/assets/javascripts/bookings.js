@@ -156,7 +156,9 @@ $(document).ready(function(){
         else {
           console.log(dateYear);          
         }
-      document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
+
+        bkListSlideOut();
+      // document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
       // });
 
       // $.ajax({
@@ -174,11 +176,12 @@ $(document).ready(function(){
   }
 
   var bkListSlideOut = function(){
-
+    console.log('slide out');
   }
+  
 
   var bkListSlideIn = function(){
-
+    console.log('slide in');
   }
 
 
