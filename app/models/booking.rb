@@ -43,9 +43,9 @@ class Booking < ActiveRecord::Base
     end
   end  
 
-  def self.return_date_name(value)
-    date_name = DateTime.strptime(value, "%m-%d-%Y")
-    result = date_name.strftime('%b %d %Y')
+  def self.return_month_name(value)
+    month_name = DateTime.strptime(value, "%m-%d-%Y")
+    result = month_name.strftime('%b %d %Y')
     if result.empty?
       return nil
     else
@@ -53,6 +53,15 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def self.return_weekday_name(value)
+    weekday_name = DateTime.strptime(value, "%m-%d-%Y")
+    result = weekday_name.strftime('%a')
+    if result.empty?
+      return nil
+    else
+      return result
+    end
+  end
 
   # Returns bookings in the week of the date provided
   def self.by_week(date)
