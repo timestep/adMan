@@ -58,7 +58,14 @@ class BookingsController < ApplicationController
  	end
  	
  	def update
-
+ 		@booking = Booking.find(params[:id])
+ 		
+ 		if @product.update_attributes(bookings_params)
+     	flash.now.notice = "Edited!" 
+    else
+    	flash.now.alert = 'Not valid ?!'
+      render :edit 
+    end
  	end
 
 	def show
