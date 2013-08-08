@@ -513,3 +513,24 @@ table {
 .sidekick-content{
   padding: 20px;
 }
+
+
+/* SINGLE DAY BOOKING */
+.date-header .weekday-name{
+  font-size: 3em;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.date-header .month-name-w-date{
+  font-size: 1em;
+  display: block;
+  text-align: center;
+  line-height: 1em;
+}
+
+.date-header {
+  padding: 0 20px 20px;
+}

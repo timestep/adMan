@@ -1,21 +1,22 @@
-<div class="test">
-  <%= @weekday_name.upcase %>
+<div class="single-day-booking-info">
+  <div class="date-header">
+    <span class="weekday-name"><%= @weekday_name.upcase %></span>
+    <span class="month-name-w-date"><%= @month_name_with_date %></span>
+  </div>
+  
+  <% @bookings.each do |b| %>
+  Client Name: <%= b.client.name %>
   <br>
-  <%= @month_name_with_date %>
+  Product: <%= b.product %>
+  <br>
+  Contract #: <%= b.contract_num %>
+  <br>
+
+  Pages: <% b.pages.each do |p| %>
+    <%= p.name %>,
+    <% end %>
+  <br>
   <hr>
-
-<% @bookings.each do |b| %>
-Client Name: <%= b.client.name %>
-<br>
-Product: <%= b.product %>
-<br>
-Contract #: <%= b.contract_num %>
-<br>
-
-Pages: <% b.pages.each do |p| %>
-  <%= p.name %>,
-  <% end %>
-<br>
-<hr>
-  <% end %>
+    <% end %>
+    
 </div>

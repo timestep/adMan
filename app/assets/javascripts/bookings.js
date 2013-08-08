@@ -167,7 +167,7 @@ $(document).ready(function(){
         success: function(data) {
         console.log("success");
         console.log(data);
-        var item = $(data).find(".test");
+        var item = $(data).find(".single-day-booking-info");
          $('.sidekick-content').html(item);
         }     
       });
