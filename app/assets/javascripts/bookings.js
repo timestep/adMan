@@ -161,6 +161,16 @@ $(document).ready(function(){
       // document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
       // });
 
+      $.ajax({
+        url: "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear,
+        context: document.body,
+        success: function(data) {
+        console.log("success");
+        console.log(data);
+        var item = $(data).find(".test");
+         $('.sidekick-content').html(item);
+        }     
+      });
     });
   }
 

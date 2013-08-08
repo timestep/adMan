@@ -500,7 +500,7 @@ table {
   width: 420px;
   position: fixed;
   right: -420px;
-  top: 0;
+  top: 50px;
   bottom: 0;
   border-left: 1px solid black;
   transition: all 0.25s ease;
@@ -508,4 +508,8 @@ table {
 
 .container.adm-slideout .adm-sidekick {
   right: 0;
+}
+
+.sidekick-content{
+  padding: 20px;
 }
