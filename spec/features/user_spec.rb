@@ -102,7 +102,6 @@ describe "User" do
 			login(@user_attributes)
 			click_link("Look Up")
 			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
-
 			click_button("Search")
 			current_path.should == query_bookings_path
 		end
@@ -128,7 +127,6 @@ describe "User" do
 			booking = FactoryGirl.create(:booking)
 			client = FactoryGirl.create(:client)
 			login(@user_attributes)
-			binding.pry
 			visit edit_booking_path(booking)
 			current_path.should == edit_booking_path(booking.id)
 			page.status_code.should == 200
