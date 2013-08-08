@@ -150,7 +150,7 @@ $(document).ready(function(){
         }
       var dateYear = $(this).find('.calendar-day').data('year');
         if (dateYear < 10){
-          var dateYear = '0'+dateYear;
+          var dateYear = '000'+dateYear;
           console.log(dateYear);
         }
         else {
@@ -173,8 +173,13 @@ $(document).ready(function(){
     });
   }
 
+  var bkListSlideOut = function(){
 
+  }
 
+  var bkListSlideIn = function(){
+
+  }
 
 
 
