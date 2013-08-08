@@ -161,23 +161,12 @@ $(document).ready(function(){
       // document.location.href = "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear;
       // });
 
-      // $.ajax({
-      //   url: "/bookings/day/08-"+id+"-2013",
-      //   context: document.body,
-      //   success: function(data) {
-      //   console.log("success");
-      //   console.log(data);
-      //   var item = $(data).find(".test");
-      //    $('.modal-cover').addClass('active');
-      //    $('.main-container').html(item);
-      //   }     
-      // });
     });
   }
 
   var bkListSlideOut = function(){
-    $('.adm-sidekick').addClass('active');
-    $('.calendar').addClass('adm-cal-move')
+    $('.container').addClass('adm-slideout');
+    // $('.calendar').addClass('adm-cal-move')
     console.log('slide out');
   }
   

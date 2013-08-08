@@ -479,23 +479,33 @@ table {
 
 }
 
+.container .adm-calendar-container {
+  transition: all 0.25s ease;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  padding: 40px;
+}
+
+.container.adm-slideout .adm-calendar-container {
+  right: 420px;
+}
 
 
 /* THE SIDEKICK */
-.adm-sidekick {
+.adm-sidekick{
   background-color: white;
   width: 420px;
   position: fixed;
-  right: 0;
+  right: -420px;
   top: 0;
   bottom: 0;
   border-left: 1px solid black;
-  display: none;
+  transition: all 0.25s ease;
 }
 
-.adm-cal-move{
-  top: 60px;
-  left: 0;
-  right: 420px;
-  position: fixed;
+.container.adm-slideout .adm-sidekick {
+  right: 0;
 }
