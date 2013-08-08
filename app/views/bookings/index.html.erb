@@ -3,9 +3,11 @@
 <div class="adm-calendar-container">
   <div class="calendar">
     <h2 class="month">
-      <%= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
+      <%#= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
+      <div class="adm-arrow cal-back"><</div>
       <%= h @date.strftime('%B %Y')%>
-      <%= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
+      <%#= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
+      <div class="adm-arrow cal-back">></div>
     </h2>
     <%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
       <%= calendar.head(
@@ -31,6 +33,7 @@
 </div>
 <div class="adm-sidekick">
   <div class="sidekick-content">
+  
   </div>
 </div>
 
