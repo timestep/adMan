@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
 		if current_user
 	    @bookings = Booking.all.reverse
 	    @date = params[:month] ? Date.strptime(params[:month], "%Y-%m") : Date.today
-
  		else
  			redirect_to new_session_path
  		end
@@ -23,20 +22,8 @@ class BookingsController < ApplicationController
  		date = params[:week]
  		date = DateTime.strptime(date, "%m-%d-%Y")
  		@bookings = Booking.by_week(date)
-
- 			    # @date = Date.today
-
-	    # @booking_week_day = 
-	    # 	@bookings.group_by do |booking|
-	    # 		booking.date.wday
-	    # 	end
-
-	    @booking_by_week_day = @bookings
+    @booking_by_week_day = @bookings
 	    											.group_by{ |booking| booking.date.wday }
-
-	    # render :text => @booking_week_day.to_yaml and return
- 			# @booking_by_week_day = @booking_week_day.sort{ |x, y| x<=>y }
-
  	end
 
  	def new
@@ -44,8 +31,6 @@ class BookingsController < ApplicationController
  	end
 
  	def create
- 		# binding.pry
-
  		@booking = @user.bookings.build(bookings_params)
  		if @booking.client_id == nil
  			render :query, notice: "Gotta enter a client!"
@@ -65,6 +50,10 @@ class BookingsController < ApplicationController
 			end
 		end
  	end
+
+ 	def edit
+ 	end
+ 	
 
  	def update
  	end
