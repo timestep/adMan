@@ -134,19 +134,12 @@ $(document).ready(function(){
 
 
 /// vvvvvvvvv WILL NEED TO REFACTOR THIS INTO ONE FUNCTION!!! vvvvvvvvv ////
-    $('.adm-arrow.cal-back').on('click', function(){
+    $('.adm-calendar-container').on('click', '.adm-arrow.cal-back', function(){
       var dateMonth = $(this).data('month');
       var dateYear = $(this).data('year');
       console.log(dateMonth);
       console.log(dateYear);
-      
-    });
 
-    $('.adm-calendar-container').on('click', '.adm-arrow.cal-forward', function(){
-      var dateMonth = $(this).data('month');
-      var dateYear = $(this).data('year');
-      console.log(dateMonth);
-      console.log(dateYear);
       $.ajax({
         url: "/bookings?month="+dateYear+"-"+dateMonth,
         success: function(data) {
@@ -155,8 +148,27 @@ $(document).ready(function(){
           var item = $(data).find(".calendar");
           $('.adm-calendar-container').html(item);
         }
-
       });
+
+    });
+
+
+    $('.adm-calendar-container').on('click', '.adm-arrow.cal-forward', function(){
+      var dateMonth = $(this).data('month');
+      var dateYear = $(this).data('year');
+      console.log(dateMonth);
+      console.log(dateYear);
+
+      $.ajax({
+        url: "/bookings?month="+dateYear+"-"+dateMonth,
+        success: function(data) {
+          console.log(url);
+          console.log(data);
+          var item = $(data).find(".calendar");
+          $('.adm-calendar-container').html(item);
+        }
+      });
+
     });
 /// ^^^^^^^   WILL NEED TO REFACTOR THIS INTO ONE FUNCTION!!! ^^^^^^  ////
 
@@ -207,12 +219,6 @@ $(document).ready(function(){
         });
         }     
       });
-
-
-      $('.adm-arrow.cal-back').on('click', function(){
-        var dateDay = $(this).find('.calendar-day').data('day')
-      });
-
 
 
     });
