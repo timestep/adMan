@@ -102,7 +102,6 @@ describe "User" do
 			login(@user_attributes)
 			click_link("Look Up")
 			fill_in('date-picker', :with => booking.date.strftime("%m/%d/%Y"))
-
 			click_button("Search")
 			current_path.should == query_bookings_path
 		end
@@ -121,10 +120,23 @@ describe "User" do
 		it 'can select a date on the calendar' do
 			booking = FactoryGirl.create(:booking)
 			login(@user_attributes)
-			binding.pry
 			click(booking.date.day.to_i)
 		end
+
+		it 'can edit a booking' do
+			booking = FactoryGirl.create(:booking)
+			client = FactoryGirl.create(:client)
+			login(@user_attributes)
+			visit edit_booking_path(booking)
+			current_path.should == edit_booking_path(booking.id)
+			page.status_code.should == 200
+			select(client.name, :from => "booking[client_id]")
+			click_button("Update")
+			current_path.should == booking_path(booking.id)
+			Booking.find_by_id(booking.id).client.name.should == client.name
+		end
 	end	
+
 	context	"while query page and successfully queried" do
 		it 'add a booking' do
 			client = FactoryGirl.create(:client)
@@ -197,6 +209,7 @@ describe "User" do
 			current_path.should == bookings_path
 			page.status_code.should == 200
 		end
+
 	end
 	
 	context "while in Client Page" do
@@ -269,6 +282,4 @@ describe "User" do
 			page.should have_text(@booking.client.name)
 		end
 	end
-
-
 end

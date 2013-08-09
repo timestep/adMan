@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
 		if current_user
 	    @bookings = Booking.all.reverse
 	    @date = params[:month] ? Date.strptime(params[:month], "%Y-%m") : Date.today
-
  		else
  			redirect_to new_session_path
  		end
@@ -19,26 +18,19 @@ class BookingsController < ApplicationController
 		@weekday_name = Booking.return_weekday_name(params[:date])
  		date = params[:date].gsub('-', '/')
  		@bookings = Booking.search_day(date)
+ 		if @bookings
+ 			return @bookings
+ 		else
+ 			redirect_to bookings_path
+ 		end
  	end
 
  	def week
  		date = params[:week]
  		date = DateTime.strptime(date, "%m-%d-%Y")
  		@bookings = Booking.by_week(date)
-
- 			    # @date = Date.today
-
-	    # @booking_week_day = 
-	    # 	@bookings.group_by do |booking|
-	    # 		booking.date.wday
-	    # 	end
-
-	    @booking_by_week_day = @bookings
+    @booking_by_week_day = @bookings
 	    											.group_by{ |booking| booking.date.wday }
-
-	    # render :text => @booking_week_day.to_yaml and return
- 			# @booking_by_week_day = @booking_week_day.sort{ |x, y| x<=>y }
-
  	end
 
  	def new
@@ -46,8 +38,6 @@ class BookingsController < ApplicationController
  	end
 
  	def create
- 		# binding.pry
-
  		@booking = @user.bookings.build(bookings_params)
  		if @booking.client_id == nil
  			render :query, notice: "Gotta enter a client!"
@@ -55,7 +45,7 @@ class BookingsController < ApplicationController
  			# if on the bookings page, user tries to book without entering a client
  		else
 	 		@booking.date = DateTime.strptime(
-				params[:booking][:date], "%m/%d/%Y")
+	 			params[:booking][:date],"%m/%d/%Y")
 
 	 		@booking.pages << Page.find(params[:booking][:page_id]) 
 
@@ -68,7 +58,20 @@ class BookingsController < ApplicationController
 		end
  	end
 
+ 	def edit
+ 		@booking = Booking.find(params[:id])
+ 	end
+ 	
  	def update
+ 		@booking = Booking.find(params[:id])
+ 		
+ 		if @booking.update_attributes(bookings_params)
+      flash.now.notice = "Edited!" 
+    	redirect_to booking_path(@booking)
+    else
+    	flash.now.alert = 'Not valid ?!'
+      render :edit 
+    end
  	end
 
 	def show
