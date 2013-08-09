@@ -500,6 +500,16 @@ table {
   cursor: pointer;
 }
 
+.calendar td{
+  cursor: pointer;
+}
+
+.calendar td:hover{
+  background-color: red;
+  cursor: pointer;
+}
+
+
 
 /* THE SIDEKICK */
 .adm-sidekick{
