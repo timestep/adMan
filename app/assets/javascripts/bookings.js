@@ -131,6 +131,35 @@ $(document).ready(function(){
 
   if($('.calendar').length){
     $(document).disableSelection();
+
+
+/// vvvvvvvvv WILL NEED TO REFACTOR THIS INTO ONE FUNCTION!!! vvvvvvvvv ////
+    $('.adm-arrow.cal-back').on('click', function(){
+      var dateMonth = $(this).data('month');
+      var dateYear = $(this).data('year');
+      console.log(dateMonth);
+      console.log(dateYear);
+      
+    });
+
+    $('.adm-calendar-container').on('click', '.adm-arrow.cal-forward', function(){
+      var dateMonth = $(this).data('month');
+      var dateYear = $(this).data('year');
+      console.log(dateMonth);
+      console.log(dateYear);
+      $.ajax({
+        url: "/bookings?month="+dateYear+"-"+dateMonth,
+        success: function(data) {
+          console.log(url);
+          console.log(data);
+          var item = $(data).find(".calendar");
+          $('.adm-calendar-container').html(item);
+        }
+
+      });
+    });
+/// ^^^^^^^   WILL NEED TO REFACTOR THIS INTO ONE FUNCTION!!! ^^^^^^  ////
+
     $('.calendar').find('td').on('click', function(){
       var dateDay = $(this).find('.calendar-day').data('day');
         if(dateDay < 10){ 
@@ -202,9 +231,6 @@ $(document).ready(function(){
     $('.container').addClass('adm-slideout');
     console.log('slide in');
   }
-
-
-
 
 
 
