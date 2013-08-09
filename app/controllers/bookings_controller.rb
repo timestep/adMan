@@ -18,6 +18,11 @@ class BookingsController < ApplicationController
 		@weekday_name = Booking.return_weekday_name(params[:date])
  		date = params[:date].gsub('-', '/')
  		@bookings = Booking.search_day(date)
+ 		if @bookings
+ 			return @bookings
+ 		else
+ 			redirect_to bookings_path
+ 		end
  	end
 
  	def week
