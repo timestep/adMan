@@ -172,7 +172,7 @@ $(document).ready(function(){
     });
 /// ^^^^^^^   WILL NEED TO REFACTOR THIS INTO ONE FUNCTION!!! ^^^^^^  ////
 
-    $('.calendar').find('td').on('click', function(){
+    $('.adm-calendar-container').on('click', '.calendar td', function(){
       var dateDay = $(this).find('.calendar-day').data('day');
         if(dateDay < 10){ 
           var dateDay = '0'+dateDay;
