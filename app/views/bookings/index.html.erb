@@ -1,13 +1,17 @@
 <%= render "shared/alertnotice" %>
 
+
+
+<a href="#" data-icon="&#xe000"><span  aria-hidden="true"></span>Help</a>
+
 <div class="adm-calendar-container">
   <div class="calendar">
     <h2 class="month">
-      <%#= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")) %>
-      <div class="adm-arrow cal-back"><</div>
+      <%= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")), :class => 'adm-arrow-link' %>
+      <!-- <div class="adm-arrow cal-back" data-month="<%#= (@date.beginning_of_month-1).strftime("%m") %>"><</div> -->
       <%= h @date.strftime('%B %Y')%>
-      <%#= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")) %>
-      <div class="adm-arrow cal-back">></div>
+      <%= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")), :class => 'adm-arrow-link' %>
+      <!-- <div class="adm-arrow cal-forward">></div> -->
     </h2>
     <%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
       <%= calendar.head(

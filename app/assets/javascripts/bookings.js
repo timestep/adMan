@@ -168,7 +168,7 @@ $(document).ready(function(){
         console.log(data);
         var item = $(data).find(".single-day-booking-info");
          $('.sidekick-content').html(item);
-        $('.date-header').on('click', '.sidekick-content', function(){
+        $('.sidekick-content').on('click', '.date-header', function(){
           // $('.date-header').on('click', function(){
           bkListSlideOut();
         
@@ -178,6 +178,14 @@ $(document).ready(function(){
         });
         }     
       });
+
+
+      $('.adm-arrow.cal-back').on('click', function(){
+        var dateDay = $(this).find('.calendar-day').data('day')
+      });
+
+
+
     });
   }
 
