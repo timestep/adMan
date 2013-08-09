@@ -1,0 +1,29 @@
+<div class="booking-list-wrapper">
+  <div class="booking-list-item-container">
+    <% @bookings.each do |b| %>
+      <div class="booking-list-item">
+        Client Name: <%= b.client.name %>
+        <br>
+        Product: <%= b.product %>
+        <br>
+        Contract #: <%= b.contract_num %>
+        <br>
+
+        Pages:
+        <br> 
+        <% if b.pages.length < 5 %>
+          <% b.pages do |p| %>
+            <span class="adm-tag"><%= p.name %></span>
+          <% end %>
+        <% else %>
+          <% 5.times do |i| %>
+            <span class="adm-tag"><%= b.pages[i].name %></span>
+          <% end %>
+          <% if b.pages.length > 5 %>
+            <span>...</span>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
