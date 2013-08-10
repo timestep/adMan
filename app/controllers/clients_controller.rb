@@ -18,9 +18,7 @@ class ClientsController < ApplicationController
 
 	def create
     # binding.pry
-    client_params.each do |c|
-      @client = Client.new(c)
-    end
+  @client = Client.new(client_params)
 
 		if @client.save
   		redirect_to clients_path, :notice => "Created new client~!"

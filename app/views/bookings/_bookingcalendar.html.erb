@@ -18,10 +18,16 @@
     <%= calendar.day(:day_method => :date) do |date, bookings| %>
       <div class="calendar-day" data-day="<%= date.day %>" data-month="<%= date.month %>" data-year="<%= date.year %>">
       <%= date.day %>
-        <ul>
+        <ul class="listing">
+
+          <% num_pages = 0 %>
           <% for booking in bookings %>
-            <div><li><%= link_to h(booking.client.name), booking %></li></div>
+            <% num_pages += booking.pages.length %>
           <% end %>
+          <div>
+            <li><span class="number"><%= bookings.length%></span><i class="icon-notebook"></i></li>
+            <li><span class="number"><%= num_pages %></span><i class="icon-file-4"></i> </li>
+          </div>
         </ul>
       </div>
     <% end %>
