@@ -132,7 +132,6 @@ $(document).ready(function(){
   if($('.calendar').length){
     $(document).disableSelection();
 
-
 /// vvvvvvvvv WILL NEED TO REFACTOR THIS INTO ONE FUNCTION!!! vvvvvvvvv ////
     $('.adm-calendar-container').on('click', '.adm-arrow.cal-back', function(){
       var dateMonth = $(this).data('month');

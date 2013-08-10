@@ -72,6 +72,22 @@ li {
 }
 
 
+/* THE COLOURS */
+$color-main: #82c5b4;
+$color-dark: #163027;
+$color-light: #e3e9e5;
+$color-highlight: #fecd32;
+
+$color-bg: #eee;
+$color-bg-light: #fff;
+
+$color-text: #777;
+$color-text-dark: #000;
+$color-text-light: #fff;
+
+$color-text-link: #82c5b4;
+$color-text-link-hover: #163027;
+
 /*THE NAVIGATION*/
 .nav-header {
   position: fixed;
@@ -318,10 +334,10 @@ li {
 .adm-button-main,
 .adm-button input {
   border: none;
-  color: white;
+  color: $color-text-white;
   cursor: pointer;
   padding: 10px 20px;
-  background: #2584EB;
+  background: $color-main;
   border-radius: 2px;
   font-family: inherit;
   font-size: inherit;
@@ -505,11 +521,13 @@ table {
 }
 
 .calendar td:hover{
-  background-color: red;
+  background-color: $color-bg-light;
   cursor: pointer;
 }
 
-
+.selected{
+  background-color: green;
+}
 
 /* THE SIDEKICK */
 .adm-sidekick{

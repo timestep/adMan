@@ -2,13 +2,8 @@
   <div class="booking-list-item-container">
     <% @bookings.each do |b| %>
       <div class="booking-list-item">
-        Client Name: <%= b.client.name %>
+        <%= b.client.name %> | <%= b.product %> | <%= b.contract_num %>
         <br>
-        Product: <%= b.product %>
-        <br>
-        Contract #: <%= b.contract_num %>
-        <br>
-
         Pages:
         <br> 
         <% if b.pages.length < 5 %>
