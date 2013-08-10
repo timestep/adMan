@@ -77,6 +77,7 @@ $color-main: #82c5b4;
 $color-dark: #163027;
 $color-light: #e3e9e5;
 $color-highlight: #fecd32;
+$color-hover: #8adac6;
 
 $color-bg: #eee;
 $color-bg-light: #fff;
@@ -334,7 +335,7 @@ $color-text-link-hover: #163027;
 .adm-button-main,
 .adm-button input {
   border: none;
-  color: $color-text-white;
+  color: $color-text-light;
   cursor: pointer;
   padding: 10px 20px;
   background: $color-main;
@@ -344,8 +345,8 @@ $color-text-link-hover: #163027;
 }
 
 .adm-button-main:hover,
-.adm-button input:hover {
-  background: #3B97FC;
+.adm-button:hover {
+  background: $color-hover;
 }
 
 .adm-button-bookings {
@@ -396,8 +397,6 @@ $color-text-link-hover: #163027;
 
 .calendar td,
 .calendar th {
-  font-family: "Lucida Grande",arial,helvetica,sans-serif;
-  font-size: 10px;
   padding: 6px;
   border: 1px solid #999;
 }
