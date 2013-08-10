@@ -30,8 +30,8 @@ body {
   background: #f2f2f2;
   color: #444;
   font-family: 'Montserrat', 'Helvetica Neue', 'Helvetica', 'Arial', 'Sans-Serif';
-  font-size: 14px;
-  line-height: 21px;
+  font-size: 13px;
+  line-height: 18px;
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
 }
@@ -552,7 +552,7 @@ table {
 }
 
 .container.adm-slideout .adm-calendar-container {
-  right: 420px;
+  right: 360px;
 }
 
 .adm-arrow{
@@ -570,7 +570,7 @@ table {
 /* THE SIDEKICK */
 .adm-sidekick{
   background-color: white;
-  width: 420px;
+  width: 360px;
   position: fixed;
   right: -420px;
   top: 50px;
@@ -606,7 +606,7 @@ table {
 
 .date-header {
   padding: 20px 20px 20px;
-  width: 380px;
+  width: 320px;
   top: 0px;
   right: 0px;
   background-color: white;
@@ -615,12 +615,14 @@ table {
 }
 
 .booking-list-item{
+  background: $color-bg-light;
   border: 1px solid #dedede;
   box-shadow: 0 3px 0 $color-main;
   color: #777;
   padding: 10px 15px;
   margin-bottom: 10px;
   border-radius: 2px;
+  word-break: break-word;
 }
 
 .booking-list-item-container {
@@ -634,6 +636,39 @@ table {
   right: 0px;
   left: 0px;
   bottom: 0px;
+}
+
+.booking-item-info {
+  list-style: none;
+}
+
+.booking-item-info li {
+  color: #444;
+  margin: 0px 0px 10px;
+  padding: 0px 0px 10px;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+
+.booking-item-info li:last-of-type {
+  border: none;
+}
+
+.booking-item-info i {
+  color: $color-main;
+}
+
+.booking-item-info .label {
+  color: $color-text;
+  display: inline-block;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.booking-item-info .item-mini-float-right {
+  float: right;
+  display: inline-block;
+
 }
 
 /* THE TAGS */

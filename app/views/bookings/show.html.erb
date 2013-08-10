@@ -1,18 +1,19 @@
-  <%= render "shared/alertnotice" %>
-ID of Booking: <%= @booking.id %>
-<br>
-Date: <%= @booking.date %>
-<br>
-Client Name: <%= @booking.client.name %>
-<br>
-Product: <%= @booking.product %>
-<br>
-Contract Number: <%= @booking.contract_num %>
-<br>
-Info: <%= @booking.info %>
-<br>
-Pages Booked:
-<% @booking.pages.load.each do |p| %>
-	<span class="quick-tag"><%= p.name %></span>
-<% end %>
+<%= render "shared/alertnotice" %>
 
+<div class="booking-list-item-container">
+  <div class="booking-list-item">
+    <ul class="booking-item-info">
+      <li><i class="icon-calendar"></i> <span class="label">Date:</span><%= @booking.date %></li>
+      <li><i class="icon-user"></i> <span class="label">Client:</span><%= @booking.client.name %></li>
+      <li><i class="icon-cart"></i> <span class="label">Product:</span><%= @booking.product %></li>
+      <li><i class="icon-file"></i> <span class="label">Contract #:</span><%= @booking.contract_num %></li>
+      <li><i class="icon-info"></i> <span class="label">Info:</span><%= @booking.info %></li>
+      <li>
+        <i class="icon-file-4"></i> <span class="label">Pages:</span>
+        <% @booking.pages.load.each do |p| %>
+        <span class="adm-tag"><%= p.name %></span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

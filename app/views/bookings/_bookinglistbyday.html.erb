@@ -2,22 +2,23 @@
   <div class="booking-list-item-container">
     <% @bookings.each do |b| %>
       <div class="booking-list-item">
-        <%= b.client.name %> | <%= b.product %> | <%= b.contract_num %>
-        <br>
-        Pages:
-        <br> 
-        <% if b.pages.length < 5 %>
-          <% b.pages do |p| %>
-            <span class="adm-tag"><%= p.name %></span>
+        <ul class="booking-item-info">
+          <li><i class="icon-user"></i> <%= b.client.name %> <span class="item-mini-float-right"><i class="icon-file"></i> <%= b.contract_num %></span></li>
+          <li><i class="icon-file-4"></i> 
+          <% if b.pages.length < 5 %>
+            <% b.pages do |p| %>
+              <span class="adm-tag"><%= p.name %></span>
+            <% end %>
+          <% else %>
+            <% 5.times do |i| %>
+              <span class="adm-tag"><%= b.pages[i].name %></span>
+            <% end %>
+            <% if b.pages.length > 5 %>
+              <span>...</span>
+            <% end %>
           <% end %>
-        <% else %>
-          <% 5.times do |i| %>
-            <span class="adm-tag"><%= b.pages[i].name %></span>
-          <% end %>
-          <% if b.pages.length > 5 %>
-            <span>...</span>
-          <% end %>
-        <% end %>
+          </li>
+        </ul>
       </div>
     <% end %>
   </div>
