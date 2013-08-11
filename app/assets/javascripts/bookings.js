@@ -225,7 +225,10 @@ $(document).ready(function(){
           url: '/bookings/'+bookingId,
           context: document.body,
           success: function(data) {
-            console.log('ajax works booking id!');
+            console.log(data);
+          var item = $(data).find('.booking-list-item-container');
+          $('.sidekick-content').html(item);
+
           }
         });
       });

@@ -3,7 +3,7 @@
 <div class="booking-list-item-container">
   <div class="booking-list-item">
     <ul class="booking-item-info">
-      <li><i class="icon-calendar"></i> <span class="label">Date:</span><%= @booking.date %></li>
+      <li><i class="icon-calendar"></i> <span class="label">Date:</span><%= @booking.date.strftime("%b %e %Y") %></li>
       <li><i class="icon-user"></i> <span class="label">Client:</span><%= @booking.client.name %></li>
       <li><i class="icon-cart"></i> <span class="label">Product:</span><%= @booking.product %></li>
       <li><i class="icon-file"></i> <span class="label">Contract #:</span><%= @booking.contract_num %></li>
