@@ -568,7 +568,8 @@ table {
 }
 
 /* THE SIDEKICK */
-.adm-sidekick{
+
+.adm-sidekick-base{
   background-color: white;
   width: 360px;
   position: fixed;
@@ -579,8 +580,20 @@ table {
   transition: all 0.25s ease;
 }
 
-.container.adm-slideout .adm-sidekick {
+.adm-sidekick-2{
+  background-color:gray;
+}
+
+.container.adm-slideout .adm-sidekick-1 {
   right: 0;
+}
+
+.container.adm-slideout-2 .adm-sidekick-1 {
+  right: 360px;
+}
+
+.container.adm-slideout-2 .adm-sidekick-2 {
+  right: 360px;
 }
 
 .sidekick-content{

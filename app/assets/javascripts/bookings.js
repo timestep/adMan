@@ -204,29 +204,24 @@ $(document).ready(function(){
         url: "/bookings/day/"+dateMonth+"-"+dateDay+"-"+dateYear,
         context: document.body,
         success: function(data) {
-        console.log("success");
-        var item = $(data).find(".single-day-booking-info");
-        $('.adm-sidekick .sidekick-content').html(item);
-        $('.adm-sidekick .sidekick-content').on('click', '.date-header', function(){
-          // $('.date-header').on('click', function(){
-          bkListSlideOut();
-          
-        // $('.main-container').on('click', function(event){
-        //   bkListSlideOut();
-        //   event.stopPropagation();
-        });
+          console.log("success");
+          var item = $(data).find(".single-day-booking-info");
+          $('.adm-sidekick-1 .sidekick-content').html(item);
+          $('.adm-sidekick-1 .sidekick-content').on('click', '.date-header', function(){
+            bkListSlideOut();
+          });
         }     
       });
 
-      $('.adm-sidekick').on('click', '.booking-list-item', function(){
+      $('.adm-sidekick-1').on('click', '.booking-list-item', function(){
         var bookingId = $(this).data('bookingid');
         $.ajax({
           url: '/bookings/'+bookingId,
           context: document.body,
           success: function(data) {
-          var item = $(data).find('.booking-list-item-container');
-          $('.sidekick-content').html(item);
-
+            var item = $(data).find('.booking-list-item-container');
+            $('.adm-sidekick-2').find('.sidekick-content').html(item);
+            bkListSlideIn2();
           }
         });
       });
@@ -249,12 +244,12 @@ $(document).ready(function(){
 
 
   // Functions to load the second sidekick //
-  var bkListItemSlideIn = function(){
+  var bkListSlideIn2 = function(){
     $('.container').addClass('adm-slideout-2');
     console.log('#2 slider is in view!');
   }
 
-  var bkListItemSlideOut = function(){
+  var bkListSlideOut2 = function(){
     $('.container').removeClass('adm-slideout-2');
     console.log('#2 slid away!');
   }
