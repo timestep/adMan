@@ -6,7 +6,7 @@
           <li><i class="icon-user"></i> <%= b.client.name %> <span class="item-mini-float-right"><i class="icon-file"></i> <%= b.contract_num %></span></li>
           <li><i class="icon-file-4"></i> 
           <% if b.pages.length < 5 %>
-            <% b.pages do |p| %>
+            <% b.pages.load.each do |p| %>
               <span class="adm-tag"><%= p.name %></span>
             <% end %>
           <% else %>

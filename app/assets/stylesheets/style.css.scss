@@ -154,7 +154,7 @@ li {
   // padding: 18px 0 10px;
   // border-bottom: 1px solid #aaa;
   text-decoration: none;
-  color: #4AB7FF;
+  color: $color-hover;
 }
 
 .nav-links li:hover .nav-dropdown {
@@ -188,7 +188,7 @@ li {
   height: 0; 
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid white;
+  border-bottom: 7px solid $color-highlight;
   position: relative;
   top: -6px;
   left: 33px;
@@ -666,6 +666,7 @@ table {
   width: auto;
 }
 
+.booking-show-page .block-left,
 .adm-sidekick-2 .block-left{
   width: 100px;
   margin-right: 20px;

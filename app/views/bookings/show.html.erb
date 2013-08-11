@@ -1,71 +1,72 @@
 <%= render "shared/alertnotice" %>
+<div class="booking-show-page">
+  <div class="booking-list-item-container">
+    <div class="booking-list-item">
+      <ul class="booking-item-info">
+        <li class="bklstitm-date">
+          <div class="block-left">
+            <i class="icon-calendar"></i> 
+            <span class="label">Date:</span>
+          </div>
+          <div class="block-right">
+            <%= @booking.date.strftime("%b %e %Y") %>
+          </div>
+        </li>
 
-<div class="booking-list-item-container">
-  <div class="booking-list-item">
-    <ul class="booking-item-info">
-      <li class="bklstitm-date">
-        <div class="block-left">
-          <i class="icon-calendar"></i> 
-          <span class="label">Date:</span>
-        </div>
-        <div class="block-right">
-          <%= @booking.date.strftime("%b %e %Y") %>
-        </div>
-      </li>
-
+        
+        <li class="bklstitm-client">
+          <div class="block-left">
+            <i class="icon-user"></i>
+            <span class="label">Client:</span>
+          </div>
+          <div class="block-right">
+           <%= @booking.client.name %>
+          </div>
+        </li>
+        
+        <li class="bklstitm-product">
+          <div class="block-left">
+            <i class="icon-cart"></i>
+            <span class="label">Product:</span>
+          </div>
+          <div class="block-right">
+            <%= @booking.product %>
+          </div>
+        </li>
+        
+        <li class="bklstitm-contract">
+          <div class="block-left">
+            <i class="icon-file"></i>
+            <span class="label">Contract #:</span>
+          </div>
+          <div class="block-right">
+            <%= @booking.contract_num %>
+          </div>
+        </li>
+        
+        <li class="bklstitm-info">
+          <div class="block-left">
+            <i class="icon-info"></i>
+            <span class="label">Info:</span>
+          </div>
+          <div class="block-right">
+            <%= @booking.info %>
+          </div>
+        </li>
+        
+        <li class="bklstitm-page">
+          <div class="block-full">
+            <i class="icon-file-4"></i>
+            <span class="label">Pages:</span>
+          </div>
+          <div class="block-right">
+            <% @booking.pages.load.each do |p| %>
+              <span class="adm-tag"><%= p.name %></span>
+            <% end %>
+          </div>
+        </li>
       
-      <li class="bklstitm-client">
-        <div class="block-left">
-          <i class="icon-user"></i>
-          <span class="label">Client:</span>
-        </div>
-        <div class="block-right">
-         <%= @booking.client.name %>
-        </div>
-      </li>
-      
-      <li class="bklstitm-product">
-        <div class="block-left">
-          <i class="icon-cart"></i>
-          <span class="label">Product:</span>
-        </div>
-        <div class="block-right">
-          <%= @booking.product %>
-        </div>
-      </li>
-      
-      <li class="bklstitm-contract">
-        <div class="block-left">
-          <i class="icon-file"></i>
-          <span class="label">Contract #:</span>
-        </div>
-        <div class="block-right">
-          <%= @booking.contract_num %>
-        </div>
-      </li>
-      
-      <li class="bklstitm-info">
-        <div class="block-left">
-          <i class="icon-info"></i>
-          <span class="label">Info:</span>
-        </div>
-        <div class="block-right">
-          <%= @booking.info %>
-        </div>
-      </li>
-      
-      <li class="bklstitm-page">
-        <div class="block-full">
-          <i class="icon-file-4"></i>
-          <span class="label">Pages:</span>
-        </div>
-        <div class="block-right">
-          <% @booking.pages.load.each do |p| %>
-            <span class="adm-tag"><%= p.name %></span>
-          <% end %>
-        </div>
-      </li>
-    
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
