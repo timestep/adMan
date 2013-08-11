@@ -555,6 +555,10 @@ table {
   right: 360px;
 }
 
+.container.adm-slideout-2 .adm-calendar-container {
+  right: 720px;
+}
+
 .adm-arrow{
   display: inline-block;
   color: #999;
@@ -573,15 +577,11 @@ table {
   background-color: white;
   width: 360px;
   position: fixed;
-  right: -420px;
+  right: -360px;
   top: 50px;
   bottom: 0;
   border-left: 1px solid #ddd;
   transition: all 0.25s ease;
-}
-
-.adm-sidekick-2{
-  background-color:gray;
 }
 
 .container.adm-slideout .adm-sidekick-1 {
@@ -593,13 +593,16 @@ table {
 }
 
 .container.adm-slideout-2 .adm-sidekick-2 {
-  right: 360px;
+  right: 0px;
 }
 
 .sidekick-content{
   padding: 20px;
 }
 
+.adm-sidekick-2 .booking-list-wrapper{
+  top: 0px;
+}
 
 /* SINGLE DAY BOOKING */
 .date-header .weekday-name{

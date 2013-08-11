@@ -220,7 +220,7 @@ $(document).ready(function(){
           context: document.body,
           success: function(data) {
             var item = $(data).find('.booking-list-item-container');
-            $('.adm-sidekick-2').find('.sidekick-content').html(item);
+            $('.adm-sidekick-2').find('.booking-list-wrapper').html(item);
             bkListSlideIn2();
           }
         });
