@@ -22,7 +22,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(pages_params)
     if @page.save
-      redirect_to pages_path, :notice => "Created new page!"
+      redirect_to pages_path
     else
       render :new, :alert => 'Error!'
     end
