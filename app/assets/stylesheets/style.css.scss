@@ -366,6 +366,14 @@ li {
   color: black;
 }
 
+.adm-button-back{
+  color: $color-text;
+  z-index: 44444;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /*THE MODALS*/
 .modal-close {
   background: black;
@@ -612,6 +620,24 @@ table {
   top: 0px;
 }
 
+.block-left{
+  float: left;
+}
+
+.adm-sidekick-2 .block-full {
+  margin-bottom: 10px;
+}
+
+.adm-sidekick-2 .block-right{
+  overflow: hidden;
+  width: auto;
+}
+
+.adm-sidekick-2 .block-left{
+  width: 100px;
+  margin-right: 20px;
+}
+
 /* SINGLE DAY BOOKING */
 .date-header .weekday-name{
   font-size: 3em;
@@ -685,19 +711,18 @@ table {
 
 .booking-item-info i {
   color: $color-main;
+  float: left;
+  margin-right: 5px;
 }
 
 .booking-item-info .label {
   color: $color-text;
   display: inline-block;
-  width: 100px;
-  margin-right: 10px;
 }
 
 .booking-item-info .item-mini-float-right {
   float: right;
   display: inline-block;
-
 }
 
 /* THE TAGS */

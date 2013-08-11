@@ -1,6 +1,9 @@
 <%= render "shared/alertnotice" %>
 
 <div class="booking-list-item-container">
+  <div class="adm-button-back">
+    <i class="icon-calendar"></i>
+  </div>
   <div class="booking-list-item">
     <ul class="booking-item-info">
       <li class="bklstitm-date">
@@ -12,6 +15,7 @@
           <%= @booking.date.strftime("%b %e %Y") %>
         </div>
       </li>
+
       
       <li class="bklstitm-client">
         <div class="block-left">
@@ -54,7 +58,7 @@
       </li>
       
       <li class="bklstitm-page">
-        <div class="block-left">
+        <div class="block-full">
           <i class="icon-file-4"></i>
           <span class="label">Pages:</span>
         </div>
