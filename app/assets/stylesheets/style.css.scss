@@ -367,11 +367,12 @@ li {
 }
 
 .adm-button-back{
-  color: $color-text;
+  color: $color-highlight;
   z-index: 44444;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 20px;
+  left: 20px;
+  font-size: 21px;
 }
 
 /*THE MODALS*/
