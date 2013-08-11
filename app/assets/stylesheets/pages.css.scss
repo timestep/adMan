@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.adm-directory {
+  background: white;
+  padding: 20px;
+}
+
 .dir-listing {
   -webkit-column-count: 3;
   -moz-column-count: 3;
@@ -20,10 +25,11 @@
 
 .alpha-letter {
   font-weight: bold;
-  color: black;
-  background-color: #ddd;
-  padding: 5px 10px;
+  color: #82c5b4;
+  background-color: white;
+  padding: 5px 0px;
   margin-bottom: 5px;
+  border-bottom: 2px solid #eee;
 }
 
 .alpha-list {

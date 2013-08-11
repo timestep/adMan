@@ -94,6 +94,27 @@ li {
   cursor: pointer;
 }
 
+/*THE SCROLLBAR*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track { 
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0,0,0,0); 
+  border: none;
+}
+
 /*THE NAVIGATION*/
 .nav-header {
   position: fixed;
@@ -276,7 +297,12 @@ li {
 }
 
 .adm-midfloat-box .chosen-results li.highlighted {
-  background: #2584EB;
+  background: $color-main;
+}
+
+.adm-midfloat-box .chosen-container-active .chosen-choices {
+  border-color: $color-highlight;
+  box-shadow: none;
 }
 
 .adm-midfloat-box .chosen-results li em {
@@ -285,9 +311,25 @@ li {
 
 .adm-midfloat-box .chosen-search input[type=text] {
   border: 1px solid #ccc;
-  font-family: inherit;
-  font-size: inherit;
+  font-family: inherit !important;
+  font-size: inherit !important;
   padding: 10px;
+}
+
+.adm-midfloat-box .chosen-choices {
+  background-image: none;
+  padding: 5px;
+  border-color: $color-bg-border;
+}
+
+.adm-midfloat-box .chosen-choices input[type=text] {
+  font-family: inherit !important;
+  font-size: inherit !important; 
+}
+
+.adm-midfloat-box .chosen-drop {
+  border-color: $color-bg-border;
+  box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
 }
 
 .adm-midfloat-box .data-field {
@@ -413,7 +455,7 @@ li {
 
 .calendar td,
 .calendar th {
-  padding: 6px;
+  padding: 0px;
   border: 1px solid $color-bg-border;
 }
 
@@ -423,6 +465,7 @@ li {
   color: $color-text-light;
   text-align: center;
   width: 14.2857142857143%;
+  padding: 5px;
 }
 
 .calendar td {
@@ -438,7 +481,12 @@ li {
   cursor: pointer;
 }
 
+.calendar td.selected {
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.1) inset;
+}
+
 .calendar .calendar-day {
+  padding: 10px;
   font-size: 18px;
   color: #999;
 }
@@ -558,6 +606,46 @@ table {
 
 }
 
+/* JQUERY UI CALENDAR */
+
+.ui-corner-all, 
+.ui-corner-bottom, 
+.ui-corner-right, 
+.ui-corner-br {
+  border-radius: 2px;
+}
+
+.ui-widget {
+  font-family: inherit;
+}
+
+.ui-widget-content {
+  background: $color-bg-light;
+  border-color: #ddd;
+  box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background: $color-main;
+  border: none;
+  color: $color-text-light;
+}
+
+.ui-datepicker .ui-state-default {
+  background: $color-bg-light;
+  border: none;
+}
+
+.ui-datepicker .ui-state-hover {
+  background: $color-main;
+  color: $color-text-light;
+  border: none;
+}
+
+.ui-datepicker td a {
+  text-align: center;
+}
+
 .container .adm-calendar-container {
   transition: all 0.25s ease;
   top: 60px;
@@ -595,6 +683,10 @@ table {
   padding: 5px;
   line-height: 1em;
   font-size: 15px;
+}
+
+.adm-arrow i:hover {
+  background: $color-highlight;
 }
 
 .adm-arrow.cal-back{

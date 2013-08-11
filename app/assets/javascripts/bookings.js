@@ -213,6 +213,9 @@ $(document).ready(function(){
         }     
       });
 
+      $('.calendar td').removeClass('selected');
+      $(this).addClass('selected');
+
       $('#adm-sidekick-1').on('click', '.booking-list-item', function(){
         var bookingId = $(this).data('bookingid');
         $.ajax({
