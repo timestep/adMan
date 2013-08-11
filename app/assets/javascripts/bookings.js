@@ -206,26 +206,34 @@ $(document).ready(function(){
         success: function(data) {
           console.log("success");
           var item = $(data).find(".single-day-booking-info");
-          $('.adm-sidekick-1 .sidekick-content').html(item);
-          $('.adm-sidekick-1 .sidekick-content').on('click', '.date-header', function(){
+          $('#adm-sidekick-1 .sidekick-content').html(item);
+          $('#adm-sidekick-1 .sidekick-content').on('click', '.date-header', function(){
             bkListSlideOut();
           });
         }     
       });
 
-      $('.adm-sidekick-1').on('click', '.booking-list-item', function(){
+      $('#adm-sidekick-1').on('click', '.booking-list-item', function(){
         var bookingId = $(this).data('bookingid');
         $.ajax({
           url: '/bookings/'+bookingId,
           context: document.body,
           success: function(data) {
             var item = $(data).find('.booking-list-item-container');
-            $('.adm-sidekick-2').find('.booking-list-wrapper').html(item);
+            $('#adm-sidekick-2').find('.booking-list-wrapper').html(item);
             bkListSlideIn2();
           }
         });
       });
 
+      $('#adm-sidekick-1').find('.adm-button-back').on('click', function(){
+        bkListSlideOut2();
+        bkListSlideOut();
+      });
+
+      $('#adm-sidekick-2').find('.adm-button-back').on('click', function(){
+        bkListSlideOut2();
+      });
 
     });
   }
