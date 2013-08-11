@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
 
 			if @booking.save
 				NewBooking.new_booking(@user,@booking).deliver
-				redirect_to @booking, notice: "Booked~!"
+				redirect_to @booking
 			else
 				render :new
 			end
