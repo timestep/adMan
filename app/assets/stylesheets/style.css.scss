@@ -367,12 +367,13 @@ li {
 }
 
 .adm-button-back{
-  color: $color-highlight;
+  color: #aaa;
   z-index: 44444;
   position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 21px;
+  top: 10px;
+  left: 15px;
+  font-size: 15px;
+  line-height: 1;
 }
 
 /*THE MODALS*/
@@ -618,7 +619,7 @@ table {
 }
 
 .adm-sidekick-2 .booking-list-wrapper{
-  top: 0px;
+  top: 20px;
 }
 
 .block-left{
@@ -641,7 +642,7 @@ table {
 
 /* SINGLE DAY BOOKING */
 .date-header .weekday-name{
-  font-size: 3em;
+  font-size: 28px;
   display: block;
   text-align: center;
   font-weight: bold;
@@ -688,7 +689,7 @@ table {
 .booking-list-wrapper{
   overflow-y: auto;
   position: absolute;
-  top: 97px;
+  top: 81px;
   right: 0px;
   left: 0px;
   bottom: 0px;
