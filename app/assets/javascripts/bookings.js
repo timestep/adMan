@@ -221,7 +221,13 @@ $(document).ready(function(){
 
       $('.adm-sidekick').on('click', '.booking-list-item', function(){
         var bookingId = $(this).data('bookingid');
-        console.log(bookingId);
+        $.ajax({
+          url: '/bookings/'+bookingId,
+          context: document.body,
+          success: function(data) {
+            console.log('ajax works booking id!');
+          }
+        });
       });
 
 
