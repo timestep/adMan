@@ -15,4 +15,4 @@ Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
 
-Authored by Betty Li(@bibiotics) and Kevin Sivabalan (@timestep)
+Authored by Betty Li(@blibotics) and Kevin Sivabalan (@timestep)
