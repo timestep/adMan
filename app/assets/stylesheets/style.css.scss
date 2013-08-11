@@ -559,6 +559,10 @@ table {
   right: 730px;
 }
 
+.container.adm-slideout-2 .adm-calendar-container th span {
+  display: none;
+}
+
 .adm-arrow{
   display: inline-block;
   color: #999;
@@ -582,6 +586,10 @@ table {
   bottom: 0;
   border-left: 5px solid #ddd;
   transition: all 0.25s ease;
+}
+
+.adm-sidekick-2 {
+  background: #444;
 }
 
 .container.adm-slideout .adm-sidekick-1 {
@@ -639,6 +647,11 @@ table {
   margin-bottom: 10px;
   border-radius: 2px;
   word-break: break-word;
+
+}
+
+.adm-sidekick-1 .booking-list-item{
+  cursor: pointer;
 }
 
 .booking-list-item-container {

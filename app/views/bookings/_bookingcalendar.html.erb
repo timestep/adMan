@@ -8,13 +8,13 @@
   </h2>
   <%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
     <%= calendar.head(
-      'Sunday',
-      'Monday', 
-      'Tuesday', 
-      'Wednesday', 
-      'Thursday', 
-      'Friday', 
-      'Saturday')%>
+      '<strong>S</strong><span>unday</span>',
+      '<strong>M</strong><span>onday</span>', 
+      '<strong>T</strong><span>uesday</span>', 
+      '<strong>W</strong><span>ednesday</span>', 
+      '<strong>T</strong><span>hursday</span>', 
+      '<strong>F</strong><span>riday</span>', 
+      '<strong>S</strong><span>aturday</span>')%>
     <%= calendar.day(:day_method => :date) do |date, bookings| %>
       <div class="calendar-day" data-day="<%= date.day %>" data-month="<%= date.month %>" data-year="<%= date.year %>">
       <%= date.day %>
