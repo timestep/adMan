@@ -371,7 +371,7 @@ li {
   z-index: 44444;
   position: absolute;
   top: 10px;
-  left: 15px;
+  left: 10px;
   font-size: 15px;
   line-height: 1;
 }
@@ -619,7 +619,7 @@ table {
 }
 
 .adm-sidekick-2 .booking-list-wrapper{
-  top: 20px;
+  top: 40px;
 }
 
 .block-left{
@@ -638,6 +638,10 @@ table {
 .adm-sidekick-2 .block-left{
   width: 100px;
   margin-right: 20px;
+}
+
+.adm-sidekick-2 .booking-list-item-container {
+  padding-top: 0;
 }
 
 /* SINGLE DAY BOOKING */
@@ -683,7 +687,7 @@ table {
 }
 
 .booking-list-item-container {
-  padding: 20px;
+  padding: 10px;
 }
 
 .booking-list-wrapper{
