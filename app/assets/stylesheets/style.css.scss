@@ -116,9 +116,10 @@ li {
   float: left;
   text-transform: uppercase;
   display: block;
-  margin: 14px 0px;
+  margin: 16px 0px;
   padding: 0;
   font-size: 18px;
+  line-height: 1em;
 }
 
 .nav-header .logo a {
@@ -453,11 +454,13 @@ li {
 }
 
 .calendar .month {
-  margin: 0;
+  margin: 0 auto;
   padding-top: 10px;
   padding-bottom: 20px;
   text-align: center;
   line-height: 1em;
+  width: 280px;
+  overflow: hidden;
 }
 
 .calendar .month a, 
@@ -587,6 +590,7 @@ table {
 .adm-arrow i{
   background-color: #ccc;
   color: $color-text-light;
+  display: block;
   border-radius: 3px;
   padding: 5px;
   line-height: 1em;
@@ -595,15 +599,22 @@ table {
 
 .adm-arrow.cal-back{
   margin-right: 10px;
+  float: left;
 }
 
 .adm-arrow.cal-forward{
   margin-left: 10px;
+  float: left;
 }
 
-.selected{
-  background-color: green;
+.month-header {
+  width: 209px;
+  float: left;
+  margin: 0;
+  padding: 3px 0;
+  line-height: 1em;
 }
+
 
 /* THE SIDEKICK */
 
