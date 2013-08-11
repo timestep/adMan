@@ -205,13 +205,12 @@ $(document).ready(function(){
         context: document.body,
         success: function(data) {
         console.log("success");
-        console.log(data);
         var item = $(data).find(".single-day-booking-info");
-         $('.sidekick-content').html(item);
-        $('.sidekick-content').on('click', '.date-header', function(){
+        $('.adm-sidekick .sidekick-content').html(item);
+        $('.adm-sidekick .sidekick-content').on('click', '.date-header', function(){
           // $('.date-header').on('click', function(){
           bkListSlideOut();
-        
+          
         // $('.main-container').on('click', function(event){
         //   bkListSlideOut();
         //   event.stopPropagation();
@@ -225,7 +224,6 @@ $(document).ready(function(){
           url: '/bookings/'+bookingId,
           context: document.body,
           success: function(data) {
-            console.log(data);
           var item = $(data).find('.booking-list-item-container');
           $('.sidekick-content').html(item);
 
@@ -237,22 +235,29 @@ $(document).ready(function(){
     });
   }
 
-
+  // Functions to load and remove the first sidekick //
+  var bkListSlideIn = function(){
+    $('.container').addClass('adm-slideout');
+    console.log('slide in');
+  }
 
   var bkListSlideOut = function(){
     $('.container').removeClass('adm-slideout');
     // $('.calendar').addClass('adm-cal-move')
     console.log('slide out');
   }
-  
 
-  var bkListSlideIn = function(){
-    $('.container').addClass('adm-slideout');
-    console.log('slide in');
+
+  // Functions to load the second sidekick //
+  var bkListItemSlideIn = function(){
+    $('.container').addClass('adm-slideout-2');
+    console.log('#2 slider is in view!');
   }
 
-
-
+  var bkListItemSlideOut = function(){
+    $('.container').removeClass('adm-slideout-2');
+    console.log('#2 slid away!');
+  }
 
 
 
