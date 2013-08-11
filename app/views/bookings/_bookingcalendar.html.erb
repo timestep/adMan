@@ -1,10 +1,14 @@
 <div class="calendar">
   <h2 class="month">
     <%#= link_to "<", bookings_path(:month => (@date.beginning_of_month-1).strftime("%Y-%m")), :class => 'adm-arrow-link' %>
-    <div class="adm-arrow cal-back" data-month="<%= (@date.beginning_of_month-1).strftime("%m") %>" data-year="<%= (@date.beginning_of_month-1).strftime("%Y") %>"><</div>
+    <div class="adm-arrow cal-back" data-month="<%= (@date.beginning_of_month-1).strftime("%m") %>" data-year="<%= (@date.beginning_of_month-1).strftime("%Y") %>">
+      <i class="icon-arrow-left-2"></i>
+    </div>
     <%= h @date.strftime('%B %Y')%>
     <%#= link_to ">", bookings_path(:month => (@date.end_of_month+1).strftime("%Y-%m")), :class => 'adm-arrow-link' %>
-    <div class="adm-arrow cal-forward" data-month="<%= (@date.end_of_month+1).strftime("%m") %>" data-year="<%= (@date.end_of_month+1).strftime("%Y") %>">></div>
+    <div class="adm-arrow cal-forward" data-month="<%= (@date.end_of_month+1).strftime("%m") %>" data-year="<%= (@date.end_of_month+1).strftime("%Y") %>">
+      <i class="icon-arrow-right-2"></i>
+    </div>
   </h2>
   <%= calendar_for @bookings, :year => @date.year, :month => @date.month do |calendar| %>
     <%= calendar.head(

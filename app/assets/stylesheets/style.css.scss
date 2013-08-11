@@ -90,6 +90,9 @@ li {
   clear: both;
 }
 
+.clickable {
+  cursor: pointer;
+}
 
 /*THE NAVIGATION*/
 .nav-header {
@@ -452,8 +455,9 @@ li {
 .calendar .month {
   margin: 0;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   text-align: center;
+  line-height: 1em;
 }
 
 .calendar .month a, 
@@ -480,7 +484,7 @@ li {
 
 .calendar ul {
   margin: 0;
-  margin-top: 5px;
+  margin-top: 0px;
   padding: 0;
   list-style: none;
 }
@@ -559,6 +563,7 @@ table {
   bottom: 0;
   position: fixed;
   padding: 40px;
+  overflow-y: auto;
 }
 
 .container.adm-slideout .adm-calendar-container {
@@ -576,10 +581,25 @@ table {
 .adm-arrow{
   display: inline-block;
   color: #999;
-  width: 20px;
   cursor: pointer;
 }
 
+.adm-arrow i{
+  background-color: #ccc;
+  color: $color-text-light;
+  border-radius: 3px;
+  padding: 5px;
+  line-height: 1em;
+  font-size: 15px;
+}
+
+.adm-arrow.cal-back{
+  margin-right: 10px;
+}
+
+.adm-arrow.cal-forward{
+  margin-left: 10px;
+}
 
 .selected{
   background-color: green;
@@ -680,10 +700,6 @@ table {
   border-radius: 2px;
   word-break: break-word;
 
-}
-
-.adm-sidekick-1 .booking-list-item{
-  cursor: pointer;
 }
 
 .booking-list-item-container {
