@@ -219,6 +219,11 @@ $(document).ready(function(){
         }     
       });
 
+      $('.adm-sidekick').on('click', '.booking-list-item', function(){
+        var bookingId = $(this).data('bookingid');
+        console.log(bookingId);
+      });
+
 
     });
   }

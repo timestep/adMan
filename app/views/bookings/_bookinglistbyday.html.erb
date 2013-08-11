@@ -1,7 +1,7 @@
 <div class="booking-list-wrapper">
   <div class="booking-list-item-container">
     <% @bookings.each do |b| %>
-      <div class="booking-list-item">
+      <div class="booking-list-item" data-bookingid ="<%= b.id %>">
         <ul class="booking-item-info">
           <li><i class="icon-user"></i> <%= b.client.name %> <span class="item-mini-float-right"><i class="icon-file"></i> <%= b.contract_num %></span></li>
           <li><i class="icon-file-4"></i> 
