@@ -44,10 +44,12 @@ class BookingsController < ApplicationController
  			# needs to be fixed, notice does not display
  			# if on the bookings page, user tries to book without entering a client
  		else
-	 		@booking.date = DateTime.strptime(
-	 			params[:booking][:date],"%m/%d/%Y")
+			page_ids      = params[:booking][:page_ids]
+			@booking.date = DateTime.strptime(
+				params[:booking][:date],"%m/%d/%Y"
+			)
 
-	 		@booking.pages << Page.find(params[:booking][:page_id]) 
+	 		@booking.pages << Page.find(page_ids)
 
 			if @booking.save
 				NewBooking.new_booking(@user,@booking).deliver
@@ -83,20 +85,24 @@ class BookingsController < ApplicationController
 	end
 
 	def search
-		date = params["date-picker"]
-		page_id = params["query"]["page_id"].last
-				
-		if page_id == 0
+		date     = params["date-picker"]
+		page_ids = params["query"]["page_ids"]
+		page_ids.delete ""
+
+		if page_ids.empty?
 			flash.now.alert = "Please Pick A Page!"
 			render :query
-		elsif date.present? && page_id != 0
-			results = Booking.search_date(date,page_id)
-			if results 
+		elsif date.present? && !page_ids.empty?
+			results = Booking.search_date(date,page_ids)
+			if results
+				# NOTE: Deal with 2 cases...
+				# Case 1: results array returns ALL page ids
+				# Case 2: results array returns SOME page ids
 				redirect_to booking_path(results.first.id) 
 			else
 				session[:booking_permit] = date
-				session[:page_id] = page_id
-				redirect_to new_booking_path(:date => date, :page_id => page_id), :notice => "Available!"
+				session[:page_ids]       = page_ids
+				redirect_to new_booking_path(:date => date, :page_ids => page_ids), :notice => "Available!"
 			end
 		else
 			redirect_to query_bookings_path, :notice => 'Enter date~!'
@@ -117,16 +123,18 @@ class BookingsController < ApplicationController
 	def check_booking_permit
 		permit = session[:booking_permit]
 		if permit.present?
-			pageID = session[:page_id]
-			page = Page.find_by_id(pageID)
-			if page
-				@page_name = page.name
-				@page_id = session[:page_id]
-				@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
-				session[:page_id] = nil
-				session[:booking_permit] = nil
-			else
+			pageID = session[:page_ids]
+			pages  = Page.where(:id => pageID)
+			if pages.empty?
 				redirect_to query_bookings_path
+			else
+				#@page_names = pages.map { |page| page.name } this is the same as (see next line)
+				#@page_names = pages.map &:name
+				@page_names = pages.map &:name
+				@page_ids   = session[:page_ids]
+				@booking_date = DateTime.strptime(session[:booking_permit], "%m/%d/%Y")
+				session[:page_ids] = nil
+				session[:booking_permit] = nil
 			end
 		else
 			redirect_to query_bookings_path, alert: 'NOPE!'

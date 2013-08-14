@@ -9,8 +9,11 @@
 
     <div class="adm-input">
       <span class="label">Page</span>
-      <span class="data-field"><%= @page_name %></span>
-      <%= f.hidden_field(:page_id, :value => params[:page_id]) %>
+      <span class="data-field"><%= @page_names.join(', ') %></span>
+      <% @page_ids.each do |page_id| %>
+        <%= hidden_field_tag 'booking[page_ids][]', page_id %>
+      <% end %>
+      <%#= f.hidden_field(:page_id, :value => params[:page_id]) %>
     </div>
     
     <div class="adm-input">

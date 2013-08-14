@@ -11,7 +11,8 @@ class Booking < ActiveRecord::Base
 
  	private
 
- 	def self.search_date(value,page_id=nil) 
+  # Checks a day for a page
+ 	def self.search_date(value, page_ids=nil) 
     value = DateTime.strptime(value, "%m/%d/%Y")
 
     beginning_of_day = value
@@ -19,7 +20,7 @@ class Booking < ActiveRecord::Base
     
     result = Booking.includes(:pages)
     	.where(:date => beginning_of_day..end_of_day)
-    	.where("pages.id" => page_id)
+    	.where("pages.id" => page_ids)
  		if result.empty? 
  			return nil
  		else
@@ -27,7 +28,7 @@ class Booking < ActiveRecord::Base
  		end
  	end
 
-
+  # Returns all pages on a day
   def self.search_day(value) 
     value = DateTime.strptime(value, "%m/%d/%Y")
 

@@ -14,8 +14,8 @@ $(document).ready(function(){
     $('#date-picker').datepicker(); 
   }
 
-  if($('#query_page_id').length){
-    $('#query_page_id').chosen();
+  if($('#query_page_ids').length){
+    $('#query_page_ids').chosen();
   }
 
   if($('#booking_client_id').length){
