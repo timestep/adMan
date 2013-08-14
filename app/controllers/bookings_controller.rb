@@ -52,6 +52,7 @@ class BookingsController < ApplicationController
 	 		@booking.pages << Page.find(page_ids)
 
 			if @booking.save
+				# actionmailer - sends email when booking is saved 		
 				NewBooking.new_booking(@user,@booking).deliver
 				redirect_to @booking
 			else
