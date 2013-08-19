@@ -7,7 +7,7 @@ FactoryGirl.define do
     association :client, :factory => :client
 
     pages {
-    	[ FactoryGirl.create(:page) ]
+      [ FactoryGirl.create(:page) ]
     }
   end
 end

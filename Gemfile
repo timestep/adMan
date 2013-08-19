@@ -38,22 +38,22 @@ gem "watu_table_builder", :require => "table_builder"
 gem 'faker'
 
 group :production do
-	gem 'rails_12factor'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
-	
-	gem 'rspec-rails'
-	gem 'capybara'
-	gem 'capybara-webkit'
-	gem 'factory_girl_rails'
-	gem 'pry-rails'
-	gem 'pry'
-	gem 'pry-remote'
-	gem 'pry-stack_explorer'
-	gem 'pry-debugger'
-	# gem "spork-rails"
-	gem 'railroady'
+
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
+  # gem "spork-rails"
+  gem 'railroady'
   gem 'launchy'
 end
 
