@@ -20,8 +20,8 @@ User.create(email: 'test', password: 'test')
 end
 
 clients = Client.create([
-	{name: "McLame"},
-	{name: "Hawt Dawgs"},
+  {name: "McLame"},
+  {name: "Hawt Dawgs"},
   {name: "Chakko"},
   {name: "Stylo Pylo"},
   {name: "Blackboard Learns"},
@@ -45,7 +45,7 @@ clients = Client.create([
 pages = []
 
 50.times do |i|
-  pages << Page.create(slug: Faker::Internet.domain_name, 
+  pages << Page.create(slug: Faker::Internet.domain_name,
     name: Faker::Internet.domain_word)
 end
 

@@ -1,25 +1,25 @@
 <% provide(:body_class, "login") %>
 <div class="cover"></div>
 <div class="adm-midfloat-box">
-	<%= render "shared/alertnotice" %>
+  <%= render "shared/alertnotice" %>
 <% if current_user %>
 
-	<div class="adm-alert">
-	  <p id='notice'> Why are you trying to login again? :\ </p>   
-	</div>
+  <div class="adm-alert">
+    <p id='notice'> Why are you trying to login again? :\ </p>
+  </div>
 
 <% else %>
 
-	<%= form_tag sessions_path do %>
-	  <div class="adm-input">
-	    <span class="label"><%= label_tag :email %></span>
-	    <%= text_field_tag :email, params[:email],  :placeholder => "Your Email" %>
-	  </div>
-	  <div class="adm-input">
-	    <span class="label"><%= label_tag :password %></span>
-	    <%= password_field_tag :password %>
-	  </div>
-	  <div class="actions"><%= submit_tag "Log In", class: "adm-button" %></div>
-	<% end %>
+  <%= form_tag sessions_path do %>
+    <div class="adm-input">
+      <span class="label"><%= label_tag :email %></span>
+      <%= text_field_tag :email, params[:email],  :placeholder => "Your Email" %>
+    </div>
+    <div class="adm-input">
+      <span class="label"><%= label_tag :password %></span>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Log In", class: "adm-button" %></div>
+  <% end %>
 
 <% end %>

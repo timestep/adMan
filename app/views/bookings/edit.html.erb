@@ -2,29 +2,29 @@
   <%= render "shared/alertnotice" %>
   <%= form_for @booking do |f| %>
     <div class="adm-input">
-    	<span class="label">Date</span> 
+      <span class="label">Date</span>
       <span class="data-field">
-      	<%= @booking.date.strftime("%e %B %Y") %>
+        <%= @booking.date.strftime("%e %B %Y") %>
       </span>
-      <%= f.hidden_field(:date, 
-      	:value => params[:date])%>
+      <%= f.hidden_field(:date,
+        :value => params[:date])%>
     </div>
 
     <div class="adm-input">
       <span class="label">Page</span>
       <span class="data-field">
-      	<%= @page_name %>
+        <%= @page_name %>
       </span>
-      <%= f.hidden_field(:page_id, 
-      	:value => params[:page_id]) %>
+      <%= f.hidden_field(:page_id,
+        :value => params[:page_id]) %>
     </div>
-    
+
     <div class="adm-input">
       <span class="label">
         <%= f.label :client, "Client" %>
       </span>
-      <%= select("booking","client_id", 
-      	Client.all.collect {|c| [ c.name, c.id ]}, {:prompt => 'Select A Client'}) %>
+      <%= select("booking","client_id",
+        Client.all.collect {|c| [ c.name, c.id ]}, {:prompt => 'Select A Client'}) %>
     </div>
 
     <div class="adm-input">
@@ -36,8 +36,8 @@
 
     <div class="adm-input">
       <span class="label">
-        <%= f.label :contract_num, 
-        	"Contract Number" %>
+        <%= f.label :contract_num,
+          "Contract Number" %>
       </span>
         <%= f.text_field :contract_num %>
     </div>
