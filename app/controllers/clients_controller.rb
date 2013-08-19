@@ -18,24 +18,14 @@ class ClientsController < ApplicationController
 
   def create
     # binding.pry
-  @client = Client.new(client_params)
-
-<<<<<<< HEAD
-		if @client.save
-  		redirect_to clients_path
-  	else
-  		render :new, :alert => "Nope"
-  	end
-	end
-=======
+    @client = Client.new(client_params)
     if @client.save
       redirect_to clients_path, :notice => "Created new client~!"
     else
       render :new, :alert => "Nope"
     end
   end
->>>>>>> davefp-indentation_fix
-
+  
   def edit
     @client = Client.find(params[:id])
   end
