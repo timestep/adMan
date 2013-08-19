@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= render "shared/alertnotice" %>
 <div class="booking-show-page">
   <div class="booking-list-item-container">
@@ -12,6 +13,25 @@
             <%= @booking.date.strftime("%b %e %Y") %>
           </div>
         </li>
+=======
+  <%= render "shared/alertnotice" %>
+ID of Booking: <%= @booking.id %>
+<br>
+Date: <%= @booking.date %>
+<br>
+Client Name: <%= @booking.client.name %>
+<br>
+Product: <%= @booking.product %>
+<br>
+Contract Number: <%= @booking.contract_num %>
+<br>
+Info: <%= @booking.info %>
+<br>
+Pages Booked:
+<% @booking.pages.load.each do |p| %>
+  <span class="quick-tag"><%= p.name %></span>
+<% end %>
+>>>>>>> davefp-indentation_fix
 
         
         <li class="bklstitm-client">

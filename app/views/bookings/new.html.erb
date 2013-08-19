@@ -2,7 +2,7 @@
   <%= render "shared/alertnotice" %>
   <%= form_for @booking do |f| %>
     <div class="adm-input">
-    	<span class="label">Date</span> 
+      <span class="label">Date</span>
       <span class="data-field"><%= @booking_date.strftime("%e %B %Y") %></span>
       <%= f.hidden_field(:date, :value => params[:date]) %>
     </div>
@@ -15,7 +15,7 @@
       <% end %>
       <%#= f.hidden_field(:page_id, :value => params[:page_id]) %>
     </div>
-    
+
     <div class="adm-input">
       <span class="label">
         <%= f.label :client, "Client" %>

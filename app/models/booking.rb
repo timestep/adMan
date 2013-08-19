@@ -3,22 +3,27 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :client
 
- 	has_and_belongs_to_many :pages
+   has_and_belongs_to_many :pages
 
- 	validates_presence_of :user, :on=>:create
- 	validates_presence_of :client, :on=>:create
- 	validates_presence_of :date, :on=>:create
+   validates_presence_of :user, :on=>:create
+   validates_presence_of :client, :on=>:create
+   validates_presence_of :date, :on=>:create
 
- 	private
+   private
 
+<<<<<<< HEAD
   # Checks a day for a page
  	def self.search_date(value, page_ids=nil) 
+=======
+   def self.search_date(value,page_id=nil)
+>>>>>>> davefp-indentation_fix
     value = DateTime.strptime(value, "%m/%d/%Y")
 
     beginning_of_day = value
     end_of_day = beginning_of_day + 1.day
-    
+
     result = Booking.includes(:pages)
+<<<<<<< HEAD
     	.where(:date => beginning_of_day..end_of_day)
     	.where("pages.id" => page_ids)
  		if result.empty? 
@@ -30,19 +35,32 @@ class Booking < ActiveRecord::Base
 
   # Returns all pages on a day
   def self.search_day(value) 
+=======
+      .where(:date => beginning_of_day..end_of_day)
+      .where("pages.id" => page_id)
+     if result.empty?
+       return nil
+     else
+       return result
+     end
+   end
+
+
+  def self.search_day(value)
+>>>>>>> davefp-indentation_fix
     value = DateTime.strptime(value, "%m/%d/%Y")
 
     beginning_of_day = value
     end_of_day = beginning_of_day + 1.day
-    
+
     result = Booking.includes(:pages)
       .where(:date => beginning_of_day..end_of_day)
-    if result.empty? 
+    if result.empty?
       return nil
     else
       return result
     end
-  end  
+  end
 
   def self.return_month_name(value)
     month_name = DateTime.strptime(value, "%m-%d-%Y")
