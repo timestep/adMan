@@ -3,14 +3,13 @@ development:
   database: adman_development
   host: localhost
   # user: blisaur
-  user: postgres
-  password: pg
+  user: kevin
+  password: 
 
 test:
   adapter: postgresql
   database: adman_test
   host: localhost
   # user: blisaur
-  user: postgres
-  password: pg
-
+  user: kevin
+  password: 
